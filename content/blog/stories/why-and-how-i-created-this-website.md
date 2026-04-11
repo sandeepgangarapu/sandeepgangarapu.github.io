@@ -1,7 +1,7 @@
 ---
 title: "Why and how I created this website"
 date: 2021-01-02T04:47:00-06:00
-draft: false
+draft: true
 tags: ["General"]
 categories: ["Stories"]
 ---

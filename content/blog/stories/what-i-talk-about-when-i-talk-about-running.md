@@ -1,7 +1,7 @@
 ---
 title: "What I talk about when I talk about running"
 date: 2021-10-06T12:19:00-06:00
-draft: false
+draft: true
 categories: ["Stories"]
 ---
 

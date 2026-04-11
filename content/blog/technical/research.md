@@ -1,7 +1,7 @@
 ---
 title: "Research"
 date: 2020-08-18T00:00:00-06:00
-draft: false
+draft: true
 categories: ["Technical"]
 ---
 

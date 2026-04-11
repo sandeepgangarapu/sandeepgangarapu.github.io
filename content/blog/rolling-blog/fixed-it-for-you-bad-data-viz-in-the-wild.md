@@ -1,7 +1,7 @@
 ---
 title: "Fixed it for you: Bad Data Viz in the wild"
 date: 2021-11-04T12:55:00-06:00
-draft: false
+draft: true
 categories: ["Rolling Blog"]
 ---
 

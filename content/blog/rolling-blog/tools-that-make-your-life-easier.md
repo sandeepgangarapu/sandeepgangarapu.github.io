@@ -1,7 +1,7 @@
 ---
 title: "Tools that make your life easier"
 date: 2021-12-07T10:14:00-06:00
-draft: false
+draft: true
 categories: ["Rolling Blog"]
 ---
 

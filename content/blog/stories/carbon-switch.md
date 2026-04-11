@@ -1,7 +1,7 @@
 ---
 title: "Carbon Switch"
 date: 2022-02-18T11:47:00-06:00
-draft: false
+draft: true
 categories: ["Stories"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "One day builds - skills to learn in a day"
 date: 2021-11-29T20:11:00-06:00
-draft: false
+draft: true
 categories: ["Rolling Blog"]
 ---
 

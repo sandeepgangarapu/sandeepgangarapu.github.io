@@ -1,7 +1,7 @@
 ---
 title: "People I think are cool"
 date: 2020-12-23T06:48:00-06:00
-draft: false
+draft: true
 categories: ["Rolling Blog"]
 ---
 

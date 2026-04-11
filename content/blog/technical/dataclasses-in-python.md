@@ -1,7 +1,7 @@
 ---
 title: "dataclasses in python"
 date: 2023-04-19T10:14:00-06:00
-draft: false
+draft: true
 categories: ["Technical"]
 ---
 

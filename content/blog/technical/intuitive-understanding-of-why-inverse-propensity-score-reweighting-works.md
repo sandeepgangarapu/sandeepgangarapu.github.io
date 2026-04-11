@@ -1,7 +1,7 @@
 ---
 title: "Intuitive understanding of why Inverse propensity score reweighting works"
 date: 2021-12-06T13:21:00-06:00
-draft: false
+draft: true
 tags: ["Statistics"]
 categories: ["Technical"]
 ---

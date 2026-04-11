@@ -1,7 +1,7 @@
 ---
 title: "Statistics unrolling in real life"
 date: 2021-11-13T10:39:00-06:00
-draft: false
+draft: true
 categories: ["Rolling Blog"]
 ---
 

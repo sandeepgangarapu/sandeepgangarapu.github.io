@@ -1,7 +1,7 @@
 ---
 title: "Ideas to live by"
 date: 2021-09-25T14:50:00-06:00
-draft: false
+draft: true
 categories: ["Rolling Blog"]
 ---
 

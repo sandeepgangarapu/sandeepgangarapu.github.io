@@ -1,7 +1,7 @@
 ---
 title: "Stuff I think is cool"
 date: 2020-11-22T02:03:00-06:00
-draft: false
+draft: true
 categories: ["Rolling Blog"]
 ---
 

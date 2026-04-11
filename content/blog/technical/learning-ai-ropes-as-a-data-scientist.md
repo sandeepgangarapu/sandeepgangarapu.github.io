@@ -1,7 +1,7 @@
 ---
 title: "Learning AI ropes as a data scientist"
 date: 2024-07-18T11:33:00-06:00
-draft: false
+draft: true
 categories: ["Technical"]
 ---
 

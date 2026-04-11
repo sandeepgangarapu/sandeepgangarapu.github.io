@@ -1,7 +1,7 @@
 ---
 title: "Journey to FAANG - Interview tips and strategies"
 date: 2021-12-18T15:12:00-06:00
-draft: false
+draft: true
 categories: ["Stories"]
 series: ["Journey to FAANG - Interview tips and strategies"]
 ---

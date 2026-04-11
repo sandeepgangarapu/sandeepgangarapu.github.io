@@ -1,7 +1,7 @@
 ---
 title: "Karma Yoga - Bhagavad Gita"
 date: 2022-03-30T08:37:00-06:00
-draft: false
+draft: true
 categories: ["Stories"]
 ---
 
