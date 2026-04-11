@@ -1,0 +1,19 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Notion export (kept for reference, not committed)
+notion_export/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Python
+scripts/__pycache__/
+*.pyc

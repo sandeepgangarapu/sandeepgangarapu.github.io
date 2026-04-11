@@ -1,0 +1,295 @@
+/* ============================================
+   WARM COLOR PALETTE — Light Mode
+   ============================================ */
+:root {
+    --theme: #faf8f5;
+    --entry: #ffffff;
+    --primary: #1c1410;
+    --secondary: #6b5c50;
+    --tertiary: #e8e0d8;
+    --content: #2a2118;
+    --code-block-bg: #1c1410;
+    --code-bg: #f0ebe4;
+    --border: #e0d6ca;
+
+    --accent: #b45309;
+    --accent-light: #d97706;
+    --accent-subtle: #fef3c7;
+}
+
+/* ============================================
+   WARM COLOR PALETTE — Dark Mode
+   ============================================ */
+:root[data-theme="dark"] {
+    --theme: #1a1512;
+    --entry: #2a221c;
+    --primary: #ede8e2;
+    --secondary: #a89888;
+    --tertiary: #3d332a;
+    --content: #d5cec5;
+    --code-block-bg: #2a221c;
+    --code-bg: #332a22;
+    --border: #3d332a;
+
+    --accent: #d97706;
+    --accent-light: #f59e0b;
+    --accent-subtle: #451a03;
+}
+
+[data-theme="dark"] .list {
+    background: var(--theme);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+h1, h2, h3, h4,
+.profile .profile_inner h1,
+.first-entry .entry-header h1,
+.logo a {
+    font-family: 'DM Serif Display', Georgia, serif;
+    letter-spacing: -0.01em;
+}
+
+.post-content {
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+/* ============================================
+   ACCENT COLOR TOUCHES
+   ============================================ */
+.post-content a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+.post-content a:hover {
+    color: var(--accent-light);
+}
+
+#menu .active {
+    border-bottom: 2px solid var(--accent);
+}
+
+#menu a:hover {
+    color: var(--accent);
+}
+
+.social-icons a:hover svg {
+    color: var(--accent);
+}
+
+.breadcrumbs a:hover {
+    color: var(--accent);
+}
+
+.footer a:hover {
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ============================================
+   HOMEPAGE / PROFILE MODE
+   ============================================ */
+.profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow: 0 8px 32px rgba(180, 83, 9, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(180, 83, 9, 0.25);
+}
+
+.profile .profile_inner h1 {
+    font-size: 2.8rem;
+    margin-top: 1rem;
+    color: var(--primary);
+}
+
+.profile .profile_inner > span {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--secondary);
+    max-width: 520px;
+}
+
+.profile .profile_inner {
+    gap: 16px;
+}
+
+.profile .buttons .button {
+    background: var(--accent);
+    color: #ffffff;
+    border-radius: 9999px;
+    padding: 10px 24px;
+    min-width: 120px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    transition: background 0.2s ease, transform 0.1s ease;
+    border: none;
+}
+
+.profile .buttons .button:hover {
+    background: var(--accent-light);
+}
+
+.profile .buttons .button:active {
+    transform: scale(0.96);
+}
+
+.profile .buttons .button .button-inner {
+    color: #ffffff;
+}
+
+.profile .social-icons a {
+    padding: 10px;
+}
+
+.profile .social-icons svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* ============================================
+   HEADER / NAVIGATION
+   ============================================ */
+.logo a {
+    font-size: 26px;
+    color: var(--primary);
+}
+
+.header {
+    border-bottom: 1px solid var(--border);
+}
+
+#menu a {
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+/* ============================================
+   POST CARDS / ENTRIES
+   ============================================ */
+.post-entry {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.post-entry:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(180, 83, 9, 0.08);
+}
+
+.post-entry .entry-header h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+}
+
+.first-entry .entry-header h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+}
+
+/* ============================================
+   SINGLE POST PAGE
+   ============================================ */
+.post-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 2.4rem;
+    line-height: 1.2;
+}
+
+.post-header {
+    border-top: 3px solid var(--accent);
+    padding-top: 1.5rem;
+}
+
+.post-content blockquote {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-subtle);
+    padding: 1rem 1.5rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.post-tags a {
+    background: var(--accent-subtle);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.post-tags a:hover {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+/* ============================================
+   POST CONTENT IMAGES
+   ============================================ */
+.post-content img {
+    max-width: min(100%, 350px);
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: var(--radius);
+}
+
+/* ============================================
+   MISC POLISH
+   ============================================ */
+.top-link {
+    background: var(--accent);
+    color: #ffffff;
+    border-radius: 50%;
+}
+
+.top-link:hover {
+    background: var(--accent-light);
+    color: #ffffff;
+}
+
+::selection {
+    background: rgba(217, 119, 6, 0.2);
+    color: var(--primary);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 768px) {
+    .profile img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .profile .profile_inner h1 {
+        font-size: 2rem;
+    }
+
+    .profile .profile_inner > span {
+        font-size: 1rem;
+    }
+
+    .post-title {
+        font-size: 1.8rem;
+    }
+}

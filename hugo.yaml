@@ -1,0 +1,129 @@
+baseURL: "https://sandeepgangarapu.github.io/"
+languageCode: en-us
+title: "Sandeep Gangarapu"
+theme: PaperMod
+paginate: 10
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: "Sandeep Gangarapu"
+  description: "Data Scientist at Apple | Statistics, ML, Causal Inference"
+  keywords: [data science, statistics, causal inference, machine learning, experimentation]
+  author: ""
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShareButtons:
+    - linkedin
+    - x
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  images: ["/images/profile/vivekkrishnanphotography-6_websize.jpg"]
+
+  profileMode:
+    enabled: true
+    title: "Sandeep Gangarapu"
+    subtitle: >
+      Data Scientist at Apple working on Siri. Statistics, ML, and causal inference
+      to ship practical, user-impacting models.
+    imageUrl: "/images/profile/vivekkrishnanphotography-6_websize.jpg"
+    imageTitle: "Sandeep Gangarapu"
+    imageWidth: 200
+    imageHeight: 200
+    buttons:
+      - name: "Blog"
+        url: "/blog/"
+      - name: "About"
+        url: "/about/"
+      - name: "Projects"
+        url: "/projects/"
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/sandeepgangarapu/"
+    - name: x
+      url: "https://x.com/sandeep_g_kumar"
+    - name: github
+      url: "https://github.com/sandeepgangarapu"
+    - name: email
+      url: "mailto:sandeep.k.gangarapu@gmail.com"
+
+  cover:
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: false
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+menu:
+  main:
+    - identifier: blog
+      name: Blog
+      url: /blog/
+      weight: 10
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 20
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 30
+    - identifier: recipes
+      name: Recipes
+      url: /recipes/
+      weight: 50
+    - identifier: activity
+      name: Activity
+      url: /activity-stream/
+      weight: 60
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 80
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
