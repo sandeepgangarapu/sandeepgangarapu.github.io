@@ -56,15 +56,15 @@ Follow me on [Strava](https://www.strava.com/athletes/19722945)
 
 First run:
 
-![](/images/blog/stories/things-i-wished-i-knew-before-i-attempted-a-solo-sub-2hr-half-marathon/screenshot_20201001-140527.png)
+{{< figure src="/images/blog/stories/things-i-wished-i-knew-before-i-attempted-a-solo-sub-2hr-half-marathon/screenshot_20201001-140527.png" alt="First half marathon attempt stats" align="center" >}}
 
-![](/images/blog/stories/things-i-wished-i-knew-before-i-attempted-a-solo-sub-2hr-half-marathon/screenshot_20201001-140536.png)
+{{< figure src="/images/blog/stories/things-i-wished-i-knew-before-i-attempted-a-solo-sub-2hr-half-marathon/screenshot_20201001-140536.png" alt="First half marathon attempt pace" align="center" >}}
 
 Second Run (A week later):
 
-![](/images/blog/stories/things-i-wished-i-knew-before-i-attempted-a-solo-sub-2hr-half-marathon/screenshot_20201001-140544.png)
+{{< figure src="/images/blog/stories/things-i-wished-i-knew-before-i-attempted-a-solo-sub-2hr-half-marathon/screenshot_20201001-140544.png" alt="Second half marathon attempt stats" align="center" >}}
 
-![](/images/blog/stories/things-i-wished-i-knew-before-i-attempted-a-solo-sub-2hr-half-marathon/screenshot_20201001-140552.png)
+{{< figure src="/images/blog/stories/things-i-wished-i-knew-before-i-attempted-a-solo-sub-2hr-half-marathon/screenshot_20201001-140552.png" alt="Second half marathon attempt pace" align="center" >}}
 
 **Best way to reach me is via Twitter or LinkedIn DM’s**
 

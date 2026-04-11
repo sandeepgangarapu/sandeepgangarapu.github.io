@@ -14,7 +14,7 @@ For example, Red cars may have all young drivers, so we pick young drivers but t
 
 As you can see, creating a control group to establish the causal effect looks so hard. This is where randomization comes in.
 
-![coin.png](/images/blog/technical/essay-3-randomization-the-holy-grail-of-causal-inference/coin.png)
+{{< figure src="/images/blog/technical/essay-3-randomization-the-holy-grail-of-causal-inference/coin.png" alt="Coin toss illustration" align="center" >}}
 
 Let’s take a bunch of drivers and randomly assign them to a red car or other color cars using a coin toss. Given them their assigned cars for x days. Then, compare the number of accidents and establish the causal effect.
 

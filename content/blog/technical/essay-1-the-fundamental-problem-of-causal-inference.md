@@ -8,9 +8,9 @@ series: ["Essays on Causal Inference"]
 
 You probably know the COVID-19 pandemic and the race between all the pharma companies to create a vaccine. There was a lot of talk about different phases of clinical trials and the effectiveness of various vaccines. In clinical trials, companies are trying to estimate the causal effect of giving a drug on patient’s health.
 
-![coronavirus.png](/images/blog/technical/essay-1-the-fundamental-problem-of-causal-inference/coronavirus.png)
+{{< figure src="/images/blog/technical/essay-1-the-fundamental-problem-of-causal-inference/coronavirus.png" alt="Coronavirus illustration" align="center" >}}
 
-![flask.png](/images/blog/technical/essay-1-the-fundamental-problem-of-causal-inference/flask.png)
+{{< figure src="/images/blog/technical/essay-1-the-fundamental-problem-of-causal-inference/flask.png" alt="Flask illustration" align="center" >}}
 
 Causal effect is the difference between what happened if the treatment was given and what would have happened if the treatment was not given
 
@@ -28,6 +28,6 @@ Let’s look at an example. Netflix wants to advertise its marquee show Squid Ga
 
 The only way to estimate the effect of placing billboards is if we had another universe where billboards were not present and Squid Games was released anyway. Unfortunately, we only have one universe, and we can only observe one side of the effect. This is the fundamental problem of causal inference.
 
-![Squid-Game-Illustration.png.webp](/images/blog/technical/essay-1-the-fundamental-problem-of-causal-inference/squid-game-illustration.png.webp)
+{{< figure src="/images/blog/technical/essay-1-the-fundamental-problem-of-causal-inference/squid-game-illustration.png.webp" alt="Squid Game illustration" align="center" >}}
 
 The entire field of causal inference is about trying to estimate what would have happened if treatment was not present and then calculate the treatment effect to understand the effectiveness of the intervention. Randomized control trials (AB Testing) does this by randomly allocating people to treatment and control. Regression does this by including every other possibility of the effect in the regression equation and controlling for it. Differences in differences looks for a control group which was similar to treatment before the intervention but did not receive the treatment.

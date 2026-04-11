@@ -7,26 +7,26 @@ categories: ["Rolling Blog"]
 
 ## Survivorship bias
 
-![Untitled](/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled.png)
+{{< figure src="/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled.png" alt="Survivorship bias example" align="center" >}}
 
-![Untitled](/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-1.png)
+{{< figure src="/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-1.png" alt="Survivorship bias example" align="center" >}}
 
 [https://twitter.com/MDaware/status/1459216195866046464?s=20](https://twitter.com/MDaware/status/1459216195866046464?s=20)
 
 ### Correlation does not equal Causation
 
-![Untitled](/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-2.png)
+{{< figure src="/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-2.png" alt="Correlation does not equal causation example" align="center" >}}
 
 ## Selection Bias
 
-![Untitled](/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-3.png)
+{{< figure src="/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-3.png" alt="Selection bias example" align="center" >}}
 
 [https://twitter.com/KhoaVuUmn/status/1468123161073836033?s=20](https://twitter.com/KhoaVuUmn/status/1468123161073836033?s=20)
 
-![Untitled](/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-4.png)
+{{< figure src="/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-4.png" alt="Selection bias example" align="center" >}}
 
 ## Reverse Causality
 
-![Untitled](/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-5.png)
+{{< figure src="/images/blog/rolling-blog/statistics-unrolling-in-real-life/untitled-5.png" alt="Reverse causality example" align="center" >}}
 
 [https://twitter.com/BHideas/status/971149434947014667?s=20&t=mcsrxLGMidErRfjb1WUTxg](https://twitter.com/BHideas/status/971149434947014667?s=20&t=mcsrxLGMidErRfjb1WUTxg)

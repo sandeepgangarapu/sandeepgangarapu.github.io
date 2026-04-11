@@ -40,6 +40,6 @@ One last thing that had a profound impact on me
 
 So please please take care of your health. Eat healthy no matter the cost and keep a smile on that small face of yours.
 
-![](/images/blog/stories/dear-little-brother/image-4.jpg)
+{{< figure src="/images/blog/stories/dear-little-brother/image-4.jpg" alt="Brothers together" align="center" >}}
 
-![](/images/blog/stories/dear-little-brother/img_20191228_211436_1.jpg)
+{{< figure src="/images/blog/stories/dear-little-brother/img_20191228_211436_1.jpg" alt="Brothers together" align="center" >}}

@@ -9,9 +9,9 @@ categories: ["Rolling Blog"]
 
 [https://twitter.com/POLITICO_Steve/status/1456306441824964609?s=20](https://twitter.com/POLITICO_Steve/status/1456306441824964609?s=20)
 
-![Untitled](/images/blog/rolling-blog/fixed-it-for-you-bad-data-viz-in-the-wild/untitled.png)
+{{< figure src="/images/blog/rolling-blog/fixed-it-for-you-bad-data-viz-in-the-wild/untitled.png" alt="Bad Sankey plot example" align="center" >}}
 
-![Untitled](/images/blog/rolling-blog/fixed-it-for-you-bad-data-viz-in-the-wild/untitled-1.png)
+{{< figure src="/images/blog/rolling-blog/fixed-it-for-you-bad-data-viz-in-the-wild/untitled-1.png" alt="Fixed Sankey plot" align="center" >}}
 
 > 💡 Credits: [https://www.linkedin.com/in/clementjd/](https://www.linkedin.com/in/clementjd/)
 > Link: [https://www.linkedin.com/pulse/15-second-rule-data-visualization-jeff-clement/](https://www.linkedin.com/pulse/15-second-rule-data-visualization-jeff-clement/)

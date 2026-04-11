@@ -273,6 +273,43 @@ html {
 }
 
 /* ============================================
+   RECENT POSTS (Homepage)
+   ============================================ */
+.recent-posts {
+    max-width: var(--main-width);
+    margin: 3rem auto 0;
+    padding: 0 var(--gap);
+}
+
+.recent-posts > h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.6rem;
+    color: var(--primary);
+    border-top: 3px solid var(--accent);
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+}
+
+.recent-posts .post-entry {
+    margin-bottom: 0;
+}
+
+.recent-posts-more {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.recent-posts-more:hover {
+    color: var(--accent-light);
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 @media screen and (max-width: 768px) {
@@ -291,5 +328,37 @@ html {
 
     .post-title {
         font-size: 1.8rem;
+    }
+
+    .recent-posts {
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #menu a {
+        font-size: 14px;
+    }
+
+    #menu li + li {
+        margin-inline-start: 10px;
+    }
+
+    #menu {
+        margin: auto 8px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #menu a {
+        font-size: 13px;
+    }
+
+    #menu li + li {
+        margin-inline-start: 6px;
+    }
+
+    .logo a {
+        font-size: 20px;
     }
 }

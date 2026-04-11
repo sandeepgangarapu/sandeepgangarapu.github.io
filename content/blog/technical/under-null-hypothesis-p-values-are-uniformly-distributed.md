@@ -36,16 +36,16 @@ for i in range(100000):
 plt.hist(np.array(samp_mean_lis))
 ```
 
-![output_2_1.png](/images/blog/technical/under-null-hypothesis-p-values-are-uniformly-distributed/output_2_1.png)
+{{< figure src="/images/blog/technical/under-null-hypothesis-p-values-are-uniformly-distributed/output_2_1.png" alt="Histogram of sample means" caption="Distribution of sample means" align="center" >}}
 
 ```python
 plt.hist(np.array(t_stat_lis))
 ```
 
-![output_2_1.png](/images/blog/technical/under-null-hypothesis-p-values-are-uniformly-distributed/output_2_1-1.png)
+{{< figure src="/images/blog/technical/under-null-hypothesis-p-values-are-uniformly-distributed/output_2_1-1.png" alt="Histogram of t-statistics" caption="Distribution of t-statistics" align="center" >}}
 
 ```python
 plt.hist(np.array(pval_lis))
 ```
 
-![output_3_1.png](/images/blog/technical/under-null-hypothesis-p-values-are-uniformly-distributed/output_3_1.png)
+{{< figure src="/images/blog/technical/under-null-hypothesis-p-values-are-uniformly-distributed/output_3_1.png" alt="Histogram of p-values under the null hypothesis" caption="Distribution of p-values under the null hypothesis — uniformly distributed" align="center" >}}

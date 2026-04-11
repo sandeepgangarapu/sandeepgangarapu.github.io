@@ -81,21 +81,15 @@ true_vars = c(2.84,  1.97, 2.62, 1, 2.06)
 
 As per the above distributions, arm 0 has the least mean and arm 3 has the highest mean. So a good MAB algorithm will pull arm 3 most of the time and pull arm 0 very rarely. A/B testing pulls all arms uniformly until it can detect the least effect size (I know we cannot know this beforehand and we need to do power analysis, etc., but let's cheat a little). After that, it will only pull the arm with a statistically significant highest mean. We simulate all three algorithms and pull arms based on what the algorithm suggests. 
 
-![Fig 1 : Arms pulled at different time periods for various algorithms](/images/blog/technical/thompson-sampling-algorithm-for-normal-outcome-distribution/grp.png)
-
-Fig 1 : Arms pulled at different time periods for various algorithms
+{{< figure src="/images/blog/technical/thompson-sampling-algorithm-for-normal-outcome-distribution/grp.png" alt="Arms pulled at different time periods for various algorithms" caption="Figure 1: Arms pulled at different time periods for various algorithms" align="center" >}}
 
 This figure shows which arm was pulled at different time periods for different algorithms. As you can see A/B Testing could never be completed as the arm pulls were exhausted before it can statistically distinguish the difference between all the arms. Thompson Sampling and UCB we accurately able to identify very quickly that arm 3 is the best and pull it the most. Both performed the best and we need a regret graph to accurately identify which algorithm performed the best.
 
-![Figure 2: Regret growth over time for Thompson Sampling and UCB](/images/blog/technical/thompson-sampling-algorithm-for-normal-outcome-distribution/reg_2.png)
-
-Figure 2: Regret growth over time for Thompson Sampling and UCB
+{{< figure src="/images/blog/technical/thompson-sampling-algorithm-for-normal-outcome-distribution/reg_2.png" alt="Regret growth over time for Thompson Sampling and UCB" caption="Figure 2: Regret growth over time for Thompson Sampling and UCB" align="center" >}}
 
 The regret graph shows that Thompson Sampling performed better than UCB as it was able to decide on the best arm faster than UCB. This is for one simulation and difference seeds might yield different values, but, the overall theme is the same. Also, in this case, the difference is not significant enough to decide one algorithm is better than the other (MAB theory suggests that regret is not just a function of the algorithm but also mean differences between all arms)
 
-![Figure 3: Regret growth over time for A/B Testing, Thompson Sampling and UCB](/images/blog/technical/thompson-sampling-algorithm-for-normal-outcome-distribution/reg_3.png)
-
-Figure 3: Regret growth over time for A/B Testing, Thompson Sampling and UCB
+{{< figure src="/images/blog/technical/thompson-sampling-algorithm-for-normal-outcome-distribution/reg_3.png" alt="Regret growth over time for A/B Testing, Thompson Sampling and UCB" caption="Figure 3: Regret growth over time for A/B Testing, Thompson Sampling and UCB" align="center" >}}
 
 However, compared to A/B testing the difference in regret compared to MAB's is night and day. This is purely because A/B testing has a completely different objective and would not stop random pulling of arms until it is sure that there is a statistically significant difference (I am simplifying things here, but the idea is accurate).
 

@@ -36,7 +36,7 @@ But I will cover things that were hard for me to internalize.
     
     [https://cardealershipguy.org/my-experiences](https://cardealershipguy.org/my-experiences)
     
-    ![Untitled](/images/blog/stories/offer-negotiations-and-timing/untitled.png)
+    {{< figure src="/images/blog/stories/offer-negotiations-and-timing/untitled.png" alt="Car dealer negotiation leverage example" align="center" >}}
     
 3. Treat job market as Dating market.
     

@@ -104,7 +104,7 @@ series: ["Journey to FAANG - Interview tips and strategies"]
             - LEAD will give the value of the row after
             - 
                 
-                ![Untitled](/images/blog/stories/mode-sql-notes/untitled.png)
+                {{< figure src="/images/blog/stories/mode-sql-notes/untitled.png" alt="LAG and LEAD window functions example" align="center" >}}
                 
             - LAG(colname, 2) will skip 2 rows instead of 1
         - WINDOW statement

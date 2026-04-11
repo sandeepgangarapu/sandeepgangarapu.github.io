@@ -42,7 +42,7 @@ A great resume will
 1. I cannot overstate how important this is. I was told repeatedly by recruiters how my cover letter made their job easier.
 2. A good cover letter clearly shows how you fulfill all the job requirements like the example below. [Source](https://www.youtube.com/watch?v=Aarh4xjDD2g)
     
-    ![Untitled](/images/blog/stories/resume-and-cover-letter-prep/untitled.png)
+    {{< figure src="/images/blog/stories/resume-and-cover-letter-prep/untitled.png" alt="T cover letter format example" align="center" >}}
     
 
 **Other references and notes**
@@ -91,7 +91,7 @@ This is a great video that talks about all things resume. It helped me a lot.
         2. explain the interest in the job
         3. T cover letter
             
-            ![Untitled](/images/blog/stories/resume-and-cover-letter-prep/untitled.png)
+            {{< figure src="/images/blog/stories/resume-and-cover-letter-prep/untitled.png" alt="T cover letter format example" align="center" >}}
             
     14. Don't mislead or lie
 
