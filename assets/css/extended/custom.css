@@ -291,9 +291,6 @@ html {
     letter-spacing: -0.01em;
 }
 
-.recent-posts .post-entry {
-    margin-bottom: 0;
-}
 
 .recent-posts-more {
     display: inline-block;
