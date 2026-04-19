@@ -46,7 +46,7 @@ params:
     title: "Sandeep Gangarapu"
     subtitle: >
       Data Scientist at Apple working on Siri. Statistics, ML, and causal inference
-      to ship practical, user-impacting models.
+      to ship practical, user impacting products.
     imageUrl: "/images/profile/vivekkrishnanphotography-6_websize.jpg"
     imageTitle: "Sandeep Gangarapu"
     imageWidth: 200
@@ -127,6 +127,5 @@ menu:
       weight: 80
 
 taxonomies:
-  category: categories
   tag: tags
   series: series

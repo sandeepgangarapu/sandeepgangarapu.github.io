@@ -1,4 +1,4 @@
 ---
 title: "Blog"
-description: "Stories, technical writing, and a rolling blog of ideas."
+description: "Stories, technical writing, and collections of ideas."
 ---
