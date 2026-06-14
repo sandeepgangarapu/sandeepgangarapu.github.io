@@ -138,6 +138,7 @@ table.cal{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}
 .guide h3{margin:.1em 0 .4em;font-size:16px;color:var(--green-d)}
 .guide p{font-size:13px;margin:0;color:#444}
 .guide ul{margin:6px 0 0 18px;padding:0;font-size:13px}
+.osub{font-family:ui-serif,Georgia,serif;font-size:18px;color:var(--green-d);margin:24px 0 10px}
 .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
 @media(max-width:560px){
   .bar{padding:7px 0}
@@ -171,7 +172,7 @@ table.cal{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}
   <p>Zone 8b&ndash;9a &middot; Pacific Northwest &middot; Front full-sun + 3 backyard partial-shade beds &middot; drip irrigation</p>
   <p class="serif" style="font-style:italic;color:var(--sage)">A year-round plan from your Territorial &amp; Seeds of India collection</p>
   <nav class="nav">
-    <a data-go="beds" tabindex="0" role="button">Bed Map</a><a data-go="plants" tabindex="0" role="button">Plants</a><a data-go="calendar" tabindex="0" role="button">Calendar</a><a data-go="chores" tabindex="0" role="button">Monthly Chores</a><a data-go="guides" tabindex="0" role="button">Care Guides</a>
+    <a data-go="beds" tabindex="0" role="button">Bed Map</a><a data-go="plants" tabindex="0" role="button">Plants</a><a data-go="calendar" tabindex="0" role="button">Calendar</a><a data-go="chores" tabindex="0" role="button">Monthly Chores</a><a data-go="guides" tabindex="0" role="button">Care Guides</a><a data-go="ornamentals" tabindex="0" role="button">Ornamentals</a>
   </nav>
 </div>
 
@@ -214,6 +215,19 @@ table.cal{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}
     <div class="guides" id="guidewrap"></div>
   </section>
 
+  <section id="ornamentals"><h2 class="sec">Ornamentals &amp; Shrubs</h2>
+    <div class="sub">Your shrubs, perennials &amp; bulbs &mdash; kept separate from the veggie beds and grouped by what each plant needs. Tap any card for full care.</div>
+    <h3 class="osub">Best Grouping &mdash; 4 Zones</h3>
+    <div class="beds" id="ornzonemap"></div>
+    <h3 class="osub">Plants</h3>
+    <div class="gallery" id="orngallery"></div>
+    <h3 class="osub">Bloom &amp; Care Calendar</h3>
+    <div class="legend" id="ornlegend"></div>
+    <div class="calwrap"><table class="cal" id="orncaltable"></table></div>
+    <h3 class="osub">Seasonal Care Tasks</h3>
+    <div class="guides" id="orntasks"></div>
+  </section>
+
   <div class="foot">&#127793; Built for the Gangarapu garden, Sammamish &middot; 2026 &middot; offline-ready, mobile-friendly</div>
 </div>
 
@@ -222,6 +236,40 @@ const DATA = {"plants":[{"crop":"Bottlegourd (lauki/doodhi)","varieties":"Doodhi
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const CODE={indoor:["#8b5cf6","Indoor start"],sow:["#4a9d4a","Direct sow"],transplant:["#3b82f6","Transplant"],grow:["#bcdcab","Growing"],harvest:["#d97534","Harvest"]};
 const P=DATA.plants;
+// ---- ornamentals data ----
+const OCODE={bloom:["#d56aa0","In bloom / fruit"],prune:["#9c6b3f","Prune"],plant:["#4a9d4a","Plant bulb"],feed:["#3b82f6","Feed"]};
+const ODATA={
+ zones:[
+  {id:"O1",icon:"&#127795;",name:"Woodland Shade Bed",sunClass:"shade",tag:"Part shade &middot; acidic soil",site:"Morning sun / afternoon shade, acidic organic soil, even moisture, mulched. North or east side of the house, or under tree canopy. Evergreen camellia &amp; rhododendron anchor it; hydrangea in the middle; hosta at the shady edge."},
+  {id:"O2",icon:"&#127800;",name:"Sunny Cottage Border",sunClass:"sun",tag:"Full sun &middot; rich, well-drained",site:"Full sun 6+ hrs with good airflow (PNW disease pressure). Hollyhock at the back (tall), roses + peony in the middle, shasta daisy at the front. Stake peony &amp; hollyhock."},
+  {id:"O3",icon:"&#127799;",name:"Spring Bulbs",sunClass:"sun",tag:"Full sun &middot; sharp drainage",site:"Plant in fall (Oct&ndash;Nov), bloom Mar&ndash;May. Tuck into the cottage border or pots. Hyacinth perennializes here; tulips are often short-lived in our wet summers."},
+  {id:"O4",icon:"&#129744;",name:"Edible &amp; Foliage Accents",sunClass:"sun",tag:"Full sun",site:"Blueberry wants the same acidic soil as the rhodies but needs sun &mdash; plant 2+ varieties for cross-pollination. Barberry is a tough, thorny, colorful, low-care hedge/accent."}
+ ],
+ ornamentals:[
+  {name:"Rhododendron",type:"Broadleaf evergreen shrub",zone:"O1",zoneName:"Woodland Shade",sun:"Part shade",soilPH:"Acidic 4.5–6.0, organic, well-drained",water:"Even moisture; deep-water in summer dry spells (shallow roots); mulch 2–3 in",size:"3–8 ft",bloomTime:"Apr–May",prune:"Right after bloom (May–Jun); deadhead spent trusses",feed:"Light, after bloom, with acid (rhododendron) fertilizer",ease:"Easy in PNW",careFlags:["acid-loving","shallow roots — don't plant deep","even moisture","watch root weevil"],note:"Don't plant too deep — keep the root ball at or slightly above grade. Shallow roots hate drying out and heavy clay, so mulch and water deeply in summer. Deadhead spent flower trusses by snapping them off above the new buds.",timeline:["","","","bloom","bloom","prune","","","","","",""]},
+  {name:"Azalea",type:"Shrub (a small Rhododendron)",zone:"O1",zoneName:"Woodland Shade",sun:"Part shade",soilPH:"Acidic, organic, well-drained",water:"Even moisture; mulch",size:"2–4 ft",bloomTime:"Apr–May",prune:"Lightly right after bloom",feed:"After bloom, acid fertilizer",ease:"Easy",careFlags:["acid-loving","shallow roots","watch lacebug & petal blight"],note:"Care is the same as rhododendron, just smaller. Deciduous types add fall color. Prune lightly right after flowering, before it sets next year's buds.",timeline:["","","","bloom","bloom","prune","","","","","",""]},
+  {name:"Camellia",type:"Broadleaf evergreen shrub",zone:"O1",zoneName:"Woodland Shade",sun:"Part shade (sasanqua takes more sun)",soilPH:"Acidic, rich, well-drained",water:"Even moisture; mulch; don't let it dry while budding",size:"6–12 ft (can be hedged)",bloomTime:"Japonica Feb–Apr; Sasanqua Oct–Dec",prune:"After bloom",feed:"After bloom, acid fertilizer",ease:"Easy",careFlags:["acid-loving","rake fallen blooms (petal blight)","bud drop if dry"],note:"Two types extend the season — japonica blooms late winter to spring, sasanqua blooms in fall. Rake up fallen flowers to prevent petal blight. Keep it watered while budding or the buds drop.",timeline:["","bloom","bloom","bloom","prune","","","","","bloom","bloom","bloom"]},
+  {name:"Hydrangea",type:"Deciduous shrub",zone:"O1",zoneName:"Woodland Shade",sun:"Morning sun / afternoon shade",soilPH:"Rich, moist; bigleaf color shifts with pH (acidic = blue)",water:"Thirsty — deep-water in summer; wilts midday in heat",size:"3–6 ft",bloomTime:"Jun–Sep",prune:"Bigleaf/oakleaf: right after bloom (old wood). Panicle/smooth: late winter (new wood)",feed:"Spring",ease:"Easy",careFlags:["thirsty","prune-timing is critical","blooms on old vs new wood"],note:"The #1 mistake is spring-pruning a bigleaf (mophead/lacecap) and cutting off all the flower buds. Know your type: mophead/lacecap = prune just after summer bloom; panicle/Annabelle = prune in late winter. Soil pH tints bigleaf flowers — acidic soil = blue.",timeline:["","prune","","","","bloom","bloom","bloom","bloom","","",""]},
+  {name:"Hosta",type:"Herbaceous perennial (foliage)",zone:"O1",zoneName:"Woodland Shade",sun:"Shade / part shade",soilPH:"Rich, moist",water:"Consistent moisture",size:"1–3 ft mounds",bloomTime:"Jul–Aug (grown mainly for foliage)",prune:"Cut back dead foliage in late fall; divide spring or fall",feed:"Spring",ease:"Easy (if slugs controlled)",careFlags:["SLUG MAGNET — use the slug strategy","dies back in winter","divide to propagate"],note:"Slugs love hosta — start Sluggo at the very first spring shoots (the same slug strategy you use on the veggie beds). It dies back fully in winter and returns in spring. Divide clumps in spring or fall to make more.",timeline:["","","","feed","","","bloom","bloom","","","prune",""]},
+  {name:"Roses",type:"Shrub (repeat-blooming)",zone:"O2",zoneName:"Cottage Border",sun:"Full sun 6+ hrs",soilPH:"Rich, well-drained",water:"Deep, at the base — not overhead",size:"3–6 ft",bloomTime:"Jun–Oct (repeat)",prune:"Main prune late winter (Feb–Mar); deadhead through the season",feed:"Spring + early summer (stop by late Aug)",ease:"Moderate (disease management)",careFlags:["blackspot & powdery mildew in damp PNW","prune late winter","deadhead","water at the base"],note:"Our damp climate brings blackspot and powdery mildew pressure. Give full sun and air circulation, water at the base (not the leaves), clean up fallen leaves, and deadhead spent blooms to keep flowers coming. Main prune in late winter.",timeline:["","prune","","feed","","bloom","bloom","bloom","bloom","bloom","",""]},
+  {name:"Peony",type:"Herbaceous perennial (long-lived)",zone:"O2",zoneName:"Cottage Border",sun:"Full sun 6+ hrs",soilPH:"Rich, well-drained",water:"Moderate, even",size:"2–3 ft",bloomTime:"May–Jun",prune:"Cut stems to the ground in fall",feed:"Spring (low-nitrogen)",ease:"Easy once established; resents being moved",careFlags:["don't plant eyes too deep (1–2 in max)","support heavy blooms","cut back in fall","ants are harmless"],note:"Plant the buds (\"eyes\") only 1–2 inches deep — planting too deep is the classic reason peonies never bloom. Support the heavy flowers with a peony ring. Cut the foliage to the ground in fall to prevent botrytis. Ants on the buds are harmless. Don't move it once it's settled.",timeline:["","","","feed","bloom","bloom","","","","prune","",""]},
+  {name:"Shasta daisy",type:"Perennial",zone:"O2",zoneName:"Cottage Border",sun:"Full sun",soilPH:"Average, well-drained",water:"Moderate",size:"2–3 ft",bloomTime:"Jun–Aug",prune:"Deadhead; cut back in fall; divide every 2–3 yrs",feed:"Light, spring",ease:"Easy",careFlags:["deadhead for rebloom","tall types flop — support","divide to keep vigorous"],note:"Deadhead spent flowers for more blooms. Tall types flop, so give support or grow compact varieties. Divide every 2–3 years to keep the clump vigorous.",timeline:["","","","feed","","bloom","bloom","bloom","","prune","",""]},
+  {name:"Hollyhock",type:"Biennial / short-lived perennial",zone:"O2",zoneName:"Cottage Border (back row)",sun:"Full sun",soilPH:"Rich, well-drained",water:"Moderate; water at the base",size:"5–8 ft (back of border)",bloomTime:"Jul–Aug (often year 2 from seed)",prune:"Cut spent spikes; let some self-seed",feed:"Spring",ease:"Easy but rust-prone",careFlags:["rust-prone in damp PNW","stake tall stalks","self-seeds","biennial"],note:"Hollyhock rust is common in our damp climate — space plants for airflow, water at the base, and strip infected lower leaves. Stake the tall stalks. It self-seeds, so expect volunteers. Often blooms in its second year from seed.",timeline:["","","","feed","","","bloom","bloom","prune","","",""]},
+  {name:"Tulips",type:"Spring bulb",zone:"O3",zoneName:"Spring Bulbs",sun:"Full sun",soilPH:"Sharp drainage (bulbs rot when wet)",water:"Natural rainfall; needs sharp drainage",size:"1–2 ft",bloomTime:"Apr–May",prune:"Deadhead after bloom; let foliage die back naturally",feed:"At planting (bulb food)",ease:"Easy but often short-lived here",careFlags:["plant in fall, 6–8 in deep","short-lived in wet PNW","sharp drainage","squirrels may dig bulbs"],note:"Plant bulbs in October–November, 6–8 inches deep. Our wet summers rot tulip bulbs, so many gardeners here treat them as annuals or plant them in the sharpest-draining, sunniest spot. Let the foliage yellow before removing it.",timeline:["","","","bloom","bloom","","","","","plant","plant",""]},
+  {name:"Hyacinth",type:"Spring bulb (fragrant)",zone:"O3",zoneName:"Spring Bulbs",sun:"Full / part sun",soilPH:"Well-drained",water:"Natural rainfall; good drainage",size:"8–12 in",bloomTime:"Mar–Apr (very fragrant)",prune:"Deadhead; let foliage die back",feed:"At planting",ease:"Easy; perennializes better than tulips",careFlags:["plant in fall, 4–6 in deep","fragrant","perennializes here","wear gloves (bulbs irritate skin)"],note:"Plant in fall, 4–6 inches deep. It blooms very early and is intensely fragrant, and it perennializes more reliably than tulips in our climate. Wear gloves when handling — the bulbs can irritate skin.",timeline:["","","bloom","bloom","","","","","","plant","plant",""]},
+  {name:"Blueberry",type:"Edible deciduous shrub (great fall color)",zone:"O4",zoneName:"Edible Accent",sun:"Full sun 6+ hrs (for fruit)",soilPH:"Very acidic 4.5–5.5 (the key requirement)",water:"Consistent, especially while fruiting; shallow roots — mulch",size:"3–6 ft (highbush)",bloomTime:"Apr–May bloom; Jun–Aug fruit",prune:"Late winter, from year 3 — remove old/weak canes",feed:"Acidic (rhododendron/azalea) fertilizer in spring",ease:"Easy in PNW (ideal climate)",careFlags:["needs 2+ varieties for cross-pollination","very acidic soil","net from birds","shallow roots — mulch"],note:"The PNW is prime blueberry country. Give very acidic soil and plant at least two varieties (e.g. early + mid + late) for cross-pollination and a longer harvest. Net the bushes from birds. Mulch to protect the shallow roots; prune lightly in late winter from about year 3.",timeline:["","prune","feed","bloom","bloom","bloom","bloom","bloom","","","",""]},
+  {name:"Japanese barberry",type:"Deciduous shrub (colorful, thorny foliage)",zone:"O4",zoneName:"Foliage Accent",sun:"Full sun (best color) to part shade",soilPH:"Adaptable, well-drained; drought-tolerant once established",water:"Low once established",size:"2–6 ft (dwarf to full)",bloomTime:"Minor yellow flowers Apr; grown for red/gold foliage",prune:"Anytime; shears well as a hedge (wear gloves — thorns)",feed:"Minimal",ease:"Very easy / low-maintenance",careFlags:["thorny — good barrier hedge","invasive in some states (not WA)","drought-tolerant","best color in full sun"],note:"Extremely low-maintenance — tough, drought-tolerant, and thorny (makes a good barrier hedge). Note it's considered invasive in parts of the US (banned in some eastern states; not in Washington) because birds spread the berries — choose a sterile or dwarf cultivar if that's a concern. Best foliage color in full sun.",timeline:["","","","bloom","","","prune","","","","",""]}
+ ],
+ tasks:[
+  {season:"Late winter (Feb–Mar)",items:["Prune roses, and prune panicle/smooth hydrangeas &amp; blueberries.","Cut back any remaining dead perennial foliage.","Feed the acid-lovers (rhododendron, azalea, camellia, blueberry) as growth resumes.","Camellia japonica is blooming."]},
+  {season:"Early spring (Mar–Apr)",items:["Hyacinth and camellia japonica bloom.","Start Sluggo at hosta &amp; peony emergence.","Mulch all the beds.","Put peony rings and hollyhock stakes in early."]},
+  {season:"Spring (Apr–May)",items:["Rhododendron, azalea, tulips, and peony bloom.","Deadhead spent bulbs but leave the foliage to die back.","Feed roses."]},
+  {season:"After bloom (May–Jun)",items:["Prune rhododendron, azalea, camellia, and bigleaf hydrangea right after flowering.","Deadhead spent rhododendron trusses and roses."]},
+  {season:"Summer (Jun–Aug)",items:["Roses, hydrangea, shasta daisy, and hollyhock bloom; blueberries fruit (net from birds).","Deep-water hydrangea and blueberry; deadhead roses and shasta.","Watch for blackspot, rust, and mildew — keep airflow. Stop feeding roses by late August."]},
+  {season:"Fall (Sep–Nov)",items:["Plant tulip and hyacinth bulbs.","Cut peony and shasta foliage to the ground; divide hosta and shasta.","Best time to plant or move shrubs in the PNW — then mulch.","Camellia sasanqua blooms."]},
+  {season:"Winter (Dec–Jan)",items:["Mostly dormant; camellia buds forming.","Plan and order. Protect containers in hard freezes."]}
+ ]
+};
 
 // ---- filter definitions ----
 const uniq=(a)=>[...new Set(a)];
@@ -366,6 +414,71 @@ function guides(){
   document.getElementById("guidewrap").innerHTML=h;
 }
 
+// ---- ornamentals: zone map ----
+function ornZones(){
+  const byZone={};
+  ODATA.ornamentals.forEach(p=>{(byZone[p.zone]=byZone[p.zone]||[]).push(p.name);});
+  document.getElementById("ornzonemap").innerHTML=ODATA.zones.map(z=>
+    `<div class="bedzone"><span class="z ${z.sunClass}">${z.icon} ${z.name}</span>`+
+    `<div class="bedrow"><span class="bedtag">${z.id}</span><div><b>${z.tag}</b><br><small>${(byZone[z.id]||[]).join(" &middot; ")}</small></div></div>`+
+    `<div class="bedrow"><small>${z.site}</small></div></div>`
+  ).join("");
+}
+
+// ---- ornamentals: cards ----
+function ocard(p){
+  const ML=["J","F","M","A","M","J","J","A","S","O","N","D"];
+  const strip=p.timeline.map(c=>`<span style="background:${c&&OCODE[c]?OCODE[c][0]:'#e7e0c8'}"></span>`).join("");
+  const mlab=ML.map(m=>`<span>${m}</span>`).join("");
+  const flags=p.careFlags.map(f=>`<span class="flag">${f}</span>`).join("");
+  return `<div class="pc" tabindex="0" role="button" aria-expanded="false">
+    <div class="top">
+      <h3>${p.name}</h3>
+      <div class="var">${p.type}</div>
+      <div class="badges"><span class="b yard">${p.zoneName}</span><span class="b cat">${p.sun}</span><span class="b start">${p.ease}</span></div>
+      <div class="strip">${strip}</div>
+      <div class="mlabels">${mlab}</div>
+    </div>
+    <div class="detail">
+      <table>
+        <tr><td>Sun</td><td>${p.sun}</td></tr>
+        <tr><td>Soil/pH</td><td>${p.soilPH}</td></tr>
+        <tr><td>Water</td><td>${p.water}</td></tr>
+        <tr><td>Size</td><td>${p.size}</td></tr>
+        <tr><td>Bloom</td><td>${p.bloomTime}</td></tr>
+        <tr><td>Prune</td><td>${p.prune}</td></tr>
+        <tr><td>Feed</td><td>${p.feed}</td></tr>
+      </table>
+      <div class="flags">${flags}</div>
+      <div class="note">${p.note}</div>
+    </div>
+    <div class="tip">${p.note.length>110?p.note.slice(0,108)+"&hellip;":p.note}</div>
+  </div>`;
+}
+function ornCards(){
+  document.getElementById("orngallery").innerHTML=ODATA.ornamentals.map(ocard).join("");
+  document.querySelectorAll("#orngallery .pc").forEach(el=>{
+    const toggle=()=>{const x=el.classList.toggle("exp");el.setAttribute("aria-expanded",String(x));};
+    el.onclick=toggle;
+    el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();}};
+  });
+}
+
+// ---- ornamentals: bloom & care calendar ----
+function ornCalendar(){
+  document.getElementById("ornlegend").innerHTML=Object.values(OCODE).map(([c,l])=>`<span><span class="sw" style="background:${c}"></span>${l}</span>`).join("");
+  let h="<tr><th>Plant</th>"+MONTHS.map(m=>`<th>${m}</th>`).join("")+"</tr>";
+  ODATA.ornamentals.forEach(p=>{ h+=`<tr><td class="cn">${p.name}</td>`+p.timeline.map(c=>`<td class="cell" style="background:${c&&OCODE[c]?OCODE[c][0]:'#fff'}"></td>`).join("")+"</tr>";});
+  document.getElementById("orncaltable").innerHTML=h;
+}
+
+// ---- ornamentals: seasonal care tasks ----
+function ornTasks(){
+  document.getElementById("orntasks").innerHTML=ODATA.tasks.map(t=>
+    `<div class="guide"><h3>${t.season}</h3><ul>${t.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`
+  ).join("");
+}
+
 // ---- wire up ----
 document.getElementById("q").oninput=e=>{state.q=e.target.value;render();};
 document.getElementById("ftoggle").onclick=function(){const p=document.getElementById("panel");const o=p.classList.toggle("open");this.setAttribute("aria-expanded",String(o));};
@@ -373,7 +486,7 @@ function clearAll(){state.q="";document.getElementById("q").value="";FILTERS.for
 document.getElementById("clear").onclick=clearAll;
 document.getElementById("resetlink").onclick=e=>{e.preventDefault();clearAll();};
 
-buildPanel();bedMap();calendar();choreGrid();guides();render();
+buildPanel();bedMap();calendar();choreGrid();guides();render();ornZones();ornCards();ornCalendar();ornTasks();
 // in-page nav via JS scroll (avoids #hash navigation that prompts "open link?" inside iOS Files)
 document.querySelectorAll(".nav a[data-go]").forEach(a=>{
   const go=()=>{const t=document.getElementById(a.dataset.go); if(t)t.scrollIntoView({behavior:"smooth",block:"start"});};
