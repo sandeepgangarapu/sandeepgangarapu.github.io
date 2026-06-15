@@ -268,6 +268,20 @@ const ODATA={
   {season:"Summer (Jun–Aug)",items:["Roses, hydrangea, shasta daisy, and hollyhock bloom; blueberries fruit (net from birds).","Deep-water hydrangea and blueberry; deadhead roses and shasta.","Watch for blackspot, rust, and mildew — keep airflow. Stop feeding roses by late August."]},
   {season:"Fall (Sep–Nov)",items:["Plant tulip and hyacinth bulbs.","Cut peony and shasta foliage to the ground; divide hosta and shasta.","Best time to plant or move shrubs in the PNW — then mulch.","Camellia sasanqua blooms."]},
   {season:"Winter (Dec–Jan)",items:["Mostly dormant; camellia buds forming.","Plan and order. Protect containers in hard freezes."]}
+ ],
+ monthChores:[
+  ["Plan &amp; order roses, shrubs &amp; bulbs for the year; protect container ornamentals during hard freezes."],
+  ["Prune roses (the main prune), and prune panicle/smooth hydrangeas &amp; blueberries while dormant. (Timing varies &mdash; late Feb into Mar, often around President's Day; wait out hard frosts.)","Cut back any remaining dead perennial foliage."],
+  ["Feed the acid-lovers &mdash; rhododendron, azalea, camellia &amp; blueberry &mdash; as new growth starts.","Start Sluggo at the first hosta &amp; peony shoots.","Mulch the ornamental beds."],
+  ["Feed roses.","Put peony rings &amp; hollyhock stakes in early, before the plants get tall."],
+  ["Deadhead spent tulip &amp; hyacinth flowers, but leave the foliage to die back naturally."],
+  ["Right after each one finishes blooming, prune rhododendron, azalea, camellia &amp; bigleaf hydrangea, and deadhead spent rhododendron trusses &amp; roses. (Timing varies &mdash; prune each shrub as soon as its own flowers fade, anywhere from May into Jun.)"],
+  ["Summer care: deep-water hydrangea &amp; blueberry, deadhead roses &amp; shasta daisy, and net blueberries from birds. Watch for blackspot, rust &amp; mildew &mdash; keep good airflow."],
+  ["Stop feeding roses by late August so new growth hardens off before winter."],
+  ["Divide overgrown hosta &amp; shasta daisy clumps. (Timing varies &mdash; Sep into Oct both work.)"],
+  ["Plant tulip &amp; hyacinth bulbs. (Timing varies &mdash; Oct into Nov, once the soil cools.)","Cut peony &amp; shasta daisy foliage to the ground to head off disease.","Best window to plant or move shrubs in the PNW &mdash; then mulch."],
+  ["Finish planting spring bulbs and any new shrubs before the ground turns cold and soggy."],
+  ["Ornamentals are mostly dormant &mdash; camellia (sasanqua) may still be blooming and japonica buds are forming. Little to do."]
  ]
 };
 
@@ -392,9 +406,11 @@ function calendar(){
 
 // ---- chores ----
 function choreGrid(){
-  const ic={"Start seeds indoors (heat mat)":"&#127793;","Direct sow / succession sow":"&#127807;","Harden off & transplant out":"&#129716;","Watering":"&#128167;","Feed & mulch":"&#127806;","Trellis / train / prune / pollinate":"&#9986;","Slug & pest patrol":"&#128012;","Harvest":"&#129482;","Bed prep / cover crop / cleanup":"&#128296;"};
+  const ic={"Start seeds indoors (heat mat)":"&#127793;","Direct sow / succession sow":"&#127807;","Harden off & transplant out":"&#129716;","Watering":"&#128167;","Feed & mulch":"&#127806;","Trellis / train / prune / pollinate":"&#9986;","Slug & pest patrol":"&#128012;","Harvest":"&#129482;","Bed prep / cover crop / cleanup":"&#128296;","Ornamental & shrub care":"&#127795;"};
   document.getElementById("choregrid").innerHTML=DATA.chores.map((m,idx)=>{
-    const body=m.chores.length? m.chores.map(c=>`<div class="chcat">${ic[c.category]||"&bull;"} ${c.category}</div><ul>${c.items.map(i=>`<li>${i}</li>`).join("")}</ul>`).join(""):'<p style="color:#999;font-style:italic;font-size:12px">Quiet month &mdash; rest &amp; plan.</p>';
+    const oc=(ODATA.monthChores&&ODATA.monthChores[idx])||[];
+    const cats=oc.length? m.chores.concat([{category:"Ornamental & shrub care",items:oc}]) : m.chores;
+    const body=cats.length? cats.map(c=>`<div class="chcat">${ic[c.category]||"&bull;"} ${c.category}</div><ul>${c.items.map(i=>`<li>${i}</li>`).join("")}</ul>`).join(""):'<p style="color:#999;font-style:italic;font-size:12px">Quiet month &mdash; rest &amp; plan.</p>';
     return `<div class="cm${idx>=2&&idx<=9?' open':''}"><div class="h" role="button" tabindex="0" aria-expanded="${idx>=2&&idx<=9}"><span>${m.month}</span><span class="ar">&#9656;</span></div><div class="body">${body}</div></div>`;
   }).join("");
   document.querySelectorAll(".cm .h").forEach(h=>{
