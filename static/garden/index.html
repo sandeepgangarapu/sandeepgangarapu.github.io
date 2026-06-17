@@ -170,7 +170,7 @@ table.cal{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}
   </svg>
   <h1>Gangarapu Garden</h1>
   <nav class="nav">
-    <a data-go="beds" tabindex="0" role="button">Bed Map</a><a data-go="plants" tabindex="0" role="button">Plants</a><a data-go="calendar" tabindex="0" role="button">Calendar</a><a data-go="chores" tabindex="0" role="button">Monthly Chores</a><a data-go="guides" tabindex="0" role="button">Care Guides</a><a data-go="ornamentals" tabindex="0" role="button">Ornamentals</a>
+    <a data-go="plants" tabindex="0" role="button">Plants</a><a data-go="beds" tabindex="0" role="button">Bed Map</a><a data-go="calendar" tabindex="0" role="button">Calendar</a><a data-go="chores" tabindex="0" role="button">Monthly Chores</a><a data-go="guides" tabindex="0" role="button">Care Guides</a><a data-go="ornamentals" tabindex="0" role="button">Ornamentals</a>
   </nav>
 </div>
 
@@ -187,11 +187,6 @@ table.cal{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}
 </div></div>
 
 <div class="wrap">
-  <section id="beds"><h2 class="sec">Bed Map &mdash; What Goes Where</h2>
-    <div class="sub">Recommendation: add 2 new front beds (C &amp; D) for a second gourd arch tunnel. Backyard keeps your 3 existing beds.</div>
-    <div class="beds" id="bedmap"></div>
-  </section>
-
   <section id="plants"><h2 class="sec">Plants</h2>
     <div class="sub">Tap any card for full care details. The search &amp; filters above apply to the vegetables; ornamentals are listed below them.</div>
     <h3 class="osub">Vegetables, Herbs &amp; Cucurbits</h3>
@@ -199,6 +194,11 @@ table.cal{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}
     <div class="empty" id="empty" style="display:none">No plants match these filters. <a id="resetlink" tabindex="0" role="button" style="cursor:pointer;text-decoration:underline">Clear filters</a></div>
     <h3 class="osub">Ornamentals &amp; Shrubs</h3>
     <div class="gallery" id="orngallery"></div>
+  </section>
+
+  <section id="beds"><h2 class="sec">Bed Map &mdash; What Goes Where</h2>
+    <div class="sub">Recommendation: add 2 new front beds (C &amp; D) for a second gourd arch tunnel. Backyard keeps your 3 existing beds.</div>
+    <div class="beds" id="bedmap"></div>
   </section>
 
   <section id="calendar"><h2 class="sec">Year-Round Calendars</h2>
