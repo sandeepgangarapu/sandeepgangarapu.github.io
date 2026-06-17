@@ -131,6 +131,20 @@ table.cal{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}
 .chcat{font-size:11.5px;font-weight:700;color:#3a2d12;margin-top:8px}
 .cm ul{margin:3px 0 4px 16px;padding:0}
 .cm li{font-size:12px;margin:2px 0;color:#3a3a30}
+/* checkable to-do rows */
+.cm ul:has(li.chk),#orntasks .guide ul{margin-left:0;list-style:none}
+li.chk{list-style:none;margin:1px 0}
+li.chk>label{display:flex;align-items:flex-start;gap:8px;cursor:pointer;padding:4px 2px;min-height:32px;line-height:1.4}
+li.chk input{margin:2px 0 0;flex:0 0 auto;width:16px;height:16px;accent-color:var(--green);cursor:pointer}
+li.chk span{flex:1}
+li.chk.done span{text-decoration:line-through;color:var(--muted);opacity:.7}
+li.chk.syncerr>label{color:var(--terra)}
+li.chk.syncerr input{outline:2px solid var(--terra);outline-offset:1px}
+.h .hr{display:flex;align-items:center;gap:8px}
+.h .cnt,h3 .cnt{font-size:11px;font-weight:600;color:var(--muted);font-family:ui-sans-serif,-apple-system,sans-serif;letter-spacing:.3px}
+h3 .cnt{margin-left:8px}
+a.clearchk{display:inline-block;margin-top:8px;font-size:11.5px;color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted)}
+a.clearchk:hover{color:var(--terra);border-bottom-color:var(--terra)}
 /* guides */
 .guides{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:760px){.guides{grid-template-columns:1fr 1fr}}
@@ -410,8 +424,8 @@ function choreGrid(){
   document.getElementById("choregrid").innerHTML=DATA.chores.map((m,idx)=>{
     const oc=(ODATA.monthChores&&ODATA.monthChores[idx])||[];
     const cats=oc.length? m.chores.concat([{category:"Ornamental & shrub care",items:oc}]) : m.chores;
-    const body=cats.length? cats.map(c=>`<div class="chcat">${ic[c.category]||"&bull;"} ${c.category}</div><ul>${c.items.map(i=>`<li>${i}</li>`).join("")}</ul>`).join(""):'<p style="color:#999;font-style:italic;font-size:12px">Quiet month &mdash; rest &amp; plan.</p>';
-    return `<div class="cm${idx>=2&&idx<=9?' open':''}"><div class="h" role="button" tabindex="0" aria-expanded="${idx>=2&&idx<=9}"><span>${m.month}</span><span class="ar">&#9656;</span></div><div class="body">${body}</div></div>`;
+    const body=cats.length? cats.map((c,ci)=>`<div class="chcat">${ic[c.category]||"&bull;"} ${c.category}</div><ul>${c.items.map((i,ii)=>{const cid=`mc:${idx}:${ci}:${ii}`;return `<li class="chk${CHK.has(cid)?' done':''}"><label><input type="checkbox" data-cid="${cid}"${CHK.has(cid)?' checked':''}><span>${i}</span></label></li>`;}).join("")}</ul>`).join("")+'<a class="clearchk" data-clear="cm" href="#" role="button">clear checked</a>':'<p style="color:#999;font-style:italic;font-size:12px">Quiet month &mdash; rest &amp; plan.</p>';
+    return `<div class="cm${idx>=2&&idx<=9?' open':''}"><div class="h" role="button" tabindex="0" aria-expanded="${idx>=2&&idx<=9}"><span>${m.month}</span><span class="hr"><span class="cnt"></span><span class="ar">&#9656;</span></span></div><div class="body">${body}</div></div>`;
   }).join("");
   document.querySelectorAll(".cm .h").forEach(h=>{
     const toggle=()=>{const o=h.parentElement.classList.toggle("open");h.setAttribute("aria-expanded",String(o));};
@@ -490,10 +504,87 @@ function ornCalendar(){
 
 // ---- ornamentals: seasonal care tasks ----
 function ornTasks(){
-  document.getElementById("orntasks").innerHTML=ODATA.tasks.map(t=>
-    `<div class="guide"><h3>${t.season}</h3><ul>${t.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`
+  document.getElementById("orntasks").innerHTML=ODATA.tasks.map((t,ti)=>
+    `<div class="guide"><h3>${t.season}<span class="cnt"></span></h3><ul>${t.items.map((i,ii)=>{const cid=`gt:${ti}:${ii}`;return `<li class="chk${CHK.has(cid)?' done':''}"><label><input type="checkbox" data-cid="${cid}"${CHK.has(cid)?' checked':''}><span>${i}</span></label></li>`;}).join("")}</ul><a class="clearchk" data-clear="guide" href="#" role="button">clear checked</a></div>`
   ).join("");
 }
+
+// ---- checks (persist + sync + yearly reset) ----
+const SB_URL = "https://bwbefczdqtwwujgcsklu.supabase.co"; // gardengenie project
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3YmVmY3pkcXR3d3VqZ2Nza2x1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU2NDg4NTUsImV4cCI6MjA2MTIyNDg1NX0.Os3GbDMmGKxm8MYYQzknN8sPkXDvciEhxJ85YF9v1do"; // anon/public key (safe to expose; RLS-gated, world-writable garden_checks only)
+const SB_TABLE = "garden_checks";
+const YEAR = new Date().getFullYear();
+const SB_ON = !SB_URL.startsWith("__");  // false while placeholders are present -> local-only, no network
+const CHK = new Set();                    // checked cids for current YEAR
+const LS_KEY = "gardenChecks:"+YEAR;
+function loadCache(){try{const a=JSON.parse(localStorage.getItem(LS_KEY)||"[]");CHK.clear();a.forEach(c=>CHK.add(c));}catch(e){}}
+function saveCache(){try{localStorage.setItem(LS_KEY,JSON.stringify([...CHK]));}catch(e){}}
+function sbHeaders(extra){return Object.assign({apikey:SB_KEY,Authorization:"Bearer "+SB_KEY},extra||{});}
+async function fetchRemote(){
+  if(!SB_ON)return;
+  try{
+    const res=await fetch(`${SB_URL}/rest/v1/${SB_TABLE}?year=eq.${YEAR}&select=cid`,{headers:sbHeaders()});
+    if(!res.ok)return;
+    const rows=await res.json();
+    CHK.clear();rows.forEach(r=>CHK.add(r.cid));
+    saveCache();applyChecks();
+  }catch(e){/* offline -> keep cached state */}
+}
+async function pushCheck(cid,on){
+  if(!SB_ON)return true;
+  try{
+    if(on){
+      const res=await fetch(`${SB_URL}/rest/v1/${SB_TABLE}`,{method:"POST",headers:sbHeaders({"Content-Type":"application/json",Prefer:"resolution=merge-duplicates,return=minimal"}),body:JSON.stringify([{cid,year:YEAR}])});
+      return res.ok;
+    }else{
+      const res=await fetch(`${SB_URL}/rest/v1/${SB_TABLE}?cid=eq.${encodeURIComponent(cid)}&year=eq.${YEAR}`,{method:"DELETE",headers:sbHeaders({Prefer:"return=minimal"})});
+      return res.ok;
+    }
+  }catch(e){return false;}
+}
+function applyChecks(){
+  document.querySelectorAll("input[data-cid]").forEach(el=>{
+    const on=CHK.has(el.dataset.cid);
+    el.checked=on;
+    const li=el.closest("li");if(li)li.classList.toggle("done",on);
+  });
+  updateCounts();
+}
+function updateCounts(){
+  document.querySelectorAll("#choregrid .cm").forEach(card=>{
+    const ins=card.querySelectorAll("input[data-cid]"),tot=ins.length;
+    let done=0;ins.forEach(i=>{if(i.checked)done++;});
+    let b=card.querySelector(".h .cnt");
+    if(b)b.textContent=tot?`${done}/${tot}`:"";
+  });
+  document.querySelectorAll("#orntasks .guide").forEach(card=>{
+    const ins=card.querySelectorAll("input[data-cid]"),tot=ins.length;
+    let done=0;ins.forEach(i=>{if(i.checked)done++;});
+    let b=card.querySelector("h3 .cnt");
+    if(b)b.textContent=tot?`${done}/${tot}`:"";
+  });
+}
+async function toggle(cid,on){
+  if(on)CHK.add(cid);else CHK.delete(cid);
+  saveCache();applyChecks();
+  const ok=await pushCheck(cid,on);
+  if(!ok){
+    if(on)CHK.delete(cid);else CHK.add(cid);
+    saveCache();applyChecks();
+    const inp=document.querySelector(`input[data-cid="${CSS.escape(cid)}"]`);
+    const li=inp&&inp.closest("li");
+    if(li){li.classList.add("syncerr");setTimeout(()=>li.classList.remove("syncerr"),1800);}
+  }
+}
+document.addEventListener("change",e=>{const el=e.target.closest("input[data-cid]");if(el)toggle(el.dataset.cid,el.checked);});
+document.addEventListener("click",e=>{
+  const a=e.target.closest(".clearchk");if(!a)return;
+  e.preventDefault();
+  const card=a.closest(".cm,.guide");if(!card)return;
+  card.querySelectorAll("input[data-cid]:checked").forEach(i=>toggle(i.dataset.cid,false));
+});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")fetchRemote();});
+window.addEventListener("focus",fetchRemote);
 
 // ---- wire up ----
 document.getElementById("q").oninput=e=>{state.q=e.target.value;render();};
@@ -502,7 +593,9 @@ function clearAll(){state.q="";document.getElementById("q").value="";FILTERS.for
 document.getElementById("clear").onclick=clearAll;
 document.getElementById("resetlink").onclick=e=>{e.preventDefault();clearAll();};
 
+loadCache();
 buildPanel();bedMap();calendar();choreGrid();guides();render();ornZones();ornCards();ornCalendar();ornTasks();
+applyChecks();fetchRemote();
 // in-page nav via JS scroll (avoids #hash navigation that prompts "open link?" inside iOS Files)
 document.querySelectorAll(".nav a[data-go]").forEach(a=>{
   const go=()=>{const t=document.getElementById(a.dataset.go); if(t)t.scrollIntoView({behavior:"smooth",block:"start"});};
