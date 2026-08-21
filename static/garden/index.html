@@ -219,7 +219,7 @@ a.clearchk:hover{color:var(--terra);border-bottom-color:var(--terra)}
   </svg>
   <h1>Gangarapu Garden</h1>
   <nav class="nav">
-    <a data-go="plants" tabindex="0" role="button">Plants</a><a data-go="beds" tabindex="0" role="button">Bed Map</a><a data-go="calendar" tabindex="0" role="button">Calendar</a><a data-go="chores" tabindex="0" role="button">Monthly Chores</a><a data-go="guides" tabindex="0" role="button">Care Guides</a><a data-go="ornamentals" tabindex="0" role="button">Ornamentals</a>
+    <a data-go="thismonth" tabindex="0" role="button">This Month</a><a data-go="plants" tabindex="0" role="button">Plants</a><a data-go="beds" tabindex="0" role="button">Bed Map</a><a data-go="calendar" tabindex="0" role="button">Calendar</a><a data-go="chores" tabindex="0" role="button">Monthly Chores</a><a data-go="guides" tabindex="0" role="button">Care Guides</a><a data-go="ornamentals" tabindex="0" role="button">Ornamentals</a>
   </nav>
 </div>
 
@@ -236,8 +236,13 @@ a.clearchk:hover{color:var(--terra);border-bottom-color:var(--terra)}
 </div></div>
 
 <div class="wrap">
+  <section id="thismonth"><h2 class="sec">&#128197; This Month &mdash; <span id="tmname"></span></h2>
+    <div class="sub">Chores for the current month, picked from today's date. Check items off here or in Monthly Chores below &mdash; they stay in sync.</div>
+    <div class="cm open" id="tmcard"></div>
+  </section>
+
   <section id="plants"><h2 class="sec">Plants</h2>
-    <div class="sub">Tap any card for full care details. The search &amp; filters above apply to the vegetables; ornamentals are listed below them.</div>
+    <div class="sub">Tap any card for full care details. The search &amp; month filters above apply to vegetables <em>and</em> ornamentals.</div>
     <h3 class="osub">Vegetables, Herbs &amp; Cucurbits</h3>
     <div class="gallery" id="gallery"></div>
     <div class="empty" id="empty" style="display:none">No plants match these filters. <a id="resetlink" tabindex="0" role="button" style="cursor:pointer;text-decoration:underline">Clear filters</a></div>
@@ -374,6 +379,13 @@ function match(p){
   return true;
 }
 
+function omatch(p){
+  if(state.q){const blob=(p.name+" "+p.type+" "+p.zoneName+" "+p.sun+" "+p.soilPH+" "+p.note+" "+p.careFlags.join(" ")).toLowerCase(); if(!blob.includes(state.q.toLowerCase()))return false;}
+  const ms=[...state.month];
+  if(ms.length){ if(!ms.some(m=>{const c=p.timeline[MONTHS.indexOf(m)];return !!c;}))return false;}
+  return true;
+}
+
 // ---- build filter panel ----
 function buildPanel(){
   const panel=document.getElementById("panel"); panel.innerHTML="";
@@ -425,19 +437,25 @@ function card(p){
       <div class="flags">${tr}</div>
       <div class="note">${p.notes}</div>
     </div>
-    <div class="tip">${p.notes.length>110?p.notes.slice(0,108)+"&hellip;":p.notes}</div>
+    <div class="tip">${excerpt(p.notes,110)}</div>
   </div>`;
 }
-function render(){
-  const list=P.filter(match);
-  document.getElementById("gallery").innerHTML=list.map(card).join("");
-  document.getElementById("count").textContent=`${list.length} of ${P.length} plants`;
-  document.getElementById("empty").style.display=list.length?"none":"block";
-  document.querySelectorAll(".pc").forEach(el=>{
+function wireCards(sel){
+  document.querySelectorAll(sel).forEach(el=>{
     const toggle=()=>{const x=el.classList.toggle("exp");el.setAttribute("aria-expanded",String(x));};
     el.onclick=toggle;
     el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();}};
   });
+}
+function excerpt(t,n){const d=document.createElement("textarea");d.innerHTML=t;const s=d.value;return s.length>n?s.slice(0,n-1)+"\u2026":s;}
+function render(){
+  const list=P.filter(match), olist=ODATA.ornamentals.filter(omatch);
+  document.getElementById("gallery").innerHTML=list.map(card).join("");
+  document.getElementById("orngallery").innerHTML=olist.map(ocard).join("");
+  document.getElementById("count").textContent=`${list.length} of ${P.length} plants · ${olist.length} of ${ODATA.ornamentals.length} ornamentals`;
+  document.getElementById("empty").style.display=list.length?"none":"block";
+  wireCards("#gallery .pc");
+  wireCards("#orngallery .pc");
   // calendar highlight
   document.querySelectorAll(".cal td.cell, .cal th").forEach(td=>td.classList.remove("mhi"));
   state.month.forEach(m=>{const i=MONTHS.indexOf(m);
@@ -465,14 +483,26 @@ function calendar(){
 }
 
 // ---- chores ----
+const CHORE_IC={"Start seeds indoors (heat mat)":"&#127793;","Direct sow / succession sow":"&#127807;","Harden off & transplant out":"&#129716;","Watering":"&#128167;","Feed & mulch":"&#127806;","Trellis / train / prune / pollinate":"&#9986;","Slug & pest patrol":"&#128012;","Harvest":"&#129482;","Bed prep / cover crop / cleanup":"&#128296;","Ornamental & shrub care":"&#127795;"};
+function choreBody(idx){
+  const m=DATA.chores[idx];
+  const oc=(ODATA.monthChores&&ODATA.monthChores[idx])||[];
+  const cats=oc.length? m.chores.concat([{category:"Ornamental & shrub care",items:oc}]) : m.chores;
+  return cats.length? cats.map((c,ci)=>`<div class="chcat">${CHORE_IC[c.category]||"&bull;"} ${c.category}</div><ul>${c.items.map((i,ii)=>{const cid=`mc:${idx}:${ci}:${ii}`;return `<li class="chk${CHK.has(cid)?' done':''}"><label><input type="checkbox" data-cid="${cid}"${CHK.has(cid)?' checked':''}><span>${i}</span></label></li>`;}).join("")}</ul>`).join("")+'<a class="clearchk" data-clear="cm" href="#" role="button">clear checked</a>':'<p style="color:#999;font-style:italic;font-size:12px">Quiet month &mdash; rest &amp; plan.</p>';
+}
+function choreCard(idx,open){
+  const m=DATA.chores[idx];
+  return `<div class="cm${open?' open':''}"><div class="h" role="button" tabindex="0" aria-expanded="${open}"><span>${m.month}</span><span class="hr"><span class="cnt"></span><span class="ar">&#9656;</span></span></div><div class="body">${choreBody(idx)}</div></div>`;
+}
 function choreGrid(){
-  const ic={"Start seeds indoors (heat mat)":"&#127793;","Direct sow / succession sow":"&#127807;","Harden off & transplant out":"&#129716;","Watering":"&#128167;","Feed & mulch":"&#127806;","Trellis / train / prune / pollinate":"&#9986;","Slug & pest patrol":"&#128012;","Harvest":"&#129482;","Bed prep / cover crop / cleanup":"&#128296;","Ornamental & shrub care":"&#127795;"};
-  document.getElementById("choregrid").innerHTML=DATA.chores.map((m,idx)=>{
-    const oc=(ODATA.monthChores&&ODATA.monthChores[idx])||[];
-    const cats=oc.length? m.chores.concat([{category:"Ornamental & shrub care",items:oc}]) : m.chores;
-    const body=cats.length? cats.map((c,ci)=>`<div class="chcat">${ic[c.category]||"&bull;"} ${c.category}</div><ul>${c.items.map((i,ii)=>{const cid=`mc:${idx}:${ci}:${ii}`;return `<li class="chk${CHK.has(cid)?' done':''}"><label><input type="checkbox" data-cid="${cid}"${CHK.has(cid)?' checked':''}><span>${i}</span></label></li>`;}).join("")}</ul>`).join("")+'<a class="clearchk" data-clear="cm" href="#" role="button">clear checked</a>':'<p style="color:#999;font-style:italic;font-size:12px">Quiet month &mdash; rest &amp; plan.</p>';
-    return `<div class="cm${idx>=2&&idx<=9?' open':''}"><div class="h" role="button" tabindex="0" aria-expanded="${idx>=2&&idx<=9}"><span>${m.month}</span><span class="hr"><span class="cnt"></span><span class="ar">&#9656;</span></span></div><div class="body">${body}</div></div>`;
-  }).join("");
+  document.getElementById("choregrid").innerHTML=DATA.chores.map((m,idx)=>choreCard(idx,idx>=2&&idx<=9)).join("");
+}
+function thisMonth(){
+  const mi=new Date().getMonth();
+  document.getElementById("tmname").textContent=DATA.chores[mi].month;
+  document.getElementById("tmcard").innerHTML=`<div class="h" role="button" tabindex="0" aria-expanded="true"><span>${DATA.chores[mi].month} ${YEAR}</span><span class="hr"><span class="cnt"></span><span class="ar">&#9656;</span></span></div><div class="body">${choreBody(mi)}</div>`;
+}
+function wireChores(){
   document.querySelectorAll(".cm .h").forEach(h=>{
     const toggle=()=>{const o=h.parentElement.classList.toggle("open");h.setAttribute("aria-expanded",String(o));};
     h.onclick=toggle;
@@ -486,7 +516,6 @@ function guides(){
   const g=[["&#128293; Heat Mat Guide",s.heatMatGuide],["&#127793; Seed-Starting Basics",s.seedStartingBasics],["&#128012; Slug Strategy",s.slugStrategy],["&#127804; Companions & Pests",s.companionAndPests],["&#129704; Trellis & Arch Setup",s.trellisGuide],["&#128167; Watering by Month",s.wateringSummary],["&#128260; Crop Rotation",s.rotationPlan]];
   let h=g.map(([t,b])=>`<div class="guide"><h3>${t}</h3><p>${b}</p></div>`).join("");
   h+=`<div class="guide" style="grid-column:1/-1"><h3>&#11088; Top Tips</h3><ul>${s.topTips.map(t=>`<li>${t}</li>`).join("")}</ul></div>`;
-  h=`<div class="guide now" style="grid-column:1/-1;background:#fff4e6;border-color:#f5c98a"><h3>&#9654; Do This Now (mid-June 2026)</h3><ul>${s.rightNowJune.map(t=>`<li>${t}</li>`).join("")}</ul></div>`+h;
   document.getElementById("guidewrap").innerHTML=h;
 }
 
@@ -528,23 +557,15 @@ function ocard(p){
       <div class="flags">${flags}</div>
       <div class="note">${p.note}</div>
     </div>
-    <div class="tip">${p.note.length>110?p.note.slice(0,108)+"&hellip;":p.note}</div>
+    <div class="tip">${excerpt(p.note,110)}</div>
   </div>`;
-}
-function ornCards(){
-  document.getElementById("orngallery").innerHTML=ODATA.ornamentals.map(ocard).join("");
-  document.querySelectorAll("#orngallery .pc").forEach(el=>{
-    const toggle=()=>{const x=el.classList.toggle("exp");el.setAttribute("aria-expanded",String(x));};
-    el.onclick=toggle;
-    el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();}};
-  });
 }
 
 // ---- ornamentals: bloom & care calendar ----
 function ornCalendar(){
   document.getElementById("ornlegend").innerHTML=Object.values(OCODE).map(([c,l])=>`<span><span class="sw" style="background:${c}"></span>${l}</span>`).join("");
-  let h="<tr><th>Plant</th>"+MONTHS.map(m=>`<th>${m}</th>`).join("")+"</tr>";
-  ODATA.ornamentals.forEach(p=>{ h+=`<tr><td class="cn">${p.name}</td>`+p.timeline.map(c=>`<td class="cell" style="background:${c&&OCODE[c]?OCODE[c][0]:'#fff'}"></td>`).join("")+"</tr>";});
+  let h="<tr><th>Plant</th>"+MONTHS.map((m,i)=>`<th data-mi="${i}">${m}</th>`).join("")+"</tr>";
+  ODATA.ornamentals.forEach(p=>{ h+=`<tr><td class="cn">${p.name}</td>`+p.timeline.map((c,i)=>`<td class="cell" data-mi="${i}" style="background:${c&&OCODE[c]?OCODE[c][0]:'#fff'}"></td>`).join("")+"</tr>";});
   document.getElementById("orncaltable").innerHTML=h;
 }
 
@@ -597,7 +618,7 @@ function applyChecks(){
   updateCounts();
 }
 function updateCounts(){
-  document.querySelectorAll("#choregrid .cm").forEach(card=>{
+  document.querySelectorAll("#choregrid .cm, #thismonth .cm").forEach(card=>{
     const ins=card.querySelectorAll("input[data-cid]"),tot=ins.length;
     let done=0;ins.forEach(i=>{if(i.checked)done++;});
     let b=card.querySelector(".h .cnt");
@@ -640,7 +661,7 @@ document.getElementById("clear").onclick=clearAll;
 document.getElementById("resetlink").onclick=e=>{e.preventDefault();clearAll();};
 
 loadCache();
-buildPanel();bedMap();calendar();choreGrid();guides();render();ornZones();ornCards();ornCalendar();ornTasks();
+buildPanel();bedMap();calendar();choreGrid();guides();ornZones();ornCalendar();ornTasks();thisMonth();wireChores();render();
 applyChecks();fetchRemote();
 // in-page nav via JS scroll (avoids #hash navigation that prompts "open link?" inside iOS Files)
 document.querySelectorAll(".nav a[data-go]").forEach(a=>{
