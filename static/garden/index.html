@@ -509,8 +509,11 @@ function wireCards(sel){
   });
 }
 function excerpt(t,n){const d=document.createElement("textarea");d.innerHTML=t;const s=d.value;return s.length>n?s.slice(0,n-1)+"\u2026":s;}
+function filtersActive(){return !!state.q||FILTERS.some(f=>state[f.key].size);}
 function render(){
   const list=P.filter(match), olist=ODATA.ornamentals.filter(omatch);
+  // hide "This Month" while searching/filtering so results are visible immediately
+  document.getElementById("thismonth").style.display=filtersActive()?"none":"";
   updateGroupCounts();
   document.getElementById("gallery").innerHTML=list.map(card).join("");
   document.getElementById("orngallery").innerHTML=olist.map(ocard).join("");
