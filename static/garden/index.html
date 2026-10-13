@@ -141,7 +141,6 @@ table.cal{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}
 .cal td.cell{font-size:10px;color:#000;min-width:66px}
 .cal td.cell.dark{color:#fff}
 .annual{margin-top:22px}
-.annual>summary{cursor:pointer;padding:12px 0;font-weight:700;min-height:44px}
 .month-controls{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;margin-bottom:16px}
 .month-controls select{flex:1;min-width:0;max-width:260px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;min-height:44px}
 .month-controls button,.calendar-action{border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--green-d);font:inherit;font-weight:600;padding:10px 12px;min-height:44px;cursor:pointer}
@@ -348,18 +347,13 @@ dialog::backdrop{background:rgba(30,40,24,.42)}
   </section>
 
   <section id="calendar"><h2 class="sec">Garden Calendar</h2>
-    <div class="sub">Choose a month to see its chores and plant activities. Add any chore to your calendar on a date you choose.</div>
+    <div class="sub">Plants are rows and months are columns. Choose a month to highlight its activities and see its tasks below.</div>
     <div class="month-controls">
       <button id="month-prev" type="button" aria-label="Previous month">&#8592;</button>
       <select id="agenda-month" aria-label="Calendar month"></select>
       <button id="month-next" type="button" aria-label="Next month">&#8594;</button>
     </div>
-    <p id="agenda-summary" class="sub" role="status"></p>
-    <div id="monthly-agenda">
-      <div id="agenda-tasks"></div>
-      <div class="agenda-plants" id="agenda-plants"></div>
-    </div>
-    <details class="annual"><summary>Full year planting &amp; ornamental calendars</summary>
+    <div class="annual">
     <h3 class="osub">Vegetable Planting Calendar</h3>
     <div class="legend" id="legend"></div>
     <span class="calhint">&#8592; swipe the table sideways to see all months &#8594;</span>
@@ -368,7 +362,13 @@ dialog::backdrop{background:rgba(30,40,24,.42)}
     <div class="legend" id="ornlegend"></div>
     <span class="calhint">&#8592; swipe the table sideways to see all months &#8594;</span>
     <div class="calwrap"><table class="cal" id="orncaltable"></table></div>
-    </details>
+    </div>
+    <h3 class="osub">Monthly Tasks &amp; Activities</h3>
+    <p id="agenda-summary" class="sub" role="status"></p>
+    <div id="monthly-agenda">
+      <div id="agenda-tasks"></div>
+      <div class="agenda-plants" id="agenda-plants"></div>
+    </div>
   </section>
 
   <section id="chores"><h2 class="sec">Monthly Chores &mdash; Grouped by Task</h2>
