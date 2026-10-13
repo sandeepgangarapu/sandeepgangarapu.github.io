@@ -152,9 +152,9 @@ table.cal{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}
 .agenda-plants .activity{display:inline-block;font-weight:700;padding:2px 7px;border:1px solid var(--line);border-radius:8px;margin-right:5px}
 .agenda-plants li{margin-bottom:10px}
 .dashboard{padding-bottom:18px}
-.dashboard-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px;margin-top:18px}
-.dashboard-actions button:disabled{opacity:.5;cursor:default}
-#reset-status{font-size:13px;color:var(--muted)}
+.chore-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px;margin:8px 0 4px;column-span:all}
+.chore-actions button:disabled{opacity:.5;cursor:default}
+.reset-status{font-size:13px;color:var(--muted)}
 .task-progress{display:flex;align-items:center;gap:12px;margin:0 0 14px;font-size:13px;color:var(--muted)}
 .task-progress progress{width:160px;height:9px;accent-color:var(--green)}
 .chore-group{break-inside:avoid;margin-bottom:12px}
@@ -308,10 +308,6 @@ dialog::backdrop{background:rgba(30,40,24,.42)}
 </div>
 
 <div class="wrap dashboard">
-  <div class="dashboard-actions">
-    <span id="reset-status" role="status"></span>
-    <button id="uncheck-all" class="calendar-action" type="button">Uncheck all tasks</button>
-  </div>
   <section id="thismonth"><h2 class="sec">&#128197; This Month &mdash; <span id="tmname"></span></h2>
     <div class="sub">Your garden jobs for this month. Check off a task or add it to your calendar for a day that suits you.</div>
     <div class="task-progress"><progress id="tmprogress" value="0" max="1" aria-label="Completed chores this month"></progress><span id="tmprogresslabel" aria-live="polite"></span></div>
@@ -670,7 +666,8 @@ function calendarButton(cid){
 }
 function choreBody(idx){
   const cats=choreCategories(idx);
-  return cats.length?cats.map((c,ci)=>`<div class="chore-group"><div class="chcat">${CHORE_IC[c.category]||"&bull;"} ${c.category}</div><ul>${c.items.map((i,ii)=>{const cid=`mc:${idx}:${ci}:${ii}`;return `<li class="chk${CHK.has(cid)?' done':''}"><label><input type="checkbox" data-cid="${cid}"${CHK.has(cid)?' checked':''}><span>${i}</span></label>${calendarButton(cid)}</li>`;}).join("")}</ul></div>`).join("")+'<a class="clearchk" data-clear="cm" href="#" role="button">clear checked</a>':'<p>Quiet month &mdash; rest &amp; plan.</p>';
+  const actions=`<div class="chore-actions"><span class="reset-status" data-reset-status="${idx}" role="status"></span><button class="calendar-action" type="button" data-reset-month="${idx}" aria-label="Uncheck all ${FULL_MONTHS[idx]} tasks">Uncheck all tasks</button></div>`;
+  return cats.length?actions+cats.map((c,ci)=>`<div class="chore-group"><div class="chcat">${CHORE_IC[c.category]||"&bull;"} ${c.category}</div><ul>${c.items.map((i,ii)=>{const cid=`mc:${idx}:${ci}:${ii}`;return `<li class="chk${CHK.has(cid)?' done':''}"><label><input type="checkbox" data-cid="${cid}"${CHK.has(cid)?' checked':''}><span>${i}</span></label>${calendarButton(cid)}</li>`;}).join("")}</ul></div>`).join(""):'<p>Quiet month &mdash; rest &amp; plan.</p>';
 }
 function choreCard(idx,open){
   const m=DATA.chores[idx];
@@ -791,18 +788,18 @@ const SB_ON = !SB_URL.startsWith("__");  // false while placeholders are present
 const CHK = new Set();                    // checked cids for current YEAR
 const LS_KEY = "gardenChecks:"+YEAR;
 const pendingChecks = new Set();
-let resettingChecks = false, checkRevision = 0;
+let resettingMonth = null, checkRevision = 0;
 function loadCache(){try{const a=JSON.parse(localStorage.getItem(LS_KEY)||"[]");CHK.clear();a.forEach(c=>CHK.add(c));}catch(e){}}
 function saveCache(){try{localStorage.setItem(LS_KEY,JSON.stringify([...CHK]));}catch(e){}}
 function sbHeaders(extra){return Object.assign({apikey:SB_KEY,Authorization:"Bearer "+SB_KEY},extra||{});}
 async function fetchRemote(){
-  if(!SB_ON||resettingChecks)return;
+  if(!SB_ON||resettingMonth!==null)return;
   const revision=checkRevision;
   try{
     const res=await fetch(`${SB_URL}/rest/v1/${SB_TABLE}?year=eq.${YEAR}&select=cid`,{headers:sbHeaders()});
     if(!res.ok)return;
     const rows=await res.json();
-    if(resettingChecks||revision!==checkRevision)return;
+    if(resettingMonth!==null||revision!==checkRevision)return;
     CHK.clear();rows.forEach(r=>CHK.add(r.cid));
     saveCache();applyChecks();
   }catch(e){/* offline -> keep cached state */}
@@ -823,13 +820,16 @@ function applyChecks(){
   document.querySelectorAll("input[data-cid]").forEach(el=>{
     const on=CHK.has(el.dataset.cid);
     el.checked=on;
-    el.disabled=resettingChecks;
+    el.disabled=isResettingCheck(el.dataset.cid);
     const li=el.closest("li");if(li)li.classList.toggle("done",on);
   });
   updateCounts();
 }
 function updateCounts(){
-  document.getElementById("uncheck-all").disabled=resettingChecks||CHK.size===0;
+  document.querySelectorAll("button[data-reset-month]").forEach(button=>{
+    const prefix=`mc:${button.dataset.resetMonth}:`;
+    button.disabled=resettingMonth!==null||![...CHK].some(cid=>cid.startsWith(prefix));
+  });
   document.querySelectorAll("#choregrid .cm, #thismonth .cm, #agenda-tasks .cm").forEach(card=>{
     const ins=card.querySelectorAll("input[data-cid]"),tot=ins.length;
     let done=0;ins.forEach(i=>{if(i.checked)done++;});
@@ -854,9 +854,9 @@ function updateCounts(){
   });
 }
 async function toggle(cid,on){
-  if(resettingChecks){applyChecks();return;}
+  if(isResettingCheck(cid)){applyChecks();return;}
   checkRevision++;
-  document.getElementById("reset-status").textContent="";
+  if(cid.startsWith("mc:"))setResetStatus(Number(cid.split(":")[1]),"");
   if(on)CHK.add(cid);else CHK.delete(cid);
   saveCache();applyChecks();
   const request=pushCheck(cid,on);pendingChecks.add(request);
@@ -869,30 +869,38 @@ async function toggle(cid,on){
     if(li){li.classList.add("syncerr");setTimeout(()=>li.classList.remove("syncerr"),1800);}
   }
 }
-async function resetChecks(){
-  if(resettingChecks||!CHK.size)return;
-  resettingChecks=true;checkRevision++;
-  const status=document.getElementById("reset-status");
-  status.textContent="Unchecking all tasks…";
+function isResettingCheck(cid){
+  return resettingMonth!==null&&cid.startsWith(`mc:${resettingMonth}:`);
+}
+function setResetStatus(month,message){
+  document.querySelectorAll(`[data-reset-status="${month}"]`).forEach(status=>status.textContent=message);
+}
+async function resetMonthChecks(month){
+  if(!Number.isInteger(month)||month<0||month>11||resettingMonth!==null)return;
+  const prefix=`mc:${month}:`;
+  if(![...CHK].some(cid=>cid.startsWith(prefix)))return;
+  resettingMonth=month;checkRevision++;
+  setResetStatus(month,`Unchecking ${FULL_MONTHS[month]} tasks…`);
   applyChecks();
   try{
     // Finish earlier saves before clearing their remote rows.
     await Promise.allSettled([...pendingChecks]);
     if(SB_ON){
-      const res=await fetch(`${SB_URL}/rest/v1/${SB_TABLE}?year=eq.${YEAR}`,{method:"DELETE",headers:sbHeaders({Prefer:"return=minimal"})});
+      const res=await fetch(`${SB_URL}/rest/v1/${SB_TABLE}?year=eq.${YEAR}&cid=like.${encodeURIComponent(prefix+"*")}`,{method:"DELETE",headers:sbHeaders({Prefer:"return=minimal"})});
       if(!res.ok)throw new Error("Reset failed");
     }
-    CHK.clear();saveCache();
-    status.textContent="All monthly and seasonal tasks are unchecked.";
+    [...CHK].filter(cid=>cid.startsWith(prefix)).forEach(cid=>CHK.delete(cid));saveCache();
+    setResetStatus(month,`All ${FULL_MONTHS[month]} tasks are unchecked.`);
   }catch(e){
-    status.textContent="Could not uncheck all tasks. Please try again.";
+    setResetStatus(month,`Could not uncheck ${FULL_MONTHS[month]} tasks. Please try again.`);
   }finally{
-    resettingChecks=false;applyChecks();
+    resettingMonth=null;applyChecks();
   }
 }
-document.getElementById("uncheck-all").onclick=resetChecks;
 document.addEventListener("change",e=>{const el=e.target.closest("input[data-cid]");if(el)toggle(el.dataset.cid,el.checked);});
 document.addEventListener("click",e=>{
+  const button=e.target.closest("button[data-reset-month]");
+  if(button){resetMonthChecks(Number(button.dataset.resetMonth));return;}
   const a=e.target.closest(".clearchk");if(!a)return;
   e.preventDefault();
   const card=a.closest(".cm,.guide");if(!card)return;
