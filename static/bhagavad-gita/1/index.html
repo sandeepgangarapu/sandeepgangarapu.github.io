@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#171a45">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Gītā 1">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>Bhagavad Gītā, Chapter 1: learn to chant and understand it</title>
+<meta name="description" content="Learn Chapter 1 of the Bhagavad Gita, Arjuna Vishada Yoga, verse by verse: Telugu script, transliteration, line-by-line meaning, word meanings, per-line audio and memorization practice.">
+<meta property="og:title" content="శ్రీమద్భగవద్గీత · అర్జునవిషాదయోగః · Learn to chant and understand it">
+<meta property="og:description" content="All 47 verses of Chapter 1 with Telugu script, transliteration, meanings, audio and practice modes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Alegreya+Sans:wght@400;500;700&family=Tiro+Telugu&display=swap" rel="stylesheet">
+<style>
+@property --sky-top { syntax: "<color>"; inherits: true; initial-value: #1f2a5e; }
+@property --sky-low { syntax: "<color>"; inherits: true; initial-value: #c77d57; }
+
+html { background: var(--background, #f5f4f8); -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+@media (prefers-color-scheme: dark) { html { background: var(--background, #121329); } }
+
+.app {
+  --bg: var(--background, #f5f4f8);
+  --ink: var(--foreground, #23213b);
+  --ink-soft: var(--muted-foreground, #626078);
+  --rule: var(--border, #dcd9e6);
+  --surface: var(--card, #ffffff);
+  --r: var(--radius, 14px);
+  --night: #171a45;
+  --night-deep: #10133a;
+  --camphor: #f6f3ea;
+  --turmeric: #e8b23a;
+  --turmeric-soft: #f3d58c;
+  --kumkum: #c0303a;
+  --te: "Tiro Telugu", "Noto Serif Telugu", "Gautami", serif;
+  --lat: "Alegreya", "Noto Serif", Georgia, serif;
+  --ui: "Alegreya Sans", var(--font-sans, system-ui), sans-serif;
+  color: var(--ink);
+  font-family: var(--lat);
+  font-size: 17px;
+  line-height: 1.55;
+  padding: 4px 0 40px;
+}
+@media (prefers-color-scheme: dark) {
+  .app { --bg: var(--background, #121329); --ink: var(--foreground, #ecebf5); --ink-soft: var(--muted-foreground, #a6a4bf); --rule: var(--border, #2d2f52); --surface: var(--card, #1a1c38); }
+  .stage { box-shadow: 0 0 0 1px rgba(246,243,234,.07); }
+}
+.app *, .app *::before, .app *::after { box-sizing: border-box; }
+/* Zero-specificity reset, so component rules (e.g. dark text on the gold buttons) still win. */
+.app :where(button) { font: inherit; color: inherit; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.app :focus-visible { outline: 2px solid var(--turmeric); outline-offset: 2px; }
+
+/* Masthead */
+.masthead h1 { margin: 0; font-weight: 400; }
+.masthead .kicker { display: block; font-family: var(--te); font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+.masthead .title-te { display: block; font-family: var(--te); font-size: 34px; line-height: 1.35; }
+.masthead .title-en { display: block; font-family: var(--lat); font-style: italic; font-size: 19px; color: var(--ink-soft); margin-top: 2px; }
+.masthead p { margin: 12px 0 0; max-width: 62ch; color: var(--ink-soft); font-size: 16px; }
+
+/* Parts */
+.parts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 24px 0 14px; }
+.part {
+  text-align: left; background: none; border: 1px solid var(--rule); border-radius: calc(var(--r) - 4px);
+  padding: 8px 12px 9px; cursor: pointer; display: flex; flex-direction: column; gap: 1px; min-width: 0;
+}
+.part .p-top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+.part .p-te { font-family: var(--te); font-size: 17px; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.part .p-count { font-family: var(--ui); font-size: 12.5px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.part .p-en { font-family: var(--ui); font-size: 13.5px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.part:disabled { opacity: .5; cursor: default; }
+.part[aria-selected="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.part:hover { border-color: var(--ink-soft); }
+
+/* Verse chips */
+.chips { position: relative; display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 14px; }
+.chip {
+  width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--rule); background: none;
+  font-family: var(--ui); font-size: 13px; cursor: pointer; display: grid; place-items: center; padding: 0;
+  font-variant-numeric: tabular-nums;
+}
+.chip:hover { border-color: var(--ink-soft); }
+.chip.learned { background: var(--turmeric); border-color: var(--turmeric); color: #1d1a10; }
+.chip[aria-current="true"] { border: 2px solid var(--ink); font-weight: 700; }
+
+/* Stage */
+.stage { border-radius: var(--r); overflow: hidden; background: var(--night); color: var(--camphor); scroll-margin-top: calc(env(safe-area-inset-top) + 8px); }
+.sky {
+  position: relative; height: 128px; overflow: hidden;
+  background: linear-gradient(to bottom, var(--sky-top) 0 44%, var(--sky-low));
+  transition: --sky-top 1.4s ease, --sky-low 1.4s ease;
+}
+.sun {
+  position: absolute; left: 68%; width: 54px; height: 54px; border-radius: 50%;
+  bottom: var(--sun-y, 6px);
+  background: radial-gradient(circle at 50% 50%, #fff4cf 0 34%, var(--sun-c, #ffb347) 60%, transparent 72%);
+  box-shadow: 0 0 60px 18px color-mix(in srgb, var(--sun-c, #ffb347) 45%, transparent);
+  transition: bottom 1.4s ease;
+}
+.army { position: absolute; bottom: 8px; width: 42%; height: 56px; display: block; }
+.army-l { left: 0; }
+.army-r { right: 0; }
+.ground { position: absolute; left: 0; bottom: -1px; width: 100%; height: 14px; display: block; }
+.chariot {
+  position: absolute; bottom: 3px; left: var(--chariot-x, 73%); width: 60px; height: 44px;
+  transform: translateX(-50%); transition: left 1.8s ease-in-out; overflow: visible;
+}
+.chariot .bow { transform-box: fill-box; transform-origin: 50% 100%; transition: transform .9s ease, opacity .9s ease; }
+.chariot[data-pose="rest"] .bow { transform: rotate(-34deg); }
+.chariot[data-pose="down"] .bow { transform: rotate(-80deg); opacity: 0; }
+.chariot .arjuna { transition: transform .9s ease; }
+.chariot[data-pose="down"] .arjuna { transform: translateY(5px); }
+.sky-meta { position: absolute; top: 14px; left: 22px; right: 22px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.where { font-family: var(--ui); font-size: 14px; line-height: 1.35; text-shadow: 0 1px 2px rgba(16,19,58,.5), 0 0 12px rgba(16,19,58,.45); }
+.where b { display: block; font-size: 16px; font-weight: 500; }
+.where span { opacity: .9; }
+.nav { display: flex; gap: 6px; }
+.nav button {
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(246,243,234,.35);
+  background: rgba(16,19,58,.35); color: var(--camphor); cursor: pointer; display: grid; place-items: center; padding: 0;
+}
+.nav button:hover { background: rgba(16,19,58,.6); }
+.nav button:disabled { opacity: .3; cursor: default; }
+.nav svg { width: 16px; height: 16px; }
+
+.verse { padding: 6px 28px 28px; }
+.line { padding: 12px 0 12px; border-bottom: 1px solid rgba(246,243,234,.09); }
+.line:last-child { border-bottom: 0; }
+.line.has-audio { position: relative; padding-right: 50px; }
+.line-audio {
+  position: absolute; top: 12px; right: 0; width: 40px; height: 40px; padding: 0;
+  border: 1px solid rgba(246,243,234,.35); border-radius: 50%; background: rgba(16,19,58,.35);
+  color: var(--camphor); cursor: pointer; display: grid; place-items: center;
+}
+.line-audio:hover { background: rgba(246,243,234,.1); }
+.line-audio[aria-pressed="true"] { color: var(--turmeric); border-color: var(--turmeric); }
+.line-audio svg { width: 18px; height: 18px; }
+.line-audio[aria-busy="true"]::after {
+  content: ""; position: absolute; bottom: 3px; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--turmeric); animation: audio-pulse .7s ease-in-out infinite alternate;
+}
+@keyframes audio-pulse { to { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .line-audio[aria-busy="true"]::after { animation: none; } }
+.l-sp { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin-bottom: 2px; color: var(--turmeric); }
+.l-sp [lang="sa-Telu"] { font-family: var(--te); font-size: 16px; line-height: 1.5; }
+.l-sp [lang="sa-Latn"] { font-family: var(--lat); font-style: italic; font-size: 15px; }
+.l-te { font-family: var(--te); font-size: 25px; line-height: 1.6; overflow-wrap: anywhere; }
+.l-ia { font-family: var(--lat); font-style: italic; font-size: 18px; line-height: 1.45; color: rgba(246,243,234,.78); overflow-wrap: anywhere; }
+.l-te + .l-ia { margin-top: 2px; }
+.l-mn { font-family: var(--ui); font-size: 15.5px; line-height: 1.45; color: var(--turmeric-soft); margin-top: 6px; max-width: 60ch; }
+.dots { letter-spacing: .12em; opacity: .4; }
+.l-ia .g { font-weight: 700; font-style: italic; color: var(--camphor); }
+.l-ia .l { opacity: .62; }
+.recall {
+  width: 100%; text-align: left; background: rgba(246,243,234,.04); border: 1px dashed rgba(246,243,234,.28);
+  border-radius: 10px; color: rgba(246,243,234,.7); padding: 14px 16px; cursor: pointer; font-family: var(--ui); font-size: 15px;
+}
+.recall:hover { background: rgba(246,243,234,.08); }
+.recall kbd { font-family: var(--ui); font-size: 12px; border: 1px solid rgba(246,243,234,.3); border-radius: 4px; padding: 0 5px; margin-left: 4px; }
+
+/* Controls */
+.controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin: 14px 0 6px; font-family: var(--ui); }
+.ctl { display: flex; align-items: center; gap: 8px; }
+.ctl > .lbl { font-size: 13px; color: var(--ink-soft); }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 2px; }
+.seg button { border: 0; background: none; border-radius: 999px; padding: 4px 11px; font-size: 14px; cursor: pointer; white-space: nowrap; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.seg .te-btn { font-family: var(--te); font-size: 15px; line-height: 1.2; }
+.toggle { border: 1px solid var(--rule); background: none; border-radius: 999px; padding: 5px 12px; font-size: 14px; cursor: pointer; }
+.toggle[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.toggle[aria-pressed="true"]::before { content: "✓ "; }
+.stage-foot { display: flex; justify-content: flex-end; padding: 0 28px 22px; }
+.learn-btn {
+  border: 0; border-radius: 999px; padding: 8px 16px; font-size: 15px; font-weight: 500; cursor: pointer;
+  background: var(--turmeric); color: #1d1a10;
+}
+.learn-btn[aria-pressed="true"] { background: none; color: var(--turmeric); box-shadow: inset 0 0 0 1px var(--turmeric); }
+.hint-text { font-family: var(--ui); font-size: 13.5px; color: var(--ink-soft); margin: 2px 0 0; min-height: 1.4em; }
+
+/* Understanding */
+.understand { margin-top: 26px; }
+.understand h2, .guide h2 { font-family: var(--lat); font-weight: 500; font-size: 21px; margin: 0 0 8px; }
+.understand h2.te-h { font-family: var(--te); font-weight: 400; }
+.meaning-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.meaning-grid p { margin: 0; }
+.tatparyam { font-family: var(--te); font-size: 17.5px; line-height: 1.75; }
+.words { margin: 28px 0 0; }
+.wl { column-count: 2; column-gap: 32px; margin: 0; padding: 0; list-style: none; }
+.wl li { break-inside: avoid; padding: 7px 0 8px; border-top: 1px solid var(--rule); }
+.wl .w-te { font-family: var(--te); font-size: 18px; line-height: 1.45; margin-right: 8px; }
+.wl .w-ia { font-style: italic; font-size: 15px; color: var(--ink-soft); }
+.wl .w-mn { display: block; font-size: 16px; line-height: 1.4; }
+.note { margin: 26px 0 0; padding: 2px 0 2px 16px; border-left: 3px solid var(--kumkum); }
+.note h2 { font-size: 17px; margin-bottom: 4px; }
+.note p { margin: 0; color: var(--ink); }
+
+/* Sing-along */
+.singalong { margin-top: 32px; border-top: 1px solid var(--rule); padding-top: 8px; }
+.singalong summary { cursor: pointer; font-family: var(--lat); font-size: 21px; font-weight: 500; padding: 10px 0; list-style-position: outside; }
+.singalong summary small { font-family: var(--ui); font-weight: 400; font-size: 14px; color: var(--ink-soft); margin-left: 6px; }
+.sa-verse { display: grid; grid-template-columns: 34px 1fr; gap: 4px 8px; padding: 10px 10px 10px 0; border-radius: 10px; cursor: pointer; border-left: 3px solid transparent; }
+.sa-verse:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.sa-verse.current { border-left-color: var(--turmeric); background: color-mix(in srgb, var(--turmeric) 10%, transparent); }
+.sa-num { font-family: var(--ui); font-size: 13px; color: var(--ink-soft); text-align: right; padding-top: 6px; font-variant-numeric: tabular-nums; }
+.sa-te { font-family: var(--te); font-size: 19px; line-height: 1.6; }
+.sa-ia { font-style: italic; font-size: 16px; color: var(--ink-soft); line-height: 1.45; }
+.sa-te + .sa-ia { margin-top: 4px; }
+.sa-sp { font-size: .8em; color: var(--kumkum); }
+@media (prefers-color-scheme: dark) { .sa-sp { color: var(--turmeric); } }
+
+/* Guide */
+.guide { margin-top: 36px; border-top: 1px solid var(--rule); padding-top: 22px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 32px; }
+.guide ol { margin: 0; padding-left: 20px; }
+.guide li { margin: 0 0 8px; }
+.guide p { margin: 0 0 10px; }
+.guide a { color: inherit; text-decoration-color: var(--turmeric); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.colophon { margin: 4px 0 16px; padding: 12px 14px 10px; border: 1px solid var(--rule); border-radius: calc(var(--r) - 4px); }
+.colophon h3 { margin: 0 0 4px; font-family: var(--ui); font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--ink-soft); }
+.colophon .c-text { position: relative; }
+.colophon .c-text.has-audio { padding-right: 50px; }
+.colophon .line-audio { top: 0; color: var(--ink); border-color: var(--rule); background: none; }
+.colophon .line-audio:hover { background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.colophon .line-audio[aria-pressed="true"] { color: var(--kumkum); border-color: var(--kumkum); }
+.colophon .c-te { font-family: var(--te); font-size: 18px; line-height: 1.6; }
+.colophon .c-ia { font-style: italic; font-size: 15.5px; color: var(--ink-soft); line-height: 1.45; margin-top: 2px; }
+.colophon .c-mn { font-size: 15.5px; margin: 6px 0 0; }
+.keys { font-family: var(--ui); font-size: 14px; color: var(--ink-soft); }
+.keys kbd { font-family: var(--ui); font-size: 12px; border: 1px solid var(--rule); border-radius: 4px; padding: 0 5px; color: var(--ink); }
+
+.dock { display: none; }
+@media (max-width: 640px) {
+  .app { font-size: 16px; padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+  .masthead .kicker { font-size: 14px; }
+  .masthead .title-te { font-size: 25px; }
+  .masthead .title-en { font-size: 16px; }
+  .masthead p { display: none; }
+  .parts { grid-template-columns: 1fr 1fr; margin: 14px 0 10px; }
+  .part { padding: 8px 12px; }
+  .part .p-en { display: none; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding: 2px 0 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: 0 0 auto; width: 40px; height: 40px; font-size: 14px; }
+  .sky { height: 92px; }
+  .army { height: 40px; }
+  .chariot { width: 46px; height: 34px; }
+  .sky-meta { top: 12px; left: 16px; right: 16px; }
+  .nav { display: none; }
+  .verse { padding: 0 16px 12px; }
+  .line { padding: 10px 0; }
+  .line-audio { top: 10px; }
+  .l-te { font-size: 21px; line-height: 1.55; }
+  .l-ia { font-size: 16px; }
+  .l-mn { font-size: 14.5px; }
+  .stage-foot { display: none; }
+  .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+  .ctl { grid-column: 1 / -1; }
+  .ctl > .lbl { width: 56px; flex: none; }
+  .seg { flex: 1; }
+  .seg button { flex: 1; padding: 8px 4px; }
+  .toggle { padding: 9px 10px; }
+  .understand { margin-top: 22px; }
+  .meaning-grid, .guide { grid-template-columns: 1fr; gap: 22px; }
+  .wl { column-count: 1; }
+  .sa-verse { grid-template-columns: 26px 1fr; }
+
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+    display: grid; grid-template-columns: 52px 1fr 52px; gap: 10px; align-items: center;
+    padding: 10px max(14px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+    background: color-mix(in srgb, var(--bg) 84%, transparent);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-top: 1px solid var(--rule); font-family: var(--ui);
+  }
+  .dock .round {
+    width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--rule); background: var(--surface);
+    display: grid; place-items: center; padding: 0; cursor: pointer;
+  }
+  .dock .round svg { width: 20px; height: 20px; }
+  .dock .round:disabled { opacity: .35; }
+  .dock-main { height: 52px; border: 0; border-radius: 999px; font-size: 16.5px; font-weight: 500; cursor: pointer; background: var(--turmeric); color: #1d1a10; }
+  .dock-main[data-action="learn"][aria-pressed="true"] { background: none; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--turmeric); }
+  .dock-main[data-action="reveal"] { background: var(--night); color: var(--camphor); }
+}
+@media (hover: none) {
+  .recall kbd, .keys { display: none; }
+}
+
+/* Opened on its own (not embedded): give the page its own margins. */
+html.standalone .app { max-width: 780px; margin: 0 auto; padding: 32px max(20px, env(safe-area-inset-right)) 48px max(20px, env(safe-area-inset-left)); }
+@media (max-width: 640px) {
+  html.standalone .app { padding: calc(env(safe-area-inset-top) + 16px) max(14px, env(safe-area-inset-right)) calc(100px + env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left)); }
+  html.standalone .chips { margin-left: -14px; margin-right: -14px; padding-left: 14px; padding-right: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sky, .sun, .chariot, .chariot .bow, .chariot .arjuna { transition: none; }
+}
+</style>
+</head>
+<body>
+<main class="app" id="app">
+  <header class="masthead">
+    <h1><span class="kicker">శ్రీమద్భగవద్గీత · ప్రథమోఽధ్యాయః</span><span class="title-te">అర్జునవిషాదయోగః</span><span class="title-en">Bhagavad Gītā, Chapter 1: Arjuna’s Despair</span></h1>
+    <p>The Gītā opens on the battlefield of Kurukṣetra. Sañjaya tells the blind king Dhṛtarāṣṭra what he sees: the two armies, the conches, and Arjuna, who looks across at his own family and puts down his bow. It has 47 verses in four scenes. Work through it one verse at a time: read the meaning, learn the lines, then test yourself.</p>
+  </header>
+
+  <div class="parts" role="tablist" aria-label="Scenes of the chapter" id="parts"></div>
+  <div class="chips" id="chips" aria-label="Verses in this scene"></div>
+
+  <section class="stage" id="stage" aria-live="polite">
+    <div class="sky" id="sky">
+      <div class="sun" aria-hidden="true"></div>
+      <svg class="army army-l" viewBox="0 0 320 60" preserveAspectRatio="xMinYMax meet" aria-hidden="true"><g fill="none" stroke="#262a68" stroke-width="1.1"><path d="M3 44.7V31M10.2 44.9V30.2M15.4 45.1V28.9M23.1 45.4V29.4M30.9 45.6V33.1M37.3 45.8V35.4M44.5 46.1V35.9M49.7 46.3V35.2M55.3 46.4V34.5M60.5 46.6V37M66 46.8V36.6M72.3 47V37.4M80.3 47.3V33.9M85.9 47.5V36.5M92.1 47.7V36M97.5 47.9V33.1M106 48.2V36M112.7 48.4V38.8M118 48.6V37.4M124 48.8V34.6M129.5 49V39.9M137.9 49.3V37.1M143.4 49.5V37.3M148.5 49.7V37.6M156.9 49.9V36M164.3 50.2V40M170.6 50.4V40.9M178.3 50.7V39.1M186 51V40.6M191.8 51.2V38.1M200.3 51.5V38.3M208.1 51.8V38.9M215.7 52.1V42.7M222.5 52.3V42.3M227.6 52.5V44.4M233.6 52.8V43.4M241 53.1V39.9M247.6 53.3V40.4M256 53.6V40.8M262.3 54.5V45.8M268.1 55.4V47.2M273.8 56.4V46.4M281.9 57.8V47.3M288.6 59V49.8M296.4 60.5V54.2"/><path stroke-width="1.5" d="M24.9 45.4V11.9M81.4 47.3V18.2M125.3 48.8V18M172.7 50.5V20.9M234 52.8V28.3M282.9 58V33.3"/></g><g fill="#262a68"><path d="M1.7 31.4L3 27.6L4.3 31.4ZM8.9 30.6L10.2 26.8L11.5 30.6ZM14.1 29.3L15.4 25.5L16.7 29.3ZM21.8 29.8L23.1 26L24.4 29.8ZM29.6 33.5L30.9 29.7L32.2 33.5ZM36 35.8L37.3 32L38.6 35.8ZM43.2 36.3L44.5 32.5L45.8 36.3ZM48.4 35.6L49.7 31.8L51 35.6ZM54 34.9L55.3 31.1L56.6 34.9ZM59.2 37.4L60.5 33.6L61.8 37.4ZM64.7 37L66 33.2L67.3 37ZM71 37.8L72.3 34L73.6 37.8ZM79 34.3L80.3 30.5L81.6 34.3ZM84.6 36.9L85.9 33.1L87.2 36.9ZM90.8 36.4L92.1 32.6L93.4 36.4ZM96.2 33.5L97.5 29.7L98.8 33.5ZM104.7 36.4L106 32.6L107.3 36.4ZM111.4 39.2L112.7 35.4L114 39.2ZM116.7 37.8L118 34L119.3 37.8ZM122.7 35L124 31.2L125.3 35ZM128.2 40.3L129.5 36.5L130.8 40.3ZM136.6 37.5L137.9 33.7L139.2 37.5ZM142.1 37.7L143.4 33.9L144.7 37.7ZM147.2 38L148.5 34.2L149.8 38ZM155.6 36.4L156.9 32.6L158.2 36.4ZM163 40.4L164.3 36.6L165.6 40.4ZM169.3 41.3L170.6 37.5L171.9 41.3ZM177 39.5L178.3 35.7L179.6 39.5ZM184.7 41L186 37.2L187.3 41ZM190.5 38.5L191.8 34.7L193.1 38.5ZM199 38.7L200.3 34.9L201.6 38.7ZM206.8 39.3L208.1 35.5L209.4 39.3ZM214.4 43.1L215.7 39.3L217 43.1ZM221.2 42.7L222.5 38.9L223.8 42.7ZM226.3 44.8L227.6 41L228.9 44.8ZM232.3 43.8L233.6 40L234.9 43.8ZM239.7 40.3L241 36.5L242.3 40.3ZM246.3 40.8L247.6 37L248.9 40.8ZM254.7 41.2L256 37.4L257.3 41.2ZM261 46.2L262.3 42.4L263.6 46.2ZM266.8 47.6L268.1 43.8L269.4 47.6ZM272.5 46.8L273.8 43L275.1 46.8ZM280.6 47.7L281.9 43.9L283.2 47.7ZM287.3 50.2L288.6 46.4L289.9 50.2ZM295.1 54.6L296.4 50.8L297.7 54.6Z"/><path d="M24.9 11.9l14 4-14 4ZM125.3 18l14 4-14 4ZM172.7 20.9h13l-4 3.6 4 3.6h-13ZM282.9 33.3h13l-4 3.6 4 3.6h-13Z"/><path d="M75.4 24.2A6 6 0 0 1 87.4 24.2ZM228 34.3A6 6 0 0 1 240 34.3Z"/></g><g fill="#1b1e4f"><path d="M0 60V42.6Q2.6 39.5 5.1 42.8Q8 39.9 10.9 43Q13.7 39.6 16.5 43.1Q18.8 39.5 21.1 43.3Q23.4 39.8 25.7 43.5Q28 40.5 30.4 43.6Q33 39.5 35.7 43.8Q38.1 40.6 40.4 43.9Q43.3 39.7 46.2 44.1Q49 40.7 51.9 44.3Q55.1 41.5 58.3 44.5Q61.4 41.3 64.5 44.8Q66.9 41.7 69.3 44.9Q71.9 40.9 74.4 45.1Q76.9 41.4 79.3 45.3Q82.2 41.9 85.1 45.5Q87.9 42.5 90.7 45.6Q93 42.5 95.3 45.8Q98.2 42.4 101.1 46Q103.7 42.3 106.3 46.2Q109 42.9 111.7 46.4Q114.7 42.5 117.8 46.6Q120.3 42.9 122.8 46.7Q125.5 42.6 128.3 46.9Q131.3 43.7 134.3 47.2Q137.5 44.2 140.7 47.4Q143.4 43.4 146.1 47.6Q148.5 44 150.9 47.7Q153.2 43.9 155.4 47.9Q158.5 44.3 161.5 48.1Q164.6 44.9 167.7 48.3Q170.7 44.7 173.6 48.5Q176.4 45.1 179.3 48.8Q182.4 44.6 185.5 49Q188.2 45.2 190.9 49.2Q193.2 45.3 195.5 49.3Q198.4 45.1 201.3 49.6Q204.4 46.4 207.5 49.8Q210.1 46 212.7 50Q215 46.5 217.3 50.1Q219.7 47.2 222.1 50.3Q224.4 46.4 226.7 50.5Q229.1 47.3 231.5 50.7Q234.1 46.6 236.8 50.9Q239.1 47.4 241.4 51.1Q244.2 47 247 51.3Q250.1 47.2 253.2 51.5Q255.7 48.1 258.2 51.8Q260.8 48.3 263.4 52.7Q266.7 50.5 269.9 53.7Q272.3 51.2 274.7 54.6Q277.2 51.7 279.7 55.4Q282.5 53 285.4 56.4Q287.6 53.6 289.9 57.2Q292.5 54.4 295.1 58.2Q297.6 55.6 300 59.6V60Z"/><path transform="translate(66 60) scale(0.9 0.9)" d="M-12 -3Q-12.6-15-2-16.4q4-.6 7.4.4l.2-3.6h-1.2v-1.6q-3-.2-3.8-3.4h-6.8q-.8 3.2-3.8 3.4v1.6h-1.2v3.2M-2-16.4q8-1 11.6 3.4 3.2 4 2.6 9.4l-.8 3.6h-1.6l.6-4.2q-.6-1.8-2.2-.6l-.6 4.8H4.2V-4H-6v4h-3V-3Z"/><path transform="translate(174 60) scale(0.8 0.8)" d="M-12 -3Q-12.6-15-2-16.4q4-.6 7.4.4l.2-3.6h-1.2v-1.6q-3-.2-3.8-3.4h-6.8q-.8 3.2-3.8 3.4v1.6h-1.2v3.2M-2-16.4q8-1 11.6 3.4 3.2 4 2.6 9.4l-.8 3.6h-1.6l.6-4.2q-.6-1.8-2.2-.6l-.6 4.8H4.2V-4H-6v4h-3V-3Z"/></g></svg>
+      <svg class="army army-r" viewBox="0 0 320 60" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><g fill="none" stroke="#262a68" stroke-width="1.1"><path d="M23 60.6V51.7M31.3 59V51.8M39.6 57.5V46.7M46.7 56.3V47.2M52.1 55.4V48M60.5 54V45.1M67.9 53.5V44.3M75.8 53.2V42.1M81.8 52.9V44.1M89.4 52.7V44.3M95.2 52.4V41.3M103.1 52.1V40.5M109.1 51.9V38.5M114.8 51.7V43.4M120.8 51.5V40.6M126 51.3V41.9M132.3 51.1V39.3M137.7 50.9V40.3M145.9 50.6V36.2M153.2 50.3V37.5M160.2 50.1V40.5M165.3 49.9V41.1M173.5 49.6V36.5M181.9 49.3V40.3M189.1 49V37.1M196.7 48.8V37.8M205.2 48.5V38.9M212.1 48.2V34.4M220.2 48V34M227.7 47.7V33.3M235.9 47.4V35.8M243.3 47.2V31.8M251.3 46.9V34.6M259.1 46.6V31.3M266.1 46.4V32.6M272.4 46.2V32.5M279.6 45.9V35.6M286.8 45.7V29.1M294.9 45.4V30.5M301.3 45.2V30.2M308.3 45V31.9M316.2 44.7V34.1"/><path stroke-width="1.5" d="M34.4 58.4V36.5M84.9 52.8V29.7M140.3 50.8V24M193.8 48.9V16.9M239.4 47.3V22.6M286.1 45.7V13.5"/></g><g fill="#262a68"><path d="M21.7 52.1L23 48.3L24.3 52.1ZM30 52.2L31.3 48.4L32.6 52.2ZM38.3 47.1L39.6 43.3L40.9 47.1ZM45.4 47.6L46.7 43.8L48 47.6ZM50.8 48.4L52.1 44.6L53.4 48.4ZM59.2 45.5L60.5 41.7L61.8 45.5ZM66.6 44.7L67.9 40.9L69.2 44.7ZM74.5 42.5L75.8 38.7L77.1 42.5ZM80.5 44.5L81.8 40.7L83.1 44.5ZM88.1 44.7L89.4 40.9L90.7 44.7ZM93.9 41.7L95.2 37.9L96.5 41.7ZM101.8 40.9L103.1 37.1L104.4 40.9ZM107.8 38.9L109.1 35.1L110.4 38.9ZM113.5 43.8L114.8 40L116.1 43.8ZM119.5 41L120.8 37.2L122.1 41ZM124.7 42.3L126 38.5L127.3 42.3ZM131 39.7L132.3 35.9L133.6 39.7ZM136.4 40.7L137.7 36.9L139 40.7ZM144.6 36.6L145.9 32.8L147.2 36.6ZM151.9 37.9L153.2 34.1L154.5 37.9ZM158.9 40.9L160.2 37.1L161.5 40.9ZM164 41.5L165.3 37.7L166.6 41.5ZM172.2 36.9L173.5 33.1L174.8 36.9ZM180.6 40.7L181.9 36.9L183.2 40.7ZM187.8 37.5L189.1 33.7L190.4 37.5ZM195.4 38.2L196.7 34.4L198 38.2ZM203.9 39.3L205.2 35.5L206.5 39.3ZM210.8 34.8L212.1 31L213.4 34.8ZM218.9 34.4L220.2 30.6L221.5 34.4ZM226.4 33.7L227.7 29.9L229 33.7ZM234.6 36.2L235.9 32.4L237.2 36.2ZM242 32.2L243.3 28.4L244.6 32.2ZM250 35L251.3 31.2L252.6 35ZM257.8 31.7L259.1 27.9L260.4 31.7ZM264.8 33L266.1 29.2L267.4 33ZM271.1 32.9L272.4 29.1L273.7 32.9ZM278.3 36L279.6 32.2L280.9 36ZM285.5 29.5L286.8 25.7L288.1 29.5ZM293.6 30.9L294.9 27.1L296.2 30.9ZM300 30.6L301.3 26.8L302.6 30.6ZM307 32.3L308.3 28.5L309.6 32.3ZM314.9 34.5L316.2 30.7L317.5 34.5Z"/><path d="M34.4 36.5l14 4-14 4ZM140.3 24l14 4-14 4ZM193.8 16.9h13l-4 3.6 4 3.6h-13ZM286.1 13.5h13l-4 3.6 4 3.6h-13Z"/><path d="M78.9 35.7A6 6 0 0 1 90.9 35.7ZM233.4 28.6A6 6 0 0 1 245.4 28.6Z"/></g><g fill="#1b1e4f"><path d="M20 60V59.6Q22.7 54.3 25.4 58.1Q28.6 53.2 31.8 56.9Q34.5 52 37.3 55.9Q39.7 51.3 42.1 55.1Q45 49.9 47.9 54.1Q50.2 49.9 52.6 53.3Q54.9 48.3 57.3 52.5Q60.2 48.6 63.2 51.7Q66.4 47 69.6 51.4Q72.5 47.3 75.4 51.2Q77.8 48 80.2 51Q83 47.7 85.8 50.8Q88.2 47.2 90.7 50.6Q93 46.7 95.2 50.4Q97.9 46 100.6 50.2Q103.4 46.1 106.2 50Q108.9 45.8 111.7 49.8Q114.4 46.2 117.1 49.6Q120.3 44.9 123.6 49.4Q126.7 45.1 129.7 49.2Q132.3 45.6 134.9 49Q137.4 45.7 140 48.8Q143 45 146 48.6Q149.1 44.8 152.2 48.3Q155.4 43.8 158.6 48.1Q160.8 44.6 163.1 47.9Q166.3 44 169.4 47.7Q172.7 43.9 175.9 47.5Q178.2 43.4 180.5 47.3Q183.6 43.7 186.6 47.1Q188.9 43.5 191.3 47Q194.5 42.6 197.7 46.7Q200.1 43.2 202.4 46.6Q204.8 43.3 207.1 46.4Q210.2 42.9 213.2 46.2Q216 42.3 218.8 46Q221.3 41.7 223.7 45.8Q226.1 41.7 228.5 45.7Q230.8 41.9 233.2 45.5Q235.7 41.9 238.1 45.3Q241.4 40.9 244.6 45.1Q247.1 40.6 249.7 45Q252.2 41.2 254.6 44.8Q257.7 40.6 260.8 44.6Q263.2 39.9 265.5 44.4Q268 40.9 270.4 44.2Q273.5 40.6 276.5 44Q279 40.8 281.6 43.9Q283.9 39.8 286.3 43.7Q288.8 39.7 291.3 43.6Q293.9 39.7 296.5 43.4Q299.7 39.4 302.9 43.2Q305.7 38.7 308.6 43Q311 39.6 313.4 42.8Q316.6 38.4 319.7 42.6Q319.9 39.3 320 42.6V60Z"/><path transform="translate(86 60) scale(-0.8 0.8)" d="M-12 -3Q-12.6-15-2-16.4q4-.6 7.4.4l.2-3.6h-1.2v-1.6q-3-.2-3.8-3.4h-6.8q-.8 3.2-3.8 3.4v1.6h-1.2v3.2M-2-16.4q8-1 11.6 3.4 3.2 4 2.6 9.4l-.8 3.6h-1.6l.6-4.2q-.6-1.8-2.2-.6l-.6 4.8H4.2V-4H-6v4h-3V-3Z"/><path transform="translate(194 60) scale(-0.9 0.9)" d="M-12 -3Q-12.6-15-2-16.4q4-.6 7.4.4l.2-3.6h-1.2v-1.6q-3-.2-3.8-3.4h-6.8q-.8 3.2-3.8 3.4v1.6h-1.2v3.2M-2-16.4q8-1 11.6 3.4 3.2 4 2.6 9.4l-.8 3.6h-1.6l.6-4.2q-.6-1.8-2.2-.6l-.6 4.8H4.2V-4H-6v4h-3V-3Z"/></g></svg>
+      <svg class="ground" viewBox="0 0 1000 20" preserveAspectRatio="none" aria-hidden="true"><path fill="#171a45" d="M0 20V9C200 6 400 11 500 9 650 6 800 10 1000 8V20Z"/></svg>
+      <svg class="chariot" id="chariot" viewBox="0 0 64 44" aria-hidden="true"><defs><g id="bg-horse"><path d="M2.4 21.6 6.2 16.6 7 14.8l1.2 1.6q3.2 2.8 5.4 7.2l11-.2q3.4.2 3.6 3.6l-.6 4 1 11.6h-1.4L25.8 33l-1 9.6h-1.4l-.2-11h-8.8l-.6 11h-1.4L12 33l-1.4 9.6H9.2l1-12.6q-1.6-2.4-.6-5L5.4 22.4l-2 .6Z"/><path fill="none" stroke-width="1.1" d="M28 24.6q3 2 2.4 8"/></g></defs><g stroke="#10133a" stroke-width=".8" stroke-linejoin="round"><use href="#bg-horse" x="5" y="-1.6" fill="#d8d1c1"/><use href="#bg-horse" fill="#f1ece0"/></g><g fill="#10133a"><path d="M14 28.6h22v1.8H14z"/><circle cx="39" cy="14.6" r="2.3"/><path d="M36.5 22v-4.6q2.5-2 5 0V22Z"/><g class="arjuna"><circle cx="50" cy="13.4" r="2.4"/><path d="M47.3 22v-5.6q2.7-2.2 5.4 0V22Z"/></g><path d="M34.5 21.5h24.5l-2.4 9.6H37Z"/><circle cx="45" cy="35" r="1.8"/></g><g class="bow" fill="none" stroke="#10133a"><path stroke-width="1.4" d="M45.6 4.6q-4.4 8.2 0 16.4"/><path stroke-width=".6" d="M45.6 4.6v16.4"/></g><g fill="none" stroke="#10133a"><circle cx="45" cy="35" r="7.8" stroke-width="1.7"/><path stroke-width="1" d="M45 27.2v15.6M37.2 35h15.6m-13.3-5.5 11 11m0-11-11 11"/><path stroke-width="1.4" d="M56.5 22V1.6"/></g><path fill="#e8b23a" d="M56.5 2.1 64 5l-7.5 3Z"/></svg>
+      <div class="sky-meta">
+        <div class="where" id="where"></div>
+        <div class="nav">
+          <button type="button" id="prev" aria-label="Previous verse"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3 5 8l5 5"/></svg></button>
+          <button type="button" id="next" aria-label="Next verse"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 3 5 5-5 5"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="verse" id="verse"></div>
+    <div class="stage-foot"><button type="button" class="learn-btn" id="learn">Mark as learned</button></div>
+  </section>
+
+  <div class="controls">
+    <div class="ctl"><span class="lbl">Script</span>
+      <div class="seg" data-key="script">
+        <button type="button" data-val="te" class="te-btn">తెలుగు</button><button type="button" data-val="en">English</button><button type="button" data-val="both">Both</button>
+      </div>
+    </div>
+    <div class="ctl"><span class="lbl">Practice</span>
+      <div class="seg" data-key="mode">
+        <button type="button" data-val="read">Read</button><button type="button" data-val="hints">Hints</button><button type="button" data-val="recall">Recall</button>
+      </div>
+    </div>
+    <button type="button" class="toggle" data-toggle="meanings">Meanings</button>
+    <button type="button" class="toggle" data-toggle="rhythm">Long syllables</button>
+  </div>
+  <p class="hint-text" id="hint-text"></p>
+
+  <section class="understand" id="understand"></section>
+
+  <details class="singalong" id="singalong">
+    <summary id="sa-summary"></summary>
+    <div id="sa-list"></div>
+  </details>
+
+  <section class="guide">
+    <div>
+      <h2>How to learn it</h2>
+      <ol>
+        <li>Listen first. The speaker button next to each line plays that line from Swami Brahmananda’s chanting, the recitation used by the Gita Supersite at IIT Kanpur. Every verse in this chapter is in the same anuṣṭubh meter and is chanted to the same tune, so once the first few verses are in your ear, the rest follow.</li>
+        <li>Know who is speaking. Sañjaya narrates to the blind king, Duryodhana speaks to his teacher Droṇa in verses 3 to 11, and Arjuna speaks to Kṛṣṇa from verse 28 on. A gold label marks the line where a new speaker begins. Chant it as part of that line: <i>arjuna uvāca</i> means “Arjuna said.”</li>
+        <li>Read the meaning before you memorize. The story will carry you through the long lists of warriors and conches.</li>
+        <li>Learn one line at a time. Read it, switch to Hints, then to Recall and say each line before you tap it.</li>
+        <li>Turn on Long syllables while learning to pronounce. Hold the bold syllables about twice as long as the others.</li>
+      </ol>
+    </div>
+    <div>
+      <h2>About the chapter</h2>
+      <p>The Bhagavad Gītā is a conversation between Kṛṣṇa and the warrior Arjuna, set in the Mahābhārata just before the great war at Kurukṣetra. The blind king Dhṛtarāṣṭra hears it from his minister Sañjaya, to whom the sage Vyāsa has given the sight to watch the battle from afar.</p>
+      <p>This first chapter sets the scene. The armies line up, the conches sound, and Arjuna asks Kṛṣṇa to drive his chariot between them. Seeing his grandfather, teachers and cousins on the other side, he is overcome with grief and sits down, his bow set aside. Kṛṣṇa’s teaching begins in Chapter 2. Every verse here is in the anuṣṭubh meter: two lines of sixteen syllables each.</p>
+      <div class="colophon">
+        <h3>Closing words, chanted after verse 47</h3>
+        <div class="c-text" id="colophon-text">
+          <div class="c-te" lang="sa-Telu">ఓం తత్సదితి శ్రీమద్భగవద్గీతాసు ఉపనిషత్సు బ్రహ్మవిద్యాయాం యోగశాస్త్రే శ్రీకృష్ణార్జునసంవాదే అర్జునవిషాదయోగో నామ ప్రథమోఽధ్యాయః</div>
+          <div class="c-ia" lang="sa-Latn">oṁ tatsaditi śrīmadbhagavadgītāsu upaniṣatsu brahmavidyāyāṁ yogaśāstre śrīkṛṣṇārjunasaṁvāde arjunaviṣādayogo nāma prathamo'dhyāyaḥ</div>
+        </div>
+        <p class="c-mn">Oṁ tat sat. So ends the first chapter, called the Yoga of Arjuna’s Despair, in the Upaniṣad of the glorious Bhagavad Gītā: the knowledge of Brahman, the scripture of yoga, the dialogue between Śrī Kṛṣṇa and Arjuna.</p>
+      </div>
+      <p>Audio: Swami Brahmananda, <i>Geeta Chanting</i> (Chinmaya Mission).</p>
+      <p class="keys"><kbd>←</kbd> <kbd>→</kbd> previous or next verse · <kbd>Space</kbd> reveal the next line in Recall · <kbd>L</kbd> mark as learned</p>
+    </div>
+  </section>
+
+  <nav class="dock" aria-label="Verse controls">
+    <button type="button" class="round" id="dock-prev" aria-label="Previous verse"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3 5 8l5 5"/></svg></button>
+    <button type="button" class="dock-main" id="dock-main">Mark as learned</button>
+    <button type="button" class="round" id="dock-next" aria-label="Next verse"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 3 5 5-5 5"/></svg></button>
+  </nav>
+</main>
+
+<script>
+const DATA = [{"id":"bg1-01","num":1,"meter":"Anuṣṭubh","lines":[{"te":"ధర్మక్షేత్రే కురుక్షేత్రే సమవేతా యుయుత్సవః","iast":"dharmakṣetre kurukṣetre samavetā yuyutsavaḥ","meaning":"Gathered at Kurukṣetra, the field of righteousness, eager to fight…","speaker":"dhritarashtra"},{"te":"మామకాః పాండవాశ్చైవ కిమకుర్వత సంజయ","iast":"māmakāḥ pāṇḍavāścaiva kimakurvata sañjaya","meaning":"…what did my sons and the sons of Pāṇḍu do, O Sañjaya?"}],"words":[{"te":"ధర్మ క్షేత్రే","iast":"dharma-kṣetre","meaning":"in the field of righteousness"},{"te":"కురు క్షేత్రే","iast":"kuru-kṣetre","meaning":"at Kurukṣetra, the Kurus’ field"},{"te":"సమవేతాః","iast":"samavetāḥ","meaning":"gathered together"},{"te":"యుయుత్సవః","iast":"yuyutsavaḥ","meaning":"eager to fight"},{"te":"మామకాః","iast":"māmakāḥ","meaning":"my sons"},{"te":"పాండవాః","iast":"pāṇḍavāḥ","meaning":"the sons of Pāṇḍu"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"ఏవ","iast":"eva","meaning":"indeed; also"},{"te":"కిమ్","iast":"kim","meaning":"what action"},{"te":"అకుర్వత","iast":"akurvata","meaning":"did they do"},{"te":"సంజయ","iast":"sañjaya","meaning":"O Sañjaya"}],"summary":"Dhṛtarāṣṭra asks Sañjaya what happened when the two sides gathered for battle at Kurukṣetra. His words “my sons” and “the sons of Pāṇḍu” introduce the division within the family.","tatparyam":"ధర్మక్షేత్రమైన కురుక్షేత్రంలో యుద్ధానికి సిద్ధంగా చేరిన తన కుమారులు, పాండవులు ఏమి చేశారో చెప్పమని ధృతరాష్ట్రుడు సంజయుణ్ణి అడుగుతున్నాడు. ఒకే కుటుంబానికి చెందినవారైనా, తన పిల్లలను ఒక పక్షంగా, పాండవులను మరో పక్షంగా చూస్తున్నాడు.","note":"Dhṛtarāṣṭra is the blind father of Duryodhana; Pāṇḍu is his brother. Sañjaya narrates the battle to him, traditionally through the divine sight granted by Vyāsa."},{"id":"bg1-02","num":2,"meter":"Anuṣṭubh","lines":[{"te":"దృష్ట్వా తు పాండవానీకం వ్యూఢం దుర్యోధనస్తదా","iast":"dṛṣṭvā tu pāṇḍavānīkaṁ vyūḍhaṁ duryodhanastadā","meaning":"Then, when Duryodhana saw the Pāṇḍava army drawn up for battle…","speaker":"sanjaya"},{"te":"ఆచార్యముపసంగమ్య రాజా వచనమబ్రవీత్","iast":"ācāryamupasaṅgamya rājā vacanamabravīt","meaning":"…the king approached his teacher and spoke these words."}],"words":[{"te":"దృష్ట్వా","iast":"dṛṣṭvā","meaning":"having seen"},{"te":"తు","iast":"tu","meaning":"but; now"},{"te":"పాండవ అనీకమ్","iast":"pāṇḍava-anīkam","meaning":"the army of the Pāṇḍavas"},{"te":"వ్యూఢమ్","iast":"vyūḍham","meaning":"arranged for battle"},{"te":"దుర్యోధనః","iast":"duryodhanaḥ","meaning":"Duryodhana, Dhṛtarāṣṭra’s eldest son"},{"te":"తదా","iast":"tadā","meaning":"at that time"},{"te":"ఆచార్యమ్","iast":"ācāryam","meaning":"his teacher, Droṇa"},{"te":"ఉపసంగమ్య","iast":"upasaṅgamya","meaning":"having approached"},{"te":"రాజా","iast":"rājā","meaning":"the king"},{"te":"వచనమ్","iast":"vacanam","meaning":"these words"},{"te":"అబ్రవీత్","iast":"abravīt","meaning":"he spoke"}],"summary":"Sañjaya begins his account with Duryodhana surveying the Pāṇḍava army. Duryodhana goes to his teacher Droṇa, and the next verses give his assessment of the two armies.","tatparyam":"పాండవుల సైన్యం యుద్ధానికి సిద్ధంగా నిలబడి ఉండటం దుర్యోధనుడు చూశాడని సంజయుడు చెబుతున్నాడు. ఆ సైన్యాన్ని చూసి దుర్యోధనుడు తన గురువైన ద్రోణాచార్యుడి దగ్గరకు వెళ్లి మాట్లాడటం మొదలుపెట్టాడు.","note":"Droṇa taught martial skills to both the Kauravas and the Pāṇḍavas. Here he stands on the Kaurava side, while many of his former pupils face him across the battlefield."},{"id":"bg1-03","num":3,"meter":"Anuṣṭubh","lines":[{"te":"పశ్యైతాం పాండుపుత్రాణామాచార్య మహతీం చమూమ్","iast":"paśyaitāṁ pāṇḍuputrāṇāmācārya mahatīṁ camūm","meaning":"O teacher, look at this great army of the sons of Pāṇḍu…"},{"te":"వ్యూఢాం ద్రుపదపుత్రేణ తవ శిష్యేణ ధీమతా","iast":"vyūḍhāṁ drupadaputreṇa tava śiṣyeṇa dhīmatā","meaning":"…arranged for battle by Drupada’s son, your intelligent pupil."}],"words":[{"te":"పశ్య","iast":"paśya","meaning":"look; behold"},{"te":"ఏతామ్","iast":"etām","meaning":"this army"},{"te":"పాండు పుత్రాణామ్","iast":"pāṇḍu-putrāṇām","meaning":"of the sons of Pāṇḍu"},{"te":"ఆచార్య","iast":"ācārya","meaning":"O teacher"},{"te":"మహతీమ్","iast":"mahatīm","meaning":"great; mighty"},{"te":"చమూమ్","iast":"camūm","meaning":"the army"},{"te":"వ్యూఢామ్","iast":"vyūḍhām","meaning":"drawn up for battle"},{"te":"ద్రుపద పుత్రేణ","iast":"drupada-putreṇa","meaning":"by Drupada’s son, Dhṛṣṭadyumna"},{"te":"తవ","iast":"tava","meaning":"your own"},{"te":"శిష్యేణ","iast":"śiṣyeṇa","meaning":"by the pupil"},{"te":"ధీమతా","iast":"dhīmatā","meaning":"who is intelligent"}],"summary":"Duryodhana points out the Pāṇḍava army to Droṇa. He stresses that the man who arranged it is Droṇa’s own pupil, drawing attention to the personal ties that cross the battle lines.","tatparyam":"పాండవుల పెద్ద సైన్యాన్ని చూడమని దుర్యోధనుడు ద్రోణాచార్యుడికి చెబుతున్నాడు. ద్రుపదుడి కుమారుడూ, ద్రోణాచార్యుడి తెలివైన శిష్యుడూ అయిన ధృష్టద్యుమ్నుడే ఆ సైన్యాన్ని యుద్ధానికి సిద్ధం చేశాడని గుర్తుచేస్తున్నాడు.","note":"Drupada’s son is Dhṛṣṭadyumna, commander of the Pāṇḍava army. Although Drupada and Droṇa were enemies, Dhṛṣṭadyumna learned martial skills from Droṇa himself."},{"id":"bg1-04","num":4,"meter":"Anuṣṭubh","lines":[{"te":"అత్ర శూరా మహేష్వాసా భీమార్జునసమా యుధి","iast":"atra śūrā maheṣvāsā bhīmārjunasamā yudhi","meaning":"Here are heroes, mighty archers equal to Bhīma and Arjuna in battle…"},{"te":"యుయుధానో విరాటశ్చ ద్రుపదశ్చ మహారథః","iast":"yuyudhāno virāṭaśca drupadaśca mahārathaḥ","meaning":"…Yuyudhāna, Virāṭa, and Drupada, the great chariot warrior."}],"words":[{"te":"అత్ర","iast":"atra","meaning":"here in this army"},{"te":"శూరాః","iast":"śūrāḥ","meaning":"brave warriors"},{"te":"మహా ఇష్వాసాః","iast":"mahā-iṣvāsāḥ","meaning":"wielders of mighty bows"},{"te":"భీమ అర్జున సమాః","iast":"bhīma-arjuna-samāḥ","meaning":"equal to Bhīma and Arjuna"},{"te":"యుధి","iast":"yudhi","meaning":"in battle"},{"te":"యుయుధానః","iast":"yuyudhānaḥ","meaning":"Yuyudhāna, also called Sātyaki"},{"te":"విరాటః","iast":"virāṭaḥ","meaning":"Virāṭa, king of Matsya"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"ద్రుపదః","iast":"drupadaḥ","meaning":"Drupada, king of Pāñcāla"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"మహా రథః","iast":"mahā-rathaḥ","meaning":"a great chariot warrior"}],"summary":"Duryodhana begins naming the powerful warriors in the opposing army. Comparing them with Bhīma and Arjuna makes clear that the Pāṇḍavas have formidable allies.","tatparyam":"పాండవుల పక్షంలో భీమార్జునులతో సమానంగా పోరాడగల గొప్ప విలుకాళ్లు ఉన్నారని దుర్యోధనుడు చెబుతున్నాడు. యుయుధానుడు, విరాటుడు, ద్రుపదుడు వంటి యోధుల పేర్లు చెప్పి వారి బలాన్ని ద్రోణాచార్యుడికి గుర్తుచేస్తున్నాడు.","note":"Yuyudhāna is better known as Sātyaki. Virāṭa sheltered the Pāṇḍavas during their year in disguise, and Drupada is Draupadī’s father."},{"id":"bg1-05","num":5,"meter":"Anuṣṭubh","lines":[{"te":"ధృష్టకేతుశ్చేకితానః కాశిరాజశ్చ వీర్యవాన్","iast":"dhṛṣṭaketuścekitānaḥ kāśirājaśca vīryavān","meaning":"Dhṛṣṭaketu, Cekitāna, and the valiant king of Kāśī are here…"},{"te":"పురుజిత్కుంతిభోజశ్చ శైబ్యశ్చ నరపుంగవః","iast":"purujitkuntibhojaśca śaibyaśca narapuṅgavaḥ","meaning":"…as are Purujit, Kuntibhoja, and Śaibya, foremost among men."}],"words":[{"te":"ధృష్టకేతుః","iast":"dhṛṣṭaketuḥ","meaning":"Dhṛṣṭaketu, king of Cedi"},{"te":"చేకితానః","iast":"cekitānaḥ","meaning":"Cekitāna, a Pāṇḍava ally"},{"te":"కాశి రాజః","iast":"kāśi-rājaḥ","meaning":"the king of Kāśī"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"వీర్యవాన్","iast":"vīryavān","meaning":"possessed of great valor"},{"te":"పురుజిత్","iast":"purujit","meaning":"Purujit, a Pāṇḍava ally"},{"te":"కుంతిభోజః","iast":"kuntibhojaḥ","meaning":"Kuntibhoja, Kuntī’s foster father"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"శైబ్యః","iast":"śaibyaḥ","meaning":"Śaibya, a Pāṇḍava ally"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"నర పుంగవః","iast":"nara-puṅgavaḥ","meaning":"foremost among men"}],"summary":"Duryodhana continues listing the heroes who support the Pāṇḍavas. These names show that the coming battle involves allied rulers and families as well as the rival cousins.","tatparyam":"ధృష్టకేతువు, చేకితానుడు, కాశీరాజు, పురుజిత్తు, కుంతిభోజుడు, శైబ్యుడు కూడా పాండవుల పక్షంలో ఉన్నారని దుర్యోధనుడు చెబుతున్నాడు. ఈ యుద్ధంలో అన్నదమ్ముల కుటుంబాలే కాక, వారికి తోడుగా వచ్చిన రాజులు కూడా పాల్గొంటున్నారు.","note":"Kuntibhoja is the king who raised Kuntī, the mother of Yudhiṣṭhira, Bhīma, and Arjuna. Kāśī is the ancient kingdom centered on Vārāṇasī."},{"id":"bg1-06","num":6,"meter":"Anuṣṭubh","lines":[{"te":"యుధామన్యుశ్చ విక్రాంత ఉత్తమౌజాశ్చ వీర్యవాన్","iast":"yudhāmanyuśca vikrānta uttamaujāśca vīryavān","meaning":"The bold Yudhāmanyu and the valiant Uttamaujā…"},{"te":"సౌభద్రో ద్రౌపదేయాశ్చ సర్వ ఏవ మహారథాః","iast":"saubhadro draupadeyāśca sarva eva mahārathāḥ","meaning":"…along with Subhadrā’s son (Abhimanyu) and Draupadī’s sons, are all great chariot warriors."}],"words":[{"te":"యుధామన్యుః","iast":"yudhāmanyuḥ","meaning":"Yudhāmanyu, a Pāṇḍava ally"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"విక్రాంతః","iast":"vikrāntaḥ","meaning":"bold; courageous"},{"te":"ఉత్తమౌజాః","iast":"uttamaujāḥ","meaning":"Uttamaujā, a Pāṇḍava ally"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"వీర్యవాన్","iast":"vīryavān","meaning":"possessed of great valor"},{"te":"సౌభద్రః","iast":"saubhadraḥ","meaning":"Subhadrā’s son, Abhimanyu"},{"te":"ద్రౌపదేయాః","iast":"draupadeyāḥ","meaning":"the sons of Draupadī"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"సర్వే","iast":"sarve","meaning":"all of them"},{"te":"ఏవ","iast":"eva","meaning":"indeed; certainly"},{"te":"మహా రథాః","iast":"mahā-rathāḥ","meaning":"great chariot warriors"}],"summary":"Duryodhana completes this list of Pāṇḍava heroes with Yudhāmanyu, Uttamaujā, Abhimanyu, and Draupadī’s sons. The younger generation is present beside the older kings, making the family’s involvement in the war especially clear.","tatparyam":"యుధామన్యుడు, ఉత్తమౌజుడు, సుభద్ర కుమారుడైన అభిమన్యుడు, ద్రౌపదీ పుత్రులు కూడా పాండవుల పక్షంలో ఉన్నారని దుర్యోధనుడు చెబుతున్నాడు. వీరంతా మహారథులు, అంటే యుద్ధంలో ఎంతో సమర్థులైన గొప్ప యోధులని అంటున్నాడు.","note":"Saubhadra means “son of Subhadrā” and refers to Abhimanyu, whose father is Arjuna. The Draupadeyas are Draupadī’s five sons, one by each of the five Pāṇḍavas."},{"id":"bg1-07","num":7,"meter":"Anuṣṭubh","lines":[{"te":"అస్మాకం తు విశిష్టా యే తాన్నిబోధ ద్విజోత్తమ","iast":"asmākaṁ tu viśiṣṭā ye tānnibodha dvijottama","meaning":"But know the distinguished men on our side, O best of the twice-born…"},{"te":"నాయకా మమ సైన్యస్య సంజ్ఞార్థం తాన్బ్రవీమి తే","iast":"nāyakā mama sainyasya sañjñārthaṁ tānbravīmi te","meaning":"…the leaders of my army; I name them for your information."}],"words":[{"te":"అస్మాకమ్","iast":"asmākam","meaning":"on our side"},{"te":"తు","iast":"tu","meaning":"but; now"},{"te":"విశిష్టాః","iast":"viśiṣṭāḥ","meaning":"distinguished; outstanding"},{"te":"యే","iast":"ye","meaning":"those who"},{"te":"తాన్","iast":"tān","meaning":"those men"},{"te":"నిబోధ","iast":"nibodha","meaning":"know; take note"},{"te":"ద్విజ ఉత్తమ","iast":"dvija-uttama","meaning":"O best of the twice-born"},{"te":"నాయకాః","iast":"nāyakāḥ","meaning":"the leading warriors"},{"te":"మమ","iast":"mama","meaning":"of mine"},{"te":"సైన్యస్య","iast":"sainyasya","meaning":"of the army"},{"te":"సంజ్ఞా అర్థమ్","iast":"sañjñā-artham","meaning":"for your information"},{"te":"తాన్","iast":"tān","meaning":"those men"},{"te":"బ్రవీమి","iast":"bravīmi","meaning":"I name; I tell"},{"te":"తే","iast":"te","meaning":"to you"}],"summary":"Duryodhana turns from the Pāṇḍava warriors to the leaders of his own army. Addressing Droṇa respectfully, he prepares to list the men on whom he depends.","tatparyam":"ఇప్పుడు తమ పక్షంలో ఉన్న ప్రముఖ యోధుల గురించి దుర్యోధనుడు మాట్లాడుతున్నాడు. ద్రోణాచార్యుణ్ణి గౌరవంగా సంబోధించి, తన సైన్యాన్ని నడిపించే వీరుల పేర్లు చెబుతానంటున్నాడు.","note":"Dvijottama means “best of the twice-born” and here addresses Droṇa as a Brahmin. Traditionally, “twice-born” refers to birth and initiation into sacred learning."},{"id":"bg1-08","num":8,"meter":"Anuṣṭubh","lines":[{"te":"భవాన్భీష్మశ్చ కర్ణశ్చ కృపశ్చ సమితింజయః","iast":"bhavānbhīṣmaśca karṇaśca kṛpaśca samitiñjayaḥ","meaning":"You yourself, Bhīṣma, Karṇa, and Kṛpa, victorious in battle…"},{"te":"అశ్వత్థామా వికర్ణశ్చ సౌమదత్తిస్తథైవ చ","iast":"aśvatthāmā vikarṇaśca saumadattistathaiva ca","meaning":"…Aśvatthāmā, Vikarṇa, and also the son of Somadatta (Bhūriśravā)."}],"words":[{"te":"భవాన్","iast":"bhavān","meaning":"you yourself, Droṇa"},{"te":"భీష్మః","iast":"bhīṣmaḥ","meaning":"Bhīṣma, the Kuru elder"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"కర్ణః","iast":"karṇaḥ","meaning":"Karṇa, Duryodhana’s close ally"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"కృపః","iast":"kṛpaḥ","meaning":"Kṛpa, the royal teacher"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"సమితిం జయః","iast":"samitiṁ-jayaḥ","meaning":"victorious in battle"},{"te":"అశ్వత్థామా","iast":"aśvatthāmā","meaning":"Aśvatthāmā, Droṇa’s son"},{"te":"వికర్ణః","iast":"vikarṇaḥ","meaning":"Vikarṇa, Duryodhana’s brother"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"సౌమదత్తిః","iast":"saumadattiḥ","meaning":"Somadatta’s son, Bhūriśravā"},{"te":"తథా","iast":"tathā","meaning":"likewise; also"},{"te":"ఏవ","iast":"eva","meaning":"indeed; too"},{"te":"చ","iast":"ca","meaning":"and also"}],"summary":"Duryodhana names Droṇa and the other leading warriors on his side. Elders, teachers, friends, and relatives together form the strength of the Kaurava army.","tatparyam":"ద్రోణాచార్యుడు, భీష్ముడు, కర్ణుడు, కృపాచార్యుడు, అశ్వత్థామ, వికర్ణుడు, భూరిశ్రవుడు తమ పక్షంలో ఉన్నారని దుర్యోధనుడు చెబుతున్నాడు. అనుభవజ్ఞులైన పెద్దలు, గురువులు, బంధువులు తనకు అండగా ఉన్నారని గుర్తుచేస్తున్నాడు.","note":"Saumadatti is Bhūriśravā, the son of Somadatta. Aśvatthāmā is Droṇa’s son, and Vikarṇa is one of Duryodhana’s brothers."},{"id":"bg1-09","num":9,"meter":"Anuṣṭubh","lines":[{"te":"అన్యే చ బహవః శూరా మదర్థే త్యక్తజీవితాః","iast":"anye ca bahavaḥ śūrā madarthe tyaktajīvitāḥ","meaning":"Many other brave warriors are ready to give their lives for my sake…"},{"te":"నానాశస్త్రప్రహరణాః సర్వే యుద్ధవిశారదాః","iast":"nānāśastrapraharaṇāḥ sarve yuddhaviśāradāḥ","meaning":"…equipped with many kinds of weapons, all skilled in warfare."}],"words":[{"te":"అన్యే","iast":"anye","meaning":"other warriors"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"బహవః","iast":"bahavaḥ","meaning":"many in number"},{"te":"శూరాః","iast":"śūrāḥ","meaning":"brave warriors"},{"te":"మత్ అర్థే","iast":"mat-arthe","meaning":"for my sake"},{"te":"త్యక్త జీవితాః","iast":"tyakta-jīvitāḥ","meaning":"ready to give up their lives"},{"te":"నానా శస్త్ర ప్రహరణాః","iast":"nānā-śastra-praharaṇāḥ","meaning":"equipped with many kinds of weapons"},{"te":"సర్వే","iast":"sarve","meaning":"all of them"},{"te":"యుద్ధ విశారదాః","iast":"yuddha-viśāradāḥ","meaning":"skilled in warfare"}],"summary":"Duryodhana says that many more experienced warriors are ready to fight and die for him. After naming individual leaders, he emphasizes the wider army’s skill and commitment to his cause.","tatparyam":"ఇంకా ఎంతోమంది వీరులు తన కోసం ప్రాణాలు ఇవ్వడానికైనా సిద్ధంగా ఉన్నారని దుర్యోధనుడు చెబుతున్నాడు. వారందరికీ రకరకాల ఆయుధాలు వాడటం తెలుసనీ, యుద్ధంలో మంచి అనుభవం ఉందనీ అంటున్నాడు.","note":"Tyakta-jīvitāḥ literally describes those who have given up their lives. Here it means warriors who have set aside concern for their own survival and are prepared to die in battle."},{"id":"bg1-10","num":10,"meter":"Anuṣṭubh","lines":[{"te":"అపర్యాప్తం తదస్మాకం బలం భీష్మాభిరక్షితమ్","iast":"aparyāptaṁ tadasmākaṁ balaṁ bhīṣmābhirakṣitam","meaning":"Our strength, guarded by Bhīṣma, is unlimited…"},{"te":"పర్యాప్తం త్విదమేతేషాం బలం భీమాభిరక్షితమ్","iast":"paryāptaṁ tvidameteṣāṁ balaṁ bhīmābhirakṣitam","meaning":"…but their strength, guarded by Bhīma, is limited."}],"words":[{"te":"అపర్యాప్తమ్","iast":"aparyāptam","meaning":"unlimited; alternatively, inadequate"},{"te":"తత్","iast":"tat","meaning":"that force"},{"te":"అస్మాకమ్","iast":"asmākam","meaning":"belonging to us"},{"te":"బలమ్","iast":"balam","meaning":"strength; armed force"},{"te":"భీష్మ అభిరక్షితమ్","iast":"bhīṣma-abhirakṣitam","meaning":"fully protected by Bhīṣma"},{"te":"పర్యాప్తమ్","iast":"paryāptam","meaning":"limited; alternatively, adequate"},{"te":"తు","iast":"tu","meaning":"but; however"},{"te":"ఇదమ్","iast":"idam","meaning":"this force"},{"te":"ఏతేషామ్","iast":"eteṣām","meaning":"belonging to these opponents"},{"te":"బలమ్","iast":"balam","meaning":"strength; armed force"},{"te":"భీమ అభిరక్షితమ్","iast":"bhīma-abhirakṣitam","meaning":"fully protected by Bhīma"}],"summary":"Duryodhana compares the armies through their protectors, Bhīṣma and Bhīma. In this reading he speaks confidently of his own side’s unlimited strength, just before ordering special protection for Bhīṣma.","tatparyam":"భీష్ముడు కాపాడుతున్న తమ సైన్యబలం అపారమనీ, భీముడు కాపాడుతున్న పాండవుల బలం పరిమితమనీ దుర్యోధనుడు అంటున్నాడు. ఈ అర్థంలో అతని మాటల్లో తన పక్షంపై ధైర్యం కనిపిస్తుంది; తరువాత భీష్ముడికి రక్షణ కల్పించమని చెబుతాడు.","note":"The words aparyāptam and paryāptam have two traditional readings: “unlimited” and “limited,” or “inadequate” and “adequate.” The second reading presents Duryodhana as anxious about his army; the first is used here."},{"id":"bg1-11","num":11,"meter":"Anuṣṭubh","lines":[{"te":"అయనేషు చ సర్వేషు యథాభాగమవస్థితాః","iast":"ayaneṣu ca sarveṣu yathābhāgamavasthitāḥ","meaning":"And stationed in your assigned positions at all approaches…"},{"te":"భీష్మమేవాభిరక్షంతు భవంతః సర్వ ఏవ హి","iast":"bhīṣmamevābhirakṣantu bhavantaḥ sarva eva hi","meaning":"…all of you must indeed give special protection to Bhīṣma."}],"words":[{"te":"అయనేషు","iast":"ayaneṣu","meaning":"at the approaches to the formation"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"సర్వేషు","iast":"sarveṣu","meaning":"at all of them"},{"te":"యథా భాగమ్","iast":"yathā-bhāgam","meaning":"according to your assigned positions"},{"te":"అవస్థితాః","iast":"avasthitāḥ","meaning":"remaining stationed"},{"te":"భీష్మమ్","iast":"bhīṣmam","meaning":"Bhīṣma, the Kuru elder"},{"te":"ఏవ","iast":"eva","meaning":"in particular; especially"},{"te":"అభిరక్షంతు","iast":"abhirakṣantu","meaning":"must protect on all sides"},{"te":"భవంతః","iast":"bhavantaḥ","meaning":"you gentlemen"},{"te":"సర్వే","iast":"sarve","meaning":"all of you"},{"te":"ఏవ","iast":"eva","meaning":"indeed; without exception"},{"te":"హి","iast":"hi","meaning":"indeed; certainly"}],"summary":"Duryodhana tells the warriors to hold their assigned places and protect Bhīṣma. His instructions show how much the army depends on its elder commander as battle is about to begin.","tatparyam":"యోధులందరూ తమకు కేటాయించిన స్థానాల్లో ఉండి భీష్ముడికి రక్షణ కల్పించాలని దుర్యోధనుడు చెబుతున్నాడు. సైన్యాన్ని నడిపించే భీష్ముడు క్షేమంగా ఉండటం తమ పక్షానికి ఎంతో అవసరమని అతను భావిస్తున్నాడు.","note":"Ayana here refers to an approach or passage within the battle formation. Bhīṣma is the Kaurava commander at the beginning of the war, so Duryodhana asks the warriors to protect him while holding their own positions."},{"id":"bg1-12","num":12,"meter":"Anuṣṭubh","lines":[{"te":"తస్య సంజనయన్హర్షం కురువృద్ధః పితామహః","iast":"tasya sañjanayanharṣaṁ kuruvṛddhaḥ pitāmahaḥ","meaning":"To gladden Duryodhana, the Kuru elder and grandsire Bhīṣma…"},{"te":"సింహనాదం వినద్యోచ్చైః శంఖం దధ్మౌ ప్రతాపవాన్","iast":"siṁhanādaṁ vinadyoccaiḥ śaṅkhaṁ dadhmau pratāpavān","meaning":"…gave a loud lion’s roar and, full of valor, blew his conch."}],"words":[{"te":"తస్య","iast":"tasya","meaning":"his; of Duryodhana"},{"te":"సంజనయన్","iast":"sañjanayan","meaning":"bringing about"},{"te":"హర్షమ్","iast":"harṣam","meaning":"joy; delight"},{"te":"కురు వృద్ధః","iast":"kuru-vṛddhaḥ","meaning":"the eldest of the Kurus"},{"te":"పితామహః","iast":"pitāmahaḥ","meaning":"the grandfather (Bhīṣma)"},{"te":"సింహ నాదమ్","iast":"siṁha-nādam","meaning":"a lion’s roar"},{"te":"వినద్య","iast":"vinadya","meaning":"having sounded"},{"te":"ఉచ్చైః","iast":"uccaiḥ","meaning":"very loudly"},{"te":"శంఖమ్","iast":"śaṅkham","meaning":"a conch"},{"te":"దధ్మౌ","iast":"dadhmau","meaning":"he blew"},{"te":"ప్రతాపవాన్","iast":"pratāpavān","meaning":"valiant; full of might"}],"summary":"Bhīṣma raises Duryodhana’s spirits with a lion-like roar and a blast of his conch. The Kuru elder’s response gives the army its signal to sound the battle instruments.","tatparyam":"కురువంశంలో పెద్దవాడైన భీష్ముడు సింహంలా బిగ్గరగా గర్జించి తన శంఖాన్ని ఊదాడు. ఆయన శంఖనాదం దుర్యోధనుడికి ఆనందం కలిగించింది.","note":"Pitāmaha means “grandfather”; Bhīṣma is the revered elder of both the Pāṇḍavas and the Kauravas. This verse does not give a name for his conch."},{"id":"bg1-13","num":13,"meter":"Anuṣṭubh","lines":[{"te":"తతః శంఖాశ్చ భేర్యశ్చ పణవానకగోముఖాః","iast":"tataḥ śaṅkhāśca bheryaśca paṇavānakagomukhāḥ","meaning":"Then conches, kettledrums, small drums, large drums and cow-horn instruments…"},{"te":"సహసైవాభ్యహన్యంత స శబ్దస్తుములోఽభవత్","iast":"sahasaivābhyahanyanta sa śabdastumulo'bhavat","meaning":"…all sounded at once, and the noise became a tremendous uproar."}],"words":[{"te":"తతః","iast":"tataḥ","meaning":"then; after that"},{"te":"శంఖాః","iast":"śaṅkhāḥ","meaning":"conches"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"భేర్యః","iast":"bheryaḥ","meaning":"kettledrums"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"పణవ ఆనక గో ముఖాః","iast":"paṇava-ānaka-go-mukhāḥ","meaning":"small drums, large drums, and cow-horns"},{"te":"సహసా","iast":"sahasā","meaning":"suddenly; all at once"},{"te":"ఏవ","iast":"eva","meaning":"indeed; just"},{"te":"అభ్యహన్యంత","iast":"abhyahanyanta","meaning":"were sounded"},{"te":"సః","iast":"saḥ","meaning":"that"},{"te":"శబ్దః","iast":"śabdaḥ","meaning":"sound; noise"},{"te":"తుములః","iast":"tumulaḥ","meaning":"tumultuous; tremendous"},{"te":"అభవత్","iast":"abhavat","meaning":"became"}],"summary":"After Bhīṣma’s conch, the Kaurava army’s instruments sound together. Their combined noise fills the battlefield as the army announces its readiness for battle.","tatparyam":"భీష్ముడి శంఖనాదం వినగానే కౌరవ సైన్యంలో శంఖాలు, భేరీలు, ఇతర వాయిద్యాలు ఒక్కసారిగా మోగాయి. వాటి శబ్దాలన్నీ కలిసి యుద్ధభూమిలో పెద్ద కోలాహలాన్ని సృష్టించాయి.","note":"A paṇava is a small drum or tabor, an ānaka is a large drum, and a gomukha is a cow-horn wind instrument. Bherī is a kettledrum; translations sometimes use different English names for these ancient instruments."},{"id":"bg1-14","num":14,"meter":"Anuṣṭubh","lines":[{"te":"తతః శ్వేతైర్హయైర్యుక్తే మహతి స్యందనే స్థితౌ","iast":"tataḥ śvetairhayairyukte mahati syandane sthitau","meaning":"Then, seated in a magnificent chariot drawn by white horses…"},{"te":"మాధవః పాండవశ్చైవ దివ్యౌ శంఖౌ ప్రదధ్మతుః","iast":"mādhavaḥ pāṇḍavaścaiva divyau śaṅkhau pradadhmatuḥ","meaning":"…Mādhava (Kṛṣṇa) and the son of Pāṇḍu (Arjuna) also blew their divine conches."}],"words":[{"te":"తతః","iast":"tataḥ","meaning":"then; after that"},{"te":"శ్వేతైః","iast":"śvetaiḥ","meaning":"with white"},{"te":"హయైః","iast":"hayaiḥ","meaning":"horses"},{"te":"యుక్తే","iast":"yukte","meaning":"yoked; drawn by"},{"te":"మహతి","iast":"mahati","meaning":"in the magnificent"},{"te":"స్యందనే","iast":"syandane","meaning":"chariot"},{"te":"స్థితౌ","iast":"sthitau","meaning":"the two seated"},{"te":"మాధవః","iast":"mādhavaḥ","meaning":"Mādhava (Kṛṣṇa)"},{"te":"పాండవః","iast":"pāṇḍavaḥ","meaning":"the son of Pāṇḍu (Arjuna)"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"ఏవ","iast":"eva","meaning":"also; indeed"},{"te":"దివ్యౌ","iast":"divyau","meaning":"the two divine"},{"te":"శంఖౌ","iast":"śaṅkhau","meaning":"conches"},{"te":"ప్రదధ్మతుః","iast":"pradadhmatuḥ","meaning":"the two blew loudly"}],"summary":"Kṛṣṇa and Arjuna answer the Kaurava army from their chariot drawn by white horses. Their divine conches begin the Pāṇḍavas’ response, which the following verses describe in detail.","tatparyam":"తెల్లని గుర్రాలు లాగుతున్న గొప్ప రథంపై శ్రీకృష్ణుడు, అర్జునుడు ఉన్నారు. కౌరవుల శంఖనాదానికి బదులుగా వారిద్దరూ తమ దివ్య శంఖాలను ఊదారు.","note":"Mādhava is a name of Kṛṣṇa, traditionally explained as “the husband of Mā (Lakṣmī)” or as a descendant of Madhu. Pāṇḍava here refers to Arjuna, whose charioteer is Kṛṣṇa."},{"id":"bg1-15","num":15,"meter":"Anuṣṭubh","lines":[{"te":"పాంచజన్యం హృషీకేశో దేవదత్తం ధనంజయః","iast":"pāñcajanyaṁ hṛṣīkeśo devadattaṁ dhanañjayaḥ","meaning":"Hṛṣīkeśa (Kṛṣṇa) blew Pāñcajanya, and Dhanañjaya (Arjuna) blew Devadatta."},{"te":"పౌండ్రం దధ్మౌ మహాశంఖం భీమకర్మా వృకోదరః","iast":"pauṇḍraṁ dadhmau mahāśaṅkhaṁ bhīmakarmā vṛkodaraḥ","meaning":"Vṛkodara (Bhīma), doer of mighty deeds, blew his great conch Pauṇḍra."}],"words":[{"te":"పాంచజన్యమ్","iast":"pāñcajanyam","meaning":"Pāñcajanya, Kṛṣṇa’s conch"},{"te":"హృషీకేశః","iast":"hṛṣīkeśaḥ","meaning":"the Lord of the senses (Kṛṣṇa)"},{"te":"దేవదత్తమ్","iast":"devadattam","meaning":"Devadatta, Arjuna’s conch"},{"te":"ధనంజయః","iast":"dhanañjayaḥ","meaning":"the winner of wealth (Arjuna)"},{"te":"పౌండ్రమ్","iast":"pauṇḍram","meaning":"Pauṇḍra, Bhīma’s conch"},{"te":"దధ్మౌ","iast":"dadhmau","meaning":"he blew"},{"te":"మహా శంఖమ్","iast":"mahā-śaṅkham","meaning":"the great conch"},{"te":"భీమ కర్మా","iast":"bhīma-karmā","meaning":"the doer of mighty deeds"},{"te":"వృక ఉదరః","iast":"vṛka-udaraḥ","meaning":"wolf-bellied; an epithet of Bhīma"}],"summary":"The conches of Kṛṣṇa, Arjuna and Bhīma are named as each warrior sounds his own. Bhīma’s great conch and mighty deeds add to the force of the Pāṇḍava response.","tatparyam":"శ్రీకృష్ణుడు పాంచజన్యాన్ని, అర్జునుడు దేవదత్తాన్ని ఊదారు. గొప్ప పరాక్రమం చూపే భీముడు పౌండ్రం అనే పెద్ద శంఖాన్ని ఊదాడు.","note":"Pāñcajanya belongs to Kṛṣṇa, Devadatta to Arjuna, and Pauṇḍra to Bhīma. Hṛṣīkeśa means “Lord of the senses,” Dhanañjaya means “winner of wealth,” and Vṛkodara means “wolf-bellied,” referring to Bhīma’s appetite."},{"id":"bg1-16","num":16,"meter":"Anuṣṭubh","lines":[{"te":"అనంతవిజయం రాజా కుంతీపుత్రో యుధిష్ఠిరః","iast":"anantavijayaṁ rājā kuntīputro yudhiṣṭhiraḥ","meaning":"King Yudhiṣṭhira, son of Kuntī, blew Anantavijaya."},{"te":"నకులః సహదేవశ్చ సుఘోషమణిపుష్పకౌ","iast":"nakulaḥ sahadevaśca sughoṣamaṇipuṣpakau","meaning":"Nakula and Sahadeva blew Sughoṣa and Maṇipuṣpaka respectively."}],"words":[{"te":"అనంత విజయమ్","iast":"ananta-vijayam","meaning":"Anantavijaya, Yudhiṣṭhira’s conch"},{"te":"రాజా","iast":"rājā","meaning":"the king"},{"te":"కుంతీ పుత్రః","iast":"kuntī-putraḥ","meaning":"the son of Kuntī"},{"te":"యుధిష్ఠిరః","iast":"yudhiṣṭhiraḥ","meaning":"Yudhiṣṭhira, the eldest Pāṇḍava"},{"te":"నకులః","iast":"nakulaḥ","meaning":"Nakula, one of the Pāṇḍavas"},{"te":"సహదేవః","iast":"sahadevaḥ","meaning":"Sahadeva, one of the Pāṇḍavas"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"సుఘోష మణిపుష్పకౌ","iast":"sughoṣa-maṇipuṣpakau","meaning":"the conches Sughoṣa and Maṇipuṣpaka"}],"summary":"Yudhiṣṭhira, Nakula and Sahadeva now sound their own conches. With Arjuna and Bhīma already named, all five Pāṇḍava brothers have joined the response.","tatparyam":"కుంతీదేవి కుమారుడైన యుధిష్ఠిరుడు అనంతవిజయం అనే శంఖాన్ని ఊదాడు. నకులుడు సుఘోషాన్ని, సహదేవుడు మణిపుష్పకాన్ని ఊదారు; ఇలా ఐదుగురు పాండవులూ శంఖనాదంలో చేరారు.","note":"Anantavijaya is Yudhiṣṭhira’s conch, Sughoṣa is Nakula’s, and Maṇipuṣpaka is Sahadeva’s. Nakula and Sahadeva are twins born to Mādrī, Pāṇḍu’s other wife; Kuntīputra in the first line describes Yudhiṣṭhira."},{"id":"bg1-17","num":17,"meter":"Anuṣṭubh","lines":[{"te":"కాశ్యశ్చ పరమేష్వాసః శిఖండీ చ మహారథః","iast":"kāśyaśca parameṣvāsaḥ śikhaṇḍī ca mahārathaḥ","meaning":"The king of Kāśī, a supreme archer, and Śikhaṇḍī, a great chariot warrior…"},{"te":"ధృష్టద్యుమ్నో విరాటశ్చ సాత్యకిశ్చాపరాజితః","iast":"dhṛṣṭadyumno virāṭaśca sātyakiścāparājitaḥ","meaning":"…Dhṛṣṭadyumna, Virāṭa, and the unconquered Sātyaki…"}],"words":[{"te":"కాశ్యః","iast":"kāśyaḥ","meaning":"the king of Kāśī"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"పరమ ఇష్వాసః","iast":"parama-iṣvāsaḥ","meaning":"a supreme archer"},{"te":"శిఖండీ","iast":"śikhaṇḍī","meaning":"Śikhaṇḍī, a child of Drupada"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"మహా రథః","iast":"mahā-rathaḥ","meaning":"a great chariot warrior"},{"te":"ధృష్టద్యుమ్నః","iast":"dhṛṣṭadyumnaḥ","meaning":"Dhṛṣṭadyumna, Drupada’s son"},{"te":"విరాటః","iast":"virāṭaḥ","meaning":"Virāṭa, king of Matsya"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"సాత్యకిః","iast":"sātyakiḥ","meaning":"Sātyaki, a Pāṇḍava ally"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"అపరాజితః","iast":"aparājitaḥ","meaning":"unconquered; undefeated"}],"summary":"Sañjaya names more warriors standing with the Pāṇḍavas, including skilled archers and great chariot fighters. The list continues into the next verse, where they all sound their conches.","tatparyam":"పాండవుల పక్షంలోని మరికొందరు గొప్ప యోధులను సంజయుడు ఇక్కడ పేరుపేరునా చెబుతున్నాడు. కాశీరాజు, శిఖండి, ధృష్టద్యుమ్నుడు, విరాటుడు, సాత్యకి కూడా తమ శంఖాలను ఊదారు; ఈ వర్ణన తర్వాతి శ్లోకంలో కొనసాగుతుంది.","note":"Sātyaki is the Yuyudhāna named in 1.4. Śikhaṇḍī, a son of Drupada, later becomes the key to Bhīṣma’s fall, because Bhīṣma refuses to fight him."},{"id":"bg1-18","num":18,"meter":"Anuṣṭubh","lines":[{"te":"ద్రుపదో ద్రౌపదేయాశ్చ సర్వశః పృథివీపతే","iast":"drupado draupadeyāśca sarvaśaḥ pṛthivīpate","meaning":"…Drupada and the sons of Draupadī, from every side, O lord of the earth…"},{"te":"సౌభద్రశ్చ మహాబాహుః శంఖాందధ్ముః పృథక్పృథక్","iast":"saubhadraśca mahābāhuḥ śaṅkhāndadhmuḥ pṛthakpṛthak","meaning":"…and the mighty-armed son of Subhadrā (Abhimanyu) all blew their conches, each his own."}],"words":[{"te":"ద్రుపదః","iast":"drupadaḥ","meaning":"Drupada, king of Pāñcāla"},{"te":"ద్రౌపదేయాః","iast":"draupadeyāḥ","meaning":"the sons of Draupadī"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"సర్వశః","iast":"sarvaśaḥ","meaning":"from every side"},{"te":"పృథివీ పతే","iast":"pṛthivī-pate","meaning":"O lord of the earth (Dhṛtarāṣṭra)"},{"te":"సౌభద్రః","iast":"saubhadraḥ","meaning":"the son of Subhadrā (Abhimanyu)"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"మహా బాహుః","iast":"mahā-bāhuḥ","meaning":"the mighty-armed one"},{"te":"శంఖాన్","iast":"śaṅkhān","meaning":"their conches"},{"te":"దధ్ముః","iast":"dadhmuḥ","meaning":"they blew"},{"te":"పృథక్ పృథక్","iast":"pṛthak-pṛthak","meaning":"each separately; each his own"}],"summary":"Drupada, Draupadī’s sons and Abhimanyu join the warriors listed in the preceding verse. Each blows his own conch, spreading the Pāṇḍava army’s response across the battlefield.","tatparyam":"ద్రుపదుడు, ద్రౌపదీ పుత్రులు, సుభద్ర కుమారుడైన అభిమన్యుడు కూడా శంఖాలను ఊదారు. ముందు శ్లోకంలో చెప్పిన యోధులతో కలిసి వీరంతా తమ తమ శంఖాలను మోగించడంతో అన్ని వైపులా నాదం వినిపించింది.","note":"Pṛthivīpate means “O lord of the earth” and is Sañjaya’s address to King Dhṛtarāṣṭra."},{"id":"bg1-19","num":19,"meter":"Anuṣṭubh","lines":[{"te":"స ఘోషో ధార్తరాష్ట్రాణాం హృదయాని వ్యదారయత్","iast":"sa ghoṣo dhārtarāṣṭrāṇāṁ hṛdayāni vyadārayat","meaning":"That uproar pierced the hearts of Dhṛtarāṣṭra’s sons…"},{"te":"నభశ్చ పృథివీం చైవ తుములో వ్యనునాదయన్","iast":"nabhaśca pṛthivīṁ caiva tumulo vyanunādayan","meaning":"…as its tremendous sound made the sky and the earth resound."}],"words":[{"te":"సః","iast":"saḥ","meaning":"that"},{"te":"ఘోషః","iast":"ghoṣaḥ","meaning":"uproar; resounding noise"},{"te":"ధార్తరాష్ట్రాణామ్","iast":"dhārtarāṣṭrāṇām","meaning":"of Dhṛtarāṣṭra’s sons"},{"te":"హృదయాని","iast":"hṛdayāni","meaning":"the hearts"},{"te":"వ్యదారయత్","iast":"vyadārayat","meaning":"pierced; tore apart"},{"te":"నభః","iast":"nabhaḥ","meaning":"the sky"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"పృథివీమ్","iast":"pṛthivīm","meaning":"the earth"},{"te":"చ","iast":"ca","meaning":"and"},{"te":"ఏవ","iast":"eva","meaning":"indeed; also"},{"te":"తుములః","iast":"tumulaḥ","meaning":"tumultuous; tremendous"},{"te":"వ్యనునాదయన్","iast":"vyanunādayan","meaning":"making resound; reverberating through"}],"summary":"The Pāṇḍavas’ conches send a tremendous sound through sky and earth. Sañjaya describes it as piercing the hearts of Dhṛtarāṣṭra’s sons, showing their fear as battle approaches.","tatparyam":"పాండవుల శంఖనాదం ఆకాశం, భూమి అంతటా మారుమోగింది. ఆ భీకరమైన ధ్వని ధృతరాష్ట్రుడి కుమారుల గుండెలను చీల్చినట్లు చేసి, వారిలో భయాన్ని కలిగించింది.","note":"Dhārtarāṣṭra means a son or descendant of Dhṛtarāṣṭra; the plural here refers to his sons. “Pierced their hearts” describes the fear caused by the conch blasts, as Śrīdhara’s commentary explains."},{"id":"bg1-20","num":20,"meter":"Anuṣṭubh","lines":[{"te":"అథ వ్యవస్థితాందృష్ట్వా ధార్తరాష్ట్రాన్కపిధ్వజః","iast":"atha vyavasthitāndṛṣṭvā dhārtarāṣṭrānkapidhvajaḥ","meaning":"Then Arjuna, whose banner bears a monkey, saw Dhṛtarāṣṭra’s sons drawn up for battle…"},{"te":"ప్రవృత్తే శస్త్రసంపాతే ధనురుద్యమ్య పాండవః","iast":"pravṛtte śastrasampāte dhanurudyamya pāṇḍavaḥ","meaning":"…and, as the clash of weapons was about to begin, the son of Pāṇḍu raised his bow…"}],"words":[{"te":"అథ","iast":"atha","meaning":"then; after that"},{"te":"వ్యవస్థితాన్","iast":"vyavasthitān","meaning":"drawn up in position"},{"te":"దృష్ట్వా","iast":"dṛṣṭvā","meaning":"having seen"},{"te":"ధార్తరాష్ట్రాన్","iast":"dhārtarāṣṭrān","meaning":"Dhṛtarāṣṭra’s sons"},{"te":"కపి ధ్వజః","iast":"kapi-dhvajaḥ","meaning":"whose banner bears a monkey"},{"te":"ప్రవృత్తే","iast":"pravṛtte","meaning":"as it was beginning"},{"te":"శస్త్ర సంపాతే","iast":"śastra-sampāte","meaning":"the clash of weapons"},{"te":"ధనుః","iast":"dhanuḥ","meaning":"his bow"},{"te":"ఉద్యమ్య","iast":"udyamya","meaning":"having raised"},{"te":"పాండవః","iast":"pāṇḍavaḥ","meaning":"Pāṇḍu’s son, Arjuna"}],"summary":"Arjuna sees Dhṛtarāṣṭra’s sons standing ready and raises his bow as battle is about to begin. He is still preparing to fight when he turns to speak to Kṛṣṇa in the next verse.","tatparyam":"ధృతరాష్ట్రుడి కుమారులు యుద్ధానికి సిద్ధంగా నిలబడటం చూసి అర్జునుడు తన విల్లు ఎత్తుకున్నాడు. ఆయుధాలు ప్రయోగించబోయే ఈ సమయంలో అతను శ్రీకృష్ణుడితో మాట్లాడటానికి సిద్ధమవుతున్నాడు.","note":"Kapi-dhvaja means “one whose banner bears a monkey,” identifying Arjuna by the emblem of Hanumān on his chariot flag. The sentence continues into the first line of 1.21."},{"id":"bg1-21","num":21,"meter":"Anuṣṭubh","lines":[{"te":"హృషీకేశం తదా వాక్యమిదమాహ మహీపతే","iast":"hṛṣīkeśaṁ tadā vākyamidamāha mahīpate","meaning":"…and then spoke these words to Hṛṣīkeśa (Kṛṣṇa), O king."},{"speaker":"arjuna","te":"సేనయోరుభయోర్మధ్యే రథం స్థాపయ మేఽచ్యుత","iast":"senayorubhayormadhye rathaṁ sthāpaya me'cyuta","meaning":"O Acyuta (Kṛṣṇa), place my chariot between the two armies…"}],"words":[{"te":"హృషీక ఈశమ్","iast":"hṛṣīka-īśam","meaning":"to Kṛṣṇa, Lord of the senses"},{"te":"తదా","iast":"tadā","meaning":"at that time"},{"te":"వాక్యమ్","iast":"vākyam","meaning":"a statement; words"},{"te":"ఇదమ్","iast":"idam","meaning":"this; the following"},{"te":"ఆహ","iast":"āha","meaning":"he said"},{"te":"మహీ పతే","iast":"mahī-pate","meaning":"O king, lord of the earth"},{"te":"సేనయోః","iast":"senayoḥ","meaning":"of the armies"},{"te":"ఉభయోః","iast":"ubhayoḥ","meaning":"of both"},{"te":"మధ్యే","iast":"madhye","meaning":"in the middle"},{"te":"రథమ్","iast":"ratham","meaning":"the chariot"},{"te":"స్థాపయ","iast":"sthāpaya","meaning":"place; bring to a stop"},{"te":"మే","iast":"me","meaning":"for me; my"},{"te":"అచ్యుత","iast":"acyuta","meaning":"O unfailing one, Kṛṣṇa"}],"summary":"Sañjaya completes his description of Arjuna turning to Kṛṣṇa. Arjuna then begins to speak, asking Kṛṣṇa to place his chariot between the armies so that he can inspect those gathered for battle.","tatparyam":"అర్జునుడు శ్రీకృష్ణుడితో మాట్లాడాడని మొదటి పంక్తిలో సంజయుడు ధృతరాష్ట్రుడికి చెబుతున్నాడు. రెండో పంక్తి నుంచి అర్జునుడి మాటలు మొదలవుతాయి: రెండు సైన్యాల మధ్య తన రథాన్ని నిలపమని అతను శ్రీకృష్ణుడిని అడుగుతున్నాడు.","note":"Sañjaya addresses Dhṛtarāṣṭra as mahīpate, “O king,” in the first line. Arjuna begins speaking in the second line, addressing Kṛṣṇa as Acyuta, “the unfailing one.”"},{"id":"bg1-22","num":22,"meter":"Anuṣṭubh","lines":[{"te":"యావదేతాన్నిరీక్షేఽహం యోద్ధుకామానవస్థితాన్","iast":"yāvadetānnirīkṣe'haṁ yoddhukāmānavasthitān","meaning":"…so that I may look at these men, eager to fight and standing ready…"},{"te":"కైర్మయా సహ యోద్ధవ్యమస్మిన్రణసముద్యమే","iast":"kairmayā saha yoddhavyamasminraṇasamudyame","meaning":"…and see with whom I must fight in this undertaking of war."}],"words":[{"te":"యావత్","iast":"yāvat","meaning":"until; so that"},{"te":"ఏతాన్","iast":"etān","meaning":"these men"},{"te":"నిరీక్షే","iast":"nirīkṣe","meaning":"may look closely"},{"te":"అహమ్","iast":"aham","meaning":"I myself"},{"te":"యోద్ధు కామాన్","iast":"yoddhu-kāmān","meaning":"those eager to fight"},{"te":"అవస్థితాన్","iast":"avasthitān","meaning":"standing in position"},{"te":"కైః","iast":"kaiḥ","meaning":"with whom"},{"te":"మయా","iast":"mayā","meaning":"by me"},{"te":"సహ","iast":"saha","meaning":"together with"},{"te":"యోద్ధవ్యమ్","iast":"yoddhavyam","meaning":"must be fought"},{"te":"అస్మిన్","iast":"asmin","meaning":"in this"},{"te":"రణ సముద్యమే","iast":"raṇa-samudyame","meaning":"in this undertaking of war"}],"summary":"Arjuna explains why he wants the chariot moved between the armies. He wants a closer look at the warriors standing ready and to see whom he will have to fight.","tatparyam":"తన రథాన్ని రెండు సైన్యాల మధ్య ఎందుకు నిలపాలో అర్జునుడు వివరిస్తున్నాడు. యుద్ధానికి సిద్ధంగా ఉన్నవాళ్లను దగ్గరగా చూసి, తాను ఎవరితో పోరాడాల్సి ఉందో తెలుసుకోవాలని అతను కోరుకుంటున్నాడు.","note":"This verse continues Arjuna’s request from 1.21. In nirīkṣe’haṁ, the apostrophe marks the a of aham absorbed after e; do not add another syllable there when chanting."},{"id":"bg1-23","num":23,"meter":"Anuṣṭubh","lines":[{"te":"యోత్స్యమానానవేక్షేఽహం య ఏతేఽత్ర సమాగతాః","iast":"yotsyamānānavekṣe'haṁ ya ete'tra samāgatāḥ","meaning":"I wish to see those who have gathered here, ready to fight…"},{"te":"ధార్తరాష్ట్రస్య దుర్బుద్ధేర్యుద్ధే ప్రియచికీర్షవః","iast":"dhārtarāṣṭrasya durbuddheryuddhe priyacikīrṣavaḥ","meaning":"…wishing to please the evil-minded son of Dhṛtarāṣṭra in battle."}],"words":[{"te":"యోత్స్యమానాన్","iast":"yotsyamānān","meaning":"those about to fight"},{"te":"అవేక్షే","iast":"avekṣe","meaning":"I wish to see"},{"te":"అహమ్","iast":"aham","meaning":"I myself"},{"te":"యే","iast":"ye","meaning":"those who"},{"te":"ఏతే","iast":"ete","meaning":"these men"},{"te":"అత్ర","iast":"atra","meaning":"here; in this place"},{"te":"సమాగతాః","iast":"samāgatāḥ","meaning":"have gathered together"},{"te":"ధార్తరాష్ట్రస్య","iast":"dhārtarāṣṭrasya","meaning":"of Dhṛtarāṣṭra’s son, Duryodhana"},{"te":"దుర్ బుద్ధేః","iast":"dur-buddheḥ","meaning":"of the evil-minded one"},{"te":"యుద్ధే","iast":"yuddhe","meaning":"in battle"},{"te":"ప్రియ చికీర్షవః","iast":"priya-cikīrṣavaḥ","meaning":"wishing to do what pleases him"}],"summary":"Arjuna wants to see the men who have assembled to fight for Duryodhana. His words show that he still views them as supporters of a wrongful cause, before seeing his relatives among them changes his response.","tatparyam":"దుర్బుద్ధితో వ్యవహరిస్తున్న దుర్యోధనుడిని సంతోషపెట్టడానికి యుద్ధానికి వచ్చినవాళ్లను చూడాలని అర్జునుడు అంటున్నాడు. ఈ దశలో అతను వారిని ప్రత్యర్థులుగా చూస్తున్నాడు; వారిలో తన బంధువులను గుర్తించిన తర్వాత అతని మనసు మారుతుంది.","note":"Dhārtarāṣṭrasya is singular here and refers to Duryodhana, the son of Dhṛtarāṣṭra. The description “evil-minded” is part of Arjuna’s speech."},{"id":"bg1-24","num":24,"meter":"Anuṣṭubh","lines":[{"speaker":"sanjaya","te":"ఏవముక్తో హృషీకేశో గుడాకేశేన భారత","iast":"evamukto hṛṣīkeśo guḍākeśena bhārata","meaning":"Thus addressed by Guḍākeśa (Arjuna), Hṛṣīkeśa (Kṛṣṇa), O Bhārata (Dhṛtarāṣṭra)…"},{"te":"సేనయోరుభయోర్మధ్యే స్థాపయిత్వా రథోత్తమమ్","iast":"senayorubhayormadhye sthāpayitvā rathottamam","meaning":"…having placed the excellent chariot between the two armies…"}],"words":[{"te":"ఏవమ్","iast":"evam","meaning":"thus; in this way"},{"te":"ఉక్తః","iast":"uktaḥ","meaning":"having been addressed"},{"te":"హృషీక ఈశః","iast":"hṛṣīka-īśaḥ","meaning":"Kṛṣṇa, Lord of the senses"},{"te":"గుడాకా ఈశేన","iast":"guḍākā-īśena","meaning":"by Arjuna, conqueror of sleep"},{"te":"భారత","iast":"bhārata","meaning":"O descendant of Bharata"},{"te":"సేనయోః","iast":"senayoḥ","meaning":"of the armies"},{"te":"ఉభయోః","iast":"ubhayoḥ","meaning":"of both"},{"te":"మధ్యే","iast":"madhye","meaning":"in the middle"},{"te":"స్థాపయిత్వా","iast":"sthāpayitvā","meaning":"having placed"},{"te":"రథ ఉత్తమమ్","iast":"ratha-uttamam","meaning":"the excellent chariot"}],"summary":"Sañjaya resumes his narration and tells Dhṛtarāṣṭra that Kṛṣṇa acts on Arjuna’s request. Kṛṣṇa places their chariot between the armies, bringing Arjuna face to face with those he is about to fight.","tatparyam":"ఇక్కడ సంజయుడు మళ్లీ కథను చెబుతున్నాడు. అర్జునుడు అడిగినట్లుగా శ్రీకృష్ణుడు వారి రథాన్ని రెండు సైన్యాల మధ్యకు తీసుకెళ్లి నిలిపాడు; ఇప్పుడు ఎదురుగా ఉన్నవాళ్లను అర్జునుడు దగ్గరగా చూడగలడు.","note":"Guḍākeśa is traditionally explained as “conqueror of sleep,” a name for Arjuna. Bhārata here addresses Dhṛtarāṣṭra as a descendant of King Bharata; the sentence continues into 1.25."},{"id":"bg1-25","num":25,"meter":"Anuṣṭubh","lines":[{"te":"భీష్మద్రోణప్రముఖతః సర్వేషాం చ మహీక్షితామ్","iast":"bhīṣmadroṇapramukhataḥ sarveṣāṁ ca mahīkṣitām","meaning":"…in front of Bhīṣma, Droṇa, and all the kings…"},{"te":"ఉవాచ పార్థ పశ్యైతాన్సమవేతాన్కురూనితి","iast":"uvāca pārtha paśyaitānsamavetānkurūniti","meaning":"…said, “O Pārtha (Arjuna), look at these Kurus gathered here.”"}],"words":[{"te":"భీష్మ ద్రోణ ప్రముఖతః","iast":"bhīṣma-droṇa-pramukhataḥ","meaning":"in front of Bhīṣma and Droṇa"},{"te":"సర్వేషామ్","iast":"sarveṣām","meaning":"of all"},{"te":"చ","iast":"ca","meaning":"and; also"},{"te":"మహీ క్షితామ్","iast":"mahī-kṣitām","meaning":"of the kings"},{"te":"ఉవాచ","iast":"uvāca","meaning":"he said"},{"te":"పార్థ","iast":"pārtha","meaning":"O son of Pṛthā, Arjuna"},{"te":"పశ్య","iast":"paśya","meaning":"look; behold"},{"te":"ఏతాన్","iast":"etān","meaning":"these men"},{"te":"సమవేతాన్","iast":"samavetān","meaning":"assembled together"},{"te":"కురూన్","iast":"kurūn","meaning":"the descendants of Kuru"},{"te":"ఇతి","iast":"iti","meaning":"thus; marking the spoken words"}],"summary":"Kṛṣṇa stops in front of Bhīṣma, Droṇa, and the assembled kings, then asks Arjuna to look at the Kurus. Calling them “Kurus” brings the shared family ties of the two sides into focus.","tatparyam":"భీష్ముడు, ద్రోణాచార్యుడు, ఇతర రాజుల ఎదురుగా శ్రీకృష్ణుడు రథాన్ని నిలిపాడు. “పార్థా, ఇక్కడ చేరిన కురువంశీయులను చూడు” అని అర్జునుడితో అన్నాడు.","note":"Bhīṣma is the elder of the Kuru family, and Droṇa taught both the Pāṇḍavas and the Kauravas. Pārtha means “son of Pṛthā,” another name for Arjuna’s mother Kuntī."},{"id":"bg1-26","num":26,"meter":"Anuṣṭubh","lines":[{"te":"తత్రాపశ్యత్స్థితాన్పార్థః పితౄనథ పితామహాన్","iast":"tatrāpaśyatsthitānpārthaḥ pitṝnatha pitāmahān","meaning":"There Pārtha (Arjuna) saw standing before him fatherly elders and grandfathers…"},{"te":"ఆచార్యాన్మాతులాన్భ్రాతౄన్పుత్రాన్పౌత్రాన్సఖీంస్తథా","iast":"ācāryānmātulānbhrātṝnputrānpautrānsakhīṁstathā","meaning":"…teachers, maternal uncles, brothers, sons, grandsons, and friends as well…"}],"words":[{"te":"తత్ర","iast":"tatra","meaning":"there; on the battlefield"},{"te":"అపశ్యత్","iast":"apaśyat","meaning":"he saw"},{"te":"స్థితాన్","iast":"sthitān","meaning":"standing in position"},{"te":"పార్థః","iast":"pārthaḥ","meaning":"Arjuna, son of Pṛthā"},{"te":"పితౄన్","iast":"pitṝn","meaning":"fatherly elders; paternal uncles"},{"te":"అథ","iast":"atha","meaning":"and then; also"},{"te":"పితామహాన్","iast":"pitāmahān","meaning":"grandfathers; grandfathers’ generation"},{"te":"ఆచార్యాన్","iast":"ācāryān","meaning":"his teachers"},{"te":"మాతులాన్","iast":"mātulān","meaning":"maternal uncles"},{"te":"భ్రాతౄన్","iast":"bhrātṝn","meaning":"brothers and cousins"},{"te":"పుత్రాన్","iast":"putrān","meaning":"sons; the younger generation"},{"te":"పౌత్రాన్","iast":"pautrān","meaning":"grandsons; their generation"},{"te":"సఖీన్","iast":"sakhīn","meaning":"his companions"},{"te":"తథా","iast":"tathā","meaning":"also; as well"}],"summary":"Arjuna now recognizes familiar people among the warriors: elders, teachers, relatives, and friends across several generations. His inspection of an opposing army becomes a sight of people with whom he has deep personal ties.","tatparyam":"యుద్ధభూమిలో అర్జునుడికి తండ్రుల్లాంటి పెద్దలు, తాతలు, గురువులు, మేనమామలు, సోదరులు, కుమారులు, మనవళ్లు, మిత్రులు కనిపించారు. యుద్ధానికి వచ్చిన సైనికులుగా మాత్రమే కాకుండా, తనకు అనుబంధం ఉన్న మనుషులుగా వాళ్లు అతనికి కనిపిస్తున్నారు.","note":"Pitṝn literally means “fathers”; here commentators explain it as paternal uncles and fatherly elders, since Arjuna’s father Pāṇḍu had already died. Keep the long vocalic ṝ in pitṝn and bhrātṝn, written ౄ in Telugu."},{"id":"bg1-27","num":27,"meter":"Anuṣṭubh","lines":[{"te":"శ్వశురాన్సుహృదశ్చైవ సేనయోరుభయోరపి","iast":"śvaśurānsuhṛdaścaiva senayorubhayorapi","meaning":"…fathers-in-law and well-wishers too, in both armies."},{"te":"తాన్సమీక్ష్య స కౌంతేయః సర్వాన్బంధూనవస్థితాన్","iast":"tānsamīkṣya sa kaunteyaḥ sarvānbandhūnavasthitān","meaning":"Seeing all those relatives standing there, the son of Kuntī…"}],"words":[{"te":"శ్వశురాన్","iast":"śvaśurān","meaning":"fathers-in-law; elders related by marriage"},{"te":"సుహృదః","iast":"suhṛdaḥ","meaning":"well-wishers; affectionate friends"},{"te":"చ","iast":"ca","meaning":"and; also"},{"te":"ఏవ","iast":"eva","meaning":"indeed; certainly"},{"te":"సేనయోః","iast":"senayoḥ","meaning":"in the armies"},{"te":"ఉభయోః","iast":"ubhayoḥ","meaning":"in both"},{"te":"అపి","iast":"api","meaning":"also; too"},{"te":"తాన్","iast":"tān","meaning":"those people"},{"te":"సమీక్ష్య","iast":"samīkṣya","meaning":"having looked closely"},{"te":"సః","iast":"saḥ","meaning":"he; that Arjuna"},{"te":"కౌంతేయః","iast":"kaunteyaḥ","meaning":"the son of Kuntī, Arjuna"},{"te":"సర్వాన్","iast":"sarvān","meaning":"all of them"},{"te":"బంధూన్","iast":"bandhūn","meaning":"his relatives"},{"te":"అవస్థితాన్","iast":"avasthitān","meaning":"standing in position"}],"summary":"The list of familiar faces extends to fathers-in-law and well-wishers in both armies. As Arjuna looks at all his relatives gathered there, the scene prepares for the compassion and sorrow described in the next verse.","tatparyam":"రెండు సైన్యాల్లోనూ అర్జునుడికి మామగార్లు, తన మేలు కోరేవాళ్లు కూడా కనిపించారు. అక్కడ నిలబడిన తన బంధువులందరినీ అతను చూశాడు. వారిని చూసి అతనికి కలిగిన జాలి, బాధను తరువాతి శ్లోకం చెబుతుంది.","note":"Kaunteya means “son of Kuntī,” another name for Arjuna. The first line completes the list begun in 1.26; the second begins a sentence that continues into 1.28."},{"id":"bg1-28","num":28,"meter":"Anuṣṭubh","lines":[{"te":"కృపయా పరయావిష్టో విషీదన్నిదమబ్రవీత్","iast":"kṛpayā parayāviṣṭo viṣīdannidamabravīt","meaning":"…was overwhelmed by deep compassion and, sinking into sorrow, said this."},{"speaker":"arjuna","te":"దృష్ట్వేమం స్వజనం కృష్ణ యుయుత్సుం సముపస్థితమ్","iast":"dṛṣṭvemaṁ svajanaṁ kṛṣṇa yuyutsuṁ samupasthitam","meaning":"O Kṛṣṇa, seeing my own people gathered here, eager to fight…"}],"words":[{"te":"కృపయా","iast":"kṛpayā","meaning":"with compassion"},{"te":"పరయా","iast":"parayā","meaning":"very deep; overwhelming"},{"te":"ఆవిష్టః","iast":"āviṣṭaḥ","meaning":"overcome; filled with"},{"te":"విషీదన్","iast":"viṣīdan","meaning":"grieving; sinking into sorrow"},{"te":"ఇదమ్","iast":"idam","meaning":"these words"},{"te":"అబ్రవీత్","iast":"abravīt","meaning":"he said"},{"te":"దృష్ట్వా","iast":"dṛṣṭvā","meaning":"having seen"},{"te":"ఇమమ్","iast":"imam","meaning":"these here"},{"te":"స్వ జనమ్","iast":"sva-janam","meaning":"my own people"},{"te":"కృష్ణ","iast":"kṛṣṇa","meaning":"O Kṛṣṇa"},{"te":"యుయుత్సుమ్","iast":"yuyutsum","meaning":"eager to fight"},{"te":"సముపస్థితమ్","iast":"samupasthitam","meaning":"assembled here"}],"summary":"Seeing his own relatives ready for battle, Arjuna is overcome with compassion and sorrow. He turns to Kṛṣṇa and begins to describe what this sight is doing to him.","tatparyam":"ఎదురుగా ఉన్నది తనవాళ్లేనని చూసి అర్జునుడికి ఎంతో జాలి, బాధ కలిగాయి. యుద్ధానికి సిద్ధంగా నిలిచిన వారిని చూస్తుంటే తనకు ఎలా అనిపిస్తోందో శ్రీకృష్ణుడికి చెప్పడం మొదలుపెట్టాడు.","note":"The first line continues Sañjaya’s account to Dhṛtarāṣṭra; Arjuna begins speaking at the second line. His sentence continues into the next verse, where he describes his physical distress."},{"id":"bg1-29","num":29,"meter":"Anuṣṭubh","lines":[{"te":"సీదంతి మమ గాత్రాణి ముఖం చ పరిశుష్యతి","iast":"sīdanti mama gātrāṇi mukhaṁ ca pariśuṣyati","meaning":"…my limbs are giving way, and my mouth is drying up."},{"te":"వేపథుశ్చ శరీరే మే రోమహర్షశ్చ జాయతే","iast":"vepathuśca śarīre me romaharṣaśca jāyate","meaning":"My body trembles, and my hair stands on end."}],"words":[{"te":"సీదంతి","iast":"sīdanti","meaning":"are giving way"},{"te":"మమ","iast":"mama","meaning":"my own"},{"te":"గాత్రాణి","iast":"gātrāṇi","meaning":"bodily limbs"},{"te":"ముఖమ్","iast":"mukham","meaning":"the mouth"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"పరిశుష్యతి","iast":"pariśuṣyati","meaning":"is drying up"},{"te":"వేపథుః","iast":"vepathuḥ","meaning":"bodily trembling"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"శరీరే","iast":"śarīre","meaning":"in the body"},{"te":"మే","iast":"me","meaning":"my own"},{"te":"రోమ హర్షః","iast":"roma-harṣaḥ","meaning":"hair standing on end"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"జాయతే","iast":"jāyate","meaning":"arises; comes about"}],"summary":"Arjuna’s sorrow affects his whole body: his limbs weaken, his mouth dries, and he begins to tremble. The warrior who had been ready to fight is struggling at the sight of his relatives.","tatparyam":"తనవాళ్లను చూసిన బాధతో కాళ్లూ చేతులూ బలహీనపడుతున్నాయని, నోరు ఎండిపోతోందని అర్జునుడు చెబుతున్నాడు. ఒళ్లు వణుకుతోంది, రోమాలు నిక్కబొడుచుకుంటున్నాయి; అతని మనసులోని కలవరం శరీరంలోనూ కనిపిస్తోంది.","note":"Roma-harṣa means the hair standing on end. Although the same expression can describe joy or wonder elsewhere, here it is part of Arjuna’s distress."},{"id":"bg1-30","num":30,"meter":"Anuṣṭubh","lines":[{"te":"గాండీవం స్రంసతే హస్తాత్త్వక్చైవ పరిదహ్యతే","iast":"gāṇḍīvaṁ sraṁsate hastāttvakcaiva paridahyate","meaning":"Gāṇḍīva slips from my hand, and my skin burns all over."},{"te":"న చ శక్నోమ్యవస్థాతుం భ్రమతీవ చ మే మనః","iast":"na ca śaknomyavasthātuṁ bhramatīva ca me manaḥ","meaning":"I cannot remain standing, and my mind seems to whirl."}],"words":[{"te":"గాండీవమ్","iast":"gāṇḍīvam","meaning":"the bow Gāṇḍīva"},{"te":"స్రంసతే","iast":"sraṁsate","meaning":"slips; is slipping"},{"te":"హస్తాత్","iast":"hastāt","meaning":"from my hand"},{"te":"త్వక్","iast":"tvak","meaning":"the skin"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"ఏవ","iast":"eva","meaning":"indeed; even"},{"te":"పరిదహ్యతే","iast":"paridahyate","meaning":"burns all over"},{"te":"న","iast":"na","meaning":"not; cannot"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"శక్నోమి","iast":"śaknomi","meaning":"I am able"},{"te":"అవస్థాతుమ్","iast":"avasthātum","meaning":"to remain standing"},{"te":"భ్రమతి","iast":"bhramati","meaning":"reels; whirls"},{"te":"ఇవ","iast":"iva","meaning":"as if; seems"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"మే","iast":"me","meaning":"my own"},{"te":"మనః","iast":"manaḥ","meaning":"the mind"}],"summary":"Arjuna can no longer hold his bow firmly or stand steadily. As his mind reels, his readiness for battle gives way to confusion and grief.","tatparyam":"అర్జునుడి చేతిలో నుంచి గాండీవం జారిపోతోంది; ఒళ్లంతా మండుతున్నట్టు అనిపిస్తోంది. నిలబడలేకపోతున్నానని, మనసు గందరగోళంగా ఉందని శ్రీకృష్ణుడికి చెబుతున్నాడు.","note":"Gāṇḍīva is Arjuna’s bow, closely associated with his skill as an archer. Here he says it is slipping from his hand; Sañjaya describes him actually setting aside the bow and arrows in 1.47."},{"id":"bg1-31","num":31,"meter":"Anuṣṭubh","lines":[{"te":"నిమిత్తాని చ పశ్యామి విపరీతాని కేశవ","iast":"nimittāni ca paśyāmi viparītāni keśava","meaning":"I also see unfavorable omens, O Keśava (Kṛṣṇa)."},{"te":"న చ శ్రేయోఽనుపశ్యామి హత్వా స్వజనమాహవే","iast":"na ca śreyo'nupaśyāmi hatvā svajanamāhave","meaning":"I see no good in killing my own people in battle."}],"words":[{"te":"నిమిత్తాని","iast":"nimittāni","meaning":"signs; omens"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"పశ్యామి","iast":"paśyāmi","meaning":"I see"},{"te":"విపరీతాని","iast":"viparītāni","meaning":"unfavorable; adverse"},{"te":"కేశవ","iast":"keśava","meaning":"O Keśava"},{"te":"న","iast":"na","meaning":"not; no"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"శ్రేయః","iast":"śreyaḥ","meaning":"good; well-being"},{"te":"అనుపశ్యామి","iast":"anupaśyāmi","meaning":"I see; I foresee"},{"te":"హత్వా","iast":"hatvā","meaning":"having killed"},{"te":"స్వ జనమ్","iast":"sva-janam","meaning":"my own people"},{"te":"ఆహవే","iast":"āhave","meaning":"in battle"}],"summary":"Arjuna sees signs that he takes to be unfavorable and cannot imagine a good outcome from killing his relatives. His distress now becomes an argument against fighting.","tatparyam":"“కేశవా, నాకు అపశకునాలు కనిపిస్తున్నాయి” అని అర్జునుడు శ్రీకృష్ణుడితో అంటున్నాడు. యుద్ధంలో తనవాళ్లను చంపడం వల్ల ఏ మేలూ జరగదని అతనికి అనిపిస్తోంది.","note":"Keśava is traditionally explained as “one with beautiful hair”; it is also connected with Kṛṣṇa’s defeat of the demon Keśi. Arjuna does not specify which unfavorable omens he sees."},{"id":"bg1-32","num":32,"meter":"Anuṣṭubh","lines":[{"te":"న కాంక్షే విజయం కృష్ణ న చ రాజ్యం సుఖాని చ","iast":"na kāṅkṣe vijayaṁ kṛṣṇa na ca rājyaṁ sukhāni ca","meaning":"I do not desire victory, Kṛṣṇa, or a kingdom or pleasures."},{"te":"కిం నో రాజ్యేన గోవింద కిం భోగైర్జీవితేన వా","iast":"kiṁ no rājyena govinda kiṁ bhogairjīvitena vā","meaning":"What use is a kingdom to us, Govinda (Kṛṣṇa), or enjoyments, or even life?"}],"words":[{"te":"న","iast":"na","meaning":"not; no"},{"te":"కాంక్షే","iast":"kāṅkṣe","meaning":"I desire"},{"te":"విజయమ్","iast":"vijayam","meaning":"victory in battle"},{"te":"కృష్ణ","iast":"kṛṣṇa","meaning":"O Kṛṣṇa"},{"te":"న","iast":"na","meaning":"not; no"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"రాజ్యమ్","iast":"rājyam","meaning":"a kingdom"},{"te":"సుఖాని","iast":"sukhāni","meaning":"pleasures; comforts"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"కిమ్","iast":"kim","meaning":"what use"},{"te":"నః","iast":"naḥ","meaning":"to us"},{"te":"రాజ్యేన","iast":"rājyena","meaning":"with a kingdom"},{"te":"గోవింద","iast":"govinda","meaning":"O Govinda"},{"te":"కిమ్","iast":"kim","meaning":"what use"},{"te":"భోగైః","iast":"bhogaiḥ","meaning":"with enjoyments"},{"te":"జీవితేన","iast":"jīvitena","meaning":"with life itself"},{"te":"వా","iast":"vā","meaning":"or else"}],"summary":"Arjuna says he no longer wants the victory, kingdom, or pleasures that the war might bring. He questions their value, preparing to explain that they matter only when shared with loved ones.","tatparyam":"“కృష్ణా, నాకు గెలుపూ వద్దు, రాజ్యమూ వద్దు, సుఖాలూ వద్దు” అని అర్జునుడు అంటున్నాడు. “గోవిందా, మనకు రాజ్యమెందుకు, భోగాలెందుకు, అసలు ఈ జీవితమే ఎందుకు?” అని శ్రీకృష్ణుడిని అడుగుతున్నాడు.","note":"Govinda is a name of Kṛṣṇa traditionally understood as “protector of cows,” recalling his life among the cowherds of Vraja. Arjuna addresses the same Kṛṣṇa first by his familiar name and then as Govinda."},{"id":"bg1-33","num":33,"meter":"Anuṣṭubh","lines":[{"te":"యేషామర్థే కాంక్షితం నో రాజ్యం భోగాః సుఖాని చ","iast":"yeṣāmarthe kāṅkṣitaṁ no rājyaṁ bhogāḥ sukhāni ca","meaning":"Those for whose sake we have desired a kingdom, enjoyments, and pleasures…"},{"te":"త ఇమేఽవస్థితా యుద్ధే ప్రాణాంస్త్యక్త్వా ధనాని చ","iast":"ta ime'vasthitā yuddhe prāṇāṁstyaktvā dhanāni ca","meaning":"…are standing here in battle, ready to give up their lives and wealth."}],"words":[{"te":"యేషామ్","iast":"yeṣām","meaning":"of those whom"},{"te":"అర్థే","iast":"arthe","meaning":"for the sake"},{"te":"కాంక్షితమ్","iast":"kāṅkṣitam","meaning":"desired; wished for"},{"te":"నః","iast":"naḥ","meaning":"by us"},{"te":"రాజ్యమ్","iast":"rājyam","meaning":"a kingdom"},{"te":"భోగాః","iast":"bhogāḥ","meaning":"enjoyments; possessions"},{"te":"సుఖాని","iast":"sukhāni","meaning":"pleasures; comforts"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"తే","iast":"te","meaning":"those very people"},{"te":"ఇమే","iast":"ime","meaning":"these here"},{"te":"అవస్థితాః","iast":"avasthitāḥ","meaning":"stand arrayed"},{"te":"యుద్ధే","iast":"yuddhe","meaning":"in battle"},{"te":"ప్రాణాన్","iast":"prāṇān","meaning":"their lives"},{"te":"త్యక్త్వా","iast":"tyaktvā","meaning":"having given up"},{"te":"ధనాని","iast":"dhanāni","meaning":"wealth; possessions"},{"te":"చ","iast":"ca","meaning":"and also"}],"summary":"The people with whom Arjuna hoped to share prosperity are now on the battlefield, risking everything. He sees that the war could destroy the very relationships that gave those hopes meaning.","tatparyam":"ఎవరి కోసం రాజ్యమూ సుఖాలూ కోరుకున్నామో, వాళ్లే ఇప్పుడు యుద్ధంలో నిలబడి ఉన్నారని అర్జునుడు అంటున్నాడు. ప్రాణాలనూ సంపదనూ వదులుకోవడానికి సిద్ధపడిన ఆ బంధువులను చూస్తే, గెలుపులో ఆనందం ఏముంటుందని అతనికి అనిపిస్తోంది.","note":"Tyaktvā literally means “having given up”; here the relatives have put their lives and wealth at stake by joining the battle. The next verse names the family relationships Arjuna has in mind."},{"id":"bg1-34","num":34,"meter":"Anuṣṭubh","lines":[{"te":"ఆచార్యాః పితరః పుత్రాస్తథైవ చ పితామహాః","iast":"ācāryāḥ pitaraḥ putrāstathaiva ca pitāmahāḥ","meaning":"Among them are teachers, fatherly elders, sons, and grandfathers…"},{"te":"మాతులాః శ్వశురాః పౌత్రాః శ్యాలాః సంబంధినస్తథా","iast":"mātulāḥ śvaśurāḥ pautrāḥ śyālāḥ sambandhinastathā","meaning":"…as well as maternal uncles, fathers-in-law, grandsons, brothers-in-law, and relatives by marriage."}],"words":[{"te":"ఆచార్యాః","iast":"ācāryāḥ","meaning":"teachers; spiritual guides"},{"te":"పితరః","iast":"pitaraḥ","meaning":"fathers; paternal elders"},{"te":"పుత్రాః","iast":"putrāḥ","meaning":"sons; children"},{"te":"తథా","iast":"tathā","meaning":"likewise; as well"},{"te":"ఏవ","iast":"eva","meaning":"indeed; also"},{"te":"చ","iast":"ca","meaning":"and also"},{"te":"పితామహాః","iast":"pitāmahāḥ","meaning":"grandfathers; family elders"},{"te":"మాతులాః","iast":"mātulāḥ","meaning":"maternal uncles"},{"te":"శ్వశురాః","iast":"śvaśurāḥ","meaning":"fathers-in-law"},{"te":"పౌత్రాః","iast":"pautrāḥ","meaning":"grandsons; grandchildren"},{"te":"శ్యాలాః","iast":"śyālāḥ","meaning":"brothers-in-law; wives’ brothers"},{"te":"సంబంధినః","iast":"sambandhinaḥ","meaning":"relatives by marriage"},{"te":"తథా","iast":"tathā","meaning":"likewise; as well"}],"summary":"Arjuna names the teachers and relatives gathered for battle. These relationships make it impossible for him to see the opposing army simply as a collection of enemies.","tatparyam":"గురువులు, తండ్రుల్లాంటి పెద్దలు, కొడుకులు, తాతలు, మేనమామలు, మామగార్లు, మనవళ్లు, బావమరుదులు అక్కడ ఉన్నారని అర్జునుడు గుర్తుచేస్తున్నాడు. అతనికి వాళ్లు శత్రువులుగా కాకుండా తనకు దగ్గరైన మనుషులుగానే కనిపిస్తున్నారు.","note":"This list continues the thought of 1.33 and includes elders and relatives across the assembled armies. Śyālāḥ specifically refers to wives’ brothers, while sambandhinaḥ covers other relatives connected by marriage."},{"id":"bg1-35","num":35,"meter":"Anuṣṭubh","lines":[{"te":"ఏతాన్న హంతుమిచ్ఛామి ఘ్నతోఽపి మధుసూదన","iast":"etānna hantumicchāmi ghnato'pi madhusūdana","meaning":"I do not wish to kill them, even if they kill me, O Madhusūdana (Kṛṣṇa)…"},{"te":"అపి త్రైలోక్యరాజ్యస్య హేతోః కిం ను మహీకృతే","iast":"api trailokyarājyasya hetoḥ kiṁ nu mahīkṛte","meaning":"…even for sovereignty over the three worlds, much less for this earth."}],"words":[{"te":"ఏతాన్","iast":"etān","meaning":"these people"},{"te":"న","iast":"na","meaning":"not; no"},{"te":"హంతుమ్","iast":"hantum","meaning":"to kill"},{"te":"ఇచ్ఛామి","iast":"icchāmi","meaning":"I wish"},{"te":"ఘ్నతః","iast":"ghnataḥ","meaning":"even as they kill"},{"te":"అపి","iast":"api","meaning":"even; although"},{"te":"మధు సూదన","iast":"madhu-sūdana","meaning":"O slayer of Madhu"},{"te":"అపి","iast":"api","meaning":"even; also"},{"te":"త్రైలోక్య రాజ్యస్య","iast":"trailokya-rājyasya","meaning":"of sovereignty over three worlds"},{"te":"హేతోః","iast":"hetoḥ","meaning":"for the sake"},{"te":"కిమ్","iast":"kim","meaning":"how much less"},{"te":"ను","iast":"nu","meaning":"indeed; then"},{"te":"మహీ కృతే","iast":"mahī-kṛte","meaning":"for the sake of earth"}],"summary":"Arjuna refuses to kill his relatives even if they attack him. He says that not even sovereignty over the three worlds could justify it, much less a kingdom on earth.","tatparyam":"“మధుసూదనా, వాళ్లు నన్ను చంపినా సరే, నేను మాత్రం వాళ్లను చంపాలనుకోవడం లేదు” అని అర్జునుడు అంటున్నాడు. “మూడు లోకాల రాజ్యం కోసం కూడా వారిని చంపను; ఇక ఈ భూమిపై రాజ్యం కోసం ఎలా చంపుతాను?” అని శ్రీకృష్ణుడిని అడుగుతున్నాడు.","note":"Madhusūdana means “slayer of Madhu,” a demon slain by Viṣṇu, with whom Kṛṣṇa is identified. The three worlds traditionally refer to heaven, earth, and the lower world."},{"id":"bg1-36","num":36,"meter":"Anuṣṭubh","lines":[{"te":"నిహత్య ధార్తరాష్ట్రాన్నః కా ప్రీతిః స్యాజ్జనార్దన","iast":"nihatya dhārtarāṣṭrānnaḥ kā prītiḥ syājjanārdana","meaning":"What joy could be ours after killing Dhṛtarāṣṭra’s sons, O Janārdana (Kṛṣṇa)?"},{"te":"పాపమేవాశ్రయేదస్మాన్హత్వైతానాతతాయినః","iast":"pāpamevāśrayedasmānhatvaitānātatāyinaḥ","meaning":"Only sin would come upon us if we killed these aggressors."}],"words":[{"te":"నిహత్య","iast":"nihatya","meaning":"having killed"},{"te":"ధార్తరాష్ట్రాన్","iast":"dhārtarāṣṭrān","meaning":"the sons of Dhṛtarāṣṭra"},{"te":"నః","iast":"naḥ","meaning":"to us"},{"te":"కా","iast":"kā","meaning":"what kind of"},{"te":"ప్రీతిః","iast":"prītiḥ","meaning":"joy; satisfaction"},{"te":"స్యాత్","iast":"syāt","meaning":"might there be"},{"te":"జనార్దన","iast":"janārdana","meaning":"O Janārdana"},{"te":"పాపమ్","iast":"pāpam","meaning":"sin; wrongdoing"},{"te":"ఏవ","iast":"eva","meaning":"only; indeed"},{"te":"ఆశ్రయేత్","iast":"āśrayet","meaning":"would come upon"},{"te":"అస్మాన్","iast":"asmān","meaning":"us; ourselves"},{"te":"హత్వా","iast":"hatvā","meaning":"having killed"},{"te":"ఏతాన్","iast":"etān","meaning":"these people"},{"te":"ఆతతాయినః","iast":"ātatāyinaḥ","meaning":"violent aggressors"}],"summary":"Arjuna asks what happiness killing Dhṛtarāṣṭra’s sons could bring. Even while calling them aggressors, he fears that killing his relatives would burden the Pāṇḍavas with sin.","tatparyam":"“జనార్దనా, ధృతరాష్ట్రుడి కుమారులను చంపితే మనకు ఏ ఆనందం కలుగుతుంది?” అని అర్జునుడు శ్రీకృష్ణుడిని అడుగుతున్నాడు. వాళ్లు దాడికి తెగబడినవాళ్లే అయినా, వారిని చంపితే తమకు పాపమే చుట్టుకుంటుందని అతను భావిస్తున్నాడు.","note":"Janārdana is traditionally explained as “one whom people approach for help” or “destroyer of the wicked.” An ātatāyin is a grave aggressor, traditionally including an arsonist, poisoner, armed attacker, or someone who seizes another’s wealth, land, or wife. Arjuna acknowledges their aggression but still fears the sin of killing his kin."},{"id":"bg1-37","num":37,"meter":"Anuṣṭubh","lines":[{"te":"తస్మాన్నార్హా వయం హంతుం ధార్తరాష్ట్రాన్స్వబాంధవాన్","iast":"tasmānnārhā vayaṁ hantuṁ dhārtarāṣṭrānsvabāndhavān","meaning":"Therefore we should not kill Dhṛtarāṣṭra’s sons, our own relatives."},{"te":"స్వజనం హి కథం హత్వా సుఖినః స్యామ మాధవ","iast":"svajanaṁ hi kathaṁ hatvā sukhinaḥ syāma mādhava","meaning":"For how could we be happy after killing our own people, O Mādhava (Kṛṣṇa)?"}],"words":[{"te":"తస్మాత్","iast":"tasmāt","meaning":"therefore; for that reason"},{"te":"న","iast":"na","meaning":"not; no"},{"te":"అర్హాః","iast":"arhāḥ","meaning":"fit; worthy"},{"te":"వయమ్","iast":"vayam","meaning":"we; all of us"},{"te":"హంతుమ్","iast":"hantum","meaning":"to kill"},{"te":"ధార్తరాష్ట్రాన్","iast":"dhārtarāṣṭrān","meaning":"the sons of Dhṛtarāṣṭra"},{"te":"స్వ బాంధవాన్","iast":"sva-bāndhavān","meaning":"our own relatives"},{"te":"స్వ జనమ్","iast":"sva-janam","meaning":"our own people"},{"te":"హి","iast":"hi","meaning":"for; indeed"},{"te":"కథమ్","iast":"katham","meaning":"how; in what way"},{"te":"హత్వా","iast":"hatvā","meaning":"having killed"},{"te":"సుఖినః","iast":"sukhinaḥ","meaning":"happy; at peace"},{"te":"స్యామ","iast":"syāma","meaning":"could we be"},{"te":"మాధవ","iast":"mādhava","meaning":"O Mādhava"}],"summary":"Arjuna concludes that they should not kill their own relatives, Dhṛtarāṣṭra’s sons. He cannot reconcile the hope of happiness with the destruction of his family.","tatparyam":"ధృతరాష్ట్రుడి కుమారులు తమ బంధువులే కాబట్టి, వారిని చంపడం తగదని అర్జునుడు అంటున్నాడు. “మాధవా, మనవాళ్లను చంపుకుని మనం ఎలా సుఖంగా ఉండగలం?” అని శ్రీకృష్ణుడిని అడుగుతున్నాడు.","note":"Mādhava means “descendant of Madhu,” an ancestor in Kṛṣṇa’s lineage; this Madhu is distinct from the demon named in Madhusūdana."},{"id":"bg1-38","num":38,"meter":"Anuṣṭubh","lines":[{"te":"యద్యప్యేతే న పశ్యంతి లోభోపహతచేతసః","iast":"yadyapyete na paśyanti lobhopahatacetasaḥ","meaning":"Although these men, their minds clouded by greed, do not see…"},{"te":"కులక్షయకృతం దోషం మిత్రద్రోహే చ పాతకమ్","iast":"kulakṣayakṛtaṁ doṣaṁ mitradrohe ca pātakam","meaning":"…the harm caused by destroying a family, or the sin in betraying friends…"}],"words":[{"te":"యది","iast":"yadi","meaning":"even if"},{"te":"అపి","iast":"api","meaning":"even; although"},{"te":"ఏతే","iast":"ete","meaning":"these men"},{"te":"న","iast":"na","meaning":"do not"},{"te":"పశ్యంతి","iast":"paśyanti","meaning":"they see"},{"te":"లోభ ఉపహత చేతసః","iast":"lobha-upahata-cetasaḥ","meaning":"whose minds are overcome by greed"},{"te":"కుల క్షయ కృతమ్","iast":"kula-kṣaya-kṛtam","meaning":"caused by the destruction of a family"},{"te":"దోషమ్","iast":"doṣam","meaning":"harm; wrongdoing"},{"te":"మిత్ర ద్రోహే","iast":"mitra-drohe","meaning":"in betraying friends"},{"te":"చ","iast":"ca","meaning":"and; also"},{"te":"పాతకమ్","iast":"pātakam","meaning":"sin; a grave wrong"}],"summary":"Arjuna says that greed has blinded the men on the other side to the harm of destroying their family and betraying friends. His thought continues into the next verse, where he asks why those who see the danger should join them.","tatparyam":"లోభం వల్ల అవతలి వాళ్లకు కుటుంబాలను నాశనం చేయడంలోని తప్పు కనిపించడం లేదని అర్జునుడు అంటున్నాడు. స్నేహితులకు ద్రోహం చేయడం పాపమనే సంగతి కూడా వాళ్లు గుర్తించడం లేదని చెబుతున్నాడు.","note":"Verses 1.38 and 1.39 form one connected argument. Arjuna distinguishes the others’ blindness to the consequences from his own awareness of them."},{"id":"bg1-39","num":39,"meter":"Anuṣṭubh","lines":[{"te":"కథం న జ్ఞేయమస్మాభిః పాపాదస్మాన్నివర్తితుమ్","iast":"kathaṁ na jñeyamasmābhiḥ pāpādasmānnivartitum","meaning":"…why should we not know enough to turn away from this sin…"},{"te":"కులక్షయకృతం దోషం ప్రపశ్యద్భిర్జనార్దన","iast":"kulakṣayakṛtaṁ doṣaṁ prapaśyadbhirjanārdana","meaning":"…when we clearly see the harm caused by destroying a family, O Janārdana (Kṛṣṇa)?"}],"words":[{"te":"కథమ్","iast":"katham","meaning":"how; why"},{"te":"న","iast":"na","meaning":"not"},{"te":"జ్ఞేయమ్","iast":"jñeyam","meaning":"should be understood"},{"te":"అస్మాభిః","iast":"asmābhiḥ","meaning":"by us"},{"te":"పాపాత్","iast":"pāpāt","meaning":"from sin"},{"te":"అస్మాత్","iast":"asmāt","meaning":"from this"},{"te":"నివర్తితుమ్","iast":"nivartitum","meaning":"to turn away"},{"te":"కుల క్షయ కృతమ్","iast":"kula-kṣaya-kṛtam","meaning":"caused by the destruction of a family"},{"te":"దోషమ్","iast":"doṣam","meaning":"harm; wrongdoing"},{"te":"ప్రపశ్యద్భిః","iast":"prapaśyadbhiḥ","meaning":"by those who clearly see"},{"te":"జనార్దన","iast":"janārdana","meaning":"O Janārdana (Kṛṣṇa)"}],"summary":"Arjuna completes his question: if they understand the harm, why should they not refuse to take part? He sees awareness of the consequences as a reason to withdraw from the battle.","tatparyam":"కుటుంబాలు నాశనమైతే కలిగే అనర్థం మనకు స్పష్టంగా కనిపిస్తోంది కదా అని అర్జునుడు శ్రీకృష్ణుడిని అడుగుతున్నాడు. అది తెలిసిన మనం ఈ పాపం నుంచి తప్పుకోవాలి కదా అనేది అతని వాదన.","note":"In pāpādasmānnivartitum, sandhi joins pāpāt, asmāt and nivartitum. Here asmāt means “from this,” referring to the sin, rather than “us.”"},{"id":"bg1-40","num":40,"meter":"Anuṣṭubh","lines":[{"te":"కులక్షయే ప్రణశ్యంతి కులధర్మాః సనాతనాః","iast":"kulakṣaye praṇaśyanti kuladharmāḥ sanātanāḥ","meaning":"When a family is destroyed, its age-old duties and traditions perish."},{"te":"ధర్మే నష్టే కులం కృత్స్నమధర్మోఽభిభవత్యుత","iast":"dharme naṣṭe kulaṁ kṛtsnamadharmo'bhibhavatyuta","meaning":"When those duties are lost, unrighteousness indeed overwhelms the whole family."}],"words":[{"te":"కుల క్షయే","iast":"kula-kṣaye","meaning":"when a family is destroyed"},{"te":"ప్రణశ్యంతి","iast":"praṇaśyanti","meaning":"they perish"},{"te":"కుల ధర్మాః","iast":"kula-dharmāḥ","meaning":"family duties and traditions"},{"te":"సనాతనాః","iast":"sanātanāḥ","meaning":"age-old; handed down through generations"},{"te":"ధర్మే","iast":"dharme","meaning":"when righteous duty"},{"te":"నష్టే","iast":"naṣṭe","meaning":"has been lost"},{"te":"కులమ్","iast":"kulam","meaning":"the family"},{"te":"కృత్స్నమ్","iast":"kṛtsnam","meaning":"the whole; entire"},{"te":"అధర్మః","iast":"adharmaḥ","meaning":"unrighteousness; conduct against duty"},{"te":"అభిభవతి","iast":"abhibhavati","meaning":"overwhelms; gains the upper hand"},{"te":"ఉత","iast":"uta","meaning":"indeed; also"}],"summary":"Arjuna fears that destroying a family will also destroy the duties and traditions passed down within it. He argues that their loss will allow wrongdoing to spread through the surviving family.","tatparyam":"కుటుంబం నాశనమైతే తరతరాలుగా వస్తున్న ఆచారాలు, బాధ్యతలు, అంటే కులధర్మాలు కూడా నశిస్తాయని అర్జునుడు శ్రీకృష్ణుడితో అంటున్నాడు. అవి నశిస్తే కుటుంబమంతటినీ అధర్మం కమ్మేస్తుందని దుఃఖంతో వాదిస్తున్నాడు.","note":"Kula-dharma refers here to duties and observances handed down within a family or lineage. Verses 1.40–1.44 present Arjuna’s arguments in grief, which Kṛṣṇa begins answering in Chapter 2."},{"id":"bg1-41","num":41,"meter":"Anuṣṭubh","lines":[{"te":"అధర్మాభిభవాత్కృష్ణ ప్రదుష్యంతి కులస్త్రియః","iast":"adharmābhibhavātkṛṣṇa praduṣyanti kulastriyaḥ","meaning":"When unrighteousness prevails, O Kṛṣṇa, the women of the family become corrupted."},{"te":"స్త్రీషు దుష్టాసు వార్ష్ణేయ జాయతే వర్ణసంకరః","iast":"strīṣu duṣṭāsu vārṣṇeya jāyate varṇasaṅkaraḥ","meaning":"When the women are corrupted, O Vārṣṇeya (Kṛṣṇa), intermixture of the hereditary social classes arises."}],"words":[{"te":"అధర్మ అభిభవాత్","iast":"adharma-abhibhavāt","meaning":"because unrighteousness prevails"},{"te":"కృష్ణ","iast":"kṛṣṇa","meaning":"O Kṛṣṇa"},{"te":"ప్రదుష్యంతి","iast":"praduṣyanti","meaning":"they become corrupted"},{"te":"కుల స్త్రియః","iast":"kula-striyaḥ","meaning":"women of the family"},{"te":"స్త్రీషు","iast":"strīṣu","meaning":"when the women"},{"te":"దుష్టాసు","iast":"duṣṭāsu","meaning":"have become corrupted"},{"te":"వార్ష్ణేయ","iast":"vārṣṇeya","meaning":"O descendant of Vṛṣṇi (Kṛṣṇa)"},{"te":"జాయతే","iast":"jāyate","meaning":"arises; comes into being"},{"te":"వర్ణ సంకరః","iast":"varṇa-saṅkaraḥ","meaning":"intermixture of the social classes"}],"summary":"Arjuna extends his fear of family ruin to women’s conduct and the mixing of social classes. These concerns reflect the inherited social order on which he bases his argument against fighting.","tatparyam":"అధర్మం పెరిగితే కుటుంబంలోని స్త్రీల నడవడి చెడిపోతుందని అర్జునుడు దుఃఖంతో శ్రీకృష్ణుడికి చెబుతున్నాడు. దాని వల్ల వర్ణాల కలయిక, అంటే వర్ణసంకరం ఏర్పడుతుందని అతను వాదిస్తున్నాడు.","note":"Varṇa-saṅkara traditionally means the intermixture of the hereditary social classes. Vārṣṇeya means “descendant of Vṛṣṇi,” a name for Kṛṣṇa."},{"id":"bg1-42","num":42,"meter":"Anuṣṭubh","lines":[{"te":"సంకరో నరకాయైవ కులఘ్నానాం కులస్య చ","iast":"saṅkaro narakāyaiva kulaghnānāṁ kulasya ca","meaning":"Such intermixture leads to hell for those who destroy the family and for the family itself."},{"te":"పతంతి పితరో హ్యేషాం లుప్తపిండోదకక్రియాః","iast":"patanti pitaro hyeṣāṁ luptapiṇḍodakakriyāḥ","meaning":"For their ancestors fall, deprived of the rites of food and water offerings."}],"words":[{"te":"సంకరః","iast":"saṅkaraḥ","meaning":"intermixture of the social classes"},{"te":"నరకాయ","iast":"narakāya","meaning":"leads to hell"},{"te":"ఏవ","iast":"eva","meaning":"indeed; certainly"},{"te":"కుల ఘ్నానామ్","iast":"kula-ghnānām","meaning":"for those who destroy the family"},{"te":"కులస్య","iast":"kulasya","meaning":"for the family"},{"te":"చ","iast":"ca","meaning":"and; also"},{"te":"పతంతి","iast":"patanti","meaning":"they fall"},{"te":"పితరః","iast":"pitaraḥ","meaning":"the departed ancestors"},{"te":"హి","iast":"hi","meaning":"for; indeed"},{"te":"ఏషామ్","iast":"eṣām","meaning":"of these people"},{"te":"లుప్త పిండ ఉదక క్రియాః","iast":"lupta-piṇḍa-udaka-kriyāḥ","meaning":"deprived of food and water offering rites"}],"summary":"Arjuna believes the harm would reach both the living family and its departed ancestors. He fears that the ancestral offerings would cease, causing the ancestors themselves to fall from their blessed state.","tatparyam":"వర్ణసంకరం వల్ల కుటుంబాన్ని నాశనం చేసినవారికీ, వారి కుటుంబానికీ నరకం తప్పదని అర్జునుడు దుఃఖంతో శ్రీకృష్ణుడికి చెబుతున్నాడు. పిండప్రదానం, జలతర్పణం వంటి క్రియలు నిలిచిపోతే వారి పూర్వీకులు కూడా అధోగతి పాలవుతారని అంటున్నాడు.","note":"Piṇḍa is a ball of food, commonly rice, and udaka is water offered to departed ancestors. Arjuna fears that destroying the family would interrupt these ancestral rites."},{"id":"bg1-43","num":43,"meter":"Anuṣṭubh","lines":[{"te":"దోషైరేతైః కులఘ్నానాం వర్ణసంకరకారకైః","iast":"doṣairetaiḥ kulaghnānāṁ varṇasaṅkarakārakaiḥ","meaning":"Through these wrongs of those who destroy families, which cause intermixture of the social classes…"},{"te":"ఉత్సాద్యంతే జాతిధర్మాః కులధర్మాశ్చ శాశ్వతాః","iast":"utsādyante jātidharmāḥ kuladharmāśca śāśvatāḥ","meaning":"…the enduring duties of hereditary communities and families are swept away."}],"words":[{"te":"దోషైః","iast":"doṣaiḥ","meaning":"through wrongs; through harmful acts"},{"te":"ఏతైః","iast":"etaiḥ","meaning":"through these"},{"te":"కుల ఘ్నానామ్","iast":"kula-ghnānām","meaning":"of those who destroy families"},{"te":"వర్ణ సంకర కారకైః","iast":"varṇa-saṅkara-kārakaiḥ","meaning":"causing intermixture of the social classes"},{"te":"ఉత్సాద్యంతే","iast":"utsādyante","meaning":"are destroyed; are swept away"},{"te":"జాతి ధర్మాః","iast":"jāti-dharmāḥ","meaning":"duties of hereditary communities"},{"te":"కుల ధర్మాః","iast":"kula-dharmāḥ","meaning":"family duties and traditions"},{"te":"చ","iast":"ca","meaning":"and; also"},{"te":"శాశ్వతాః","iast":"śāśvatāḥ","meaning":"enduring; long established"}],"summary":"Arjuna brings his social concerns together: family destruction, he says, would undo the duties of both families and hereditary communities. He presents the war as a threat to the continuity of an entire way of life.","tatparyam":"కుటుంబాలను నాశనం చేసేవారి ఈ తప్పులు వర్ణసంకరానికి దారితీస్తాయని అర్జునుడు శ్రీకృష్ణుడితో అంటున్నాడు. వాటివల్ల తరతరాలుగా వస్తున్న జాతిధర్మాలు, కులధర్మాలు, అంటే ఆయా సామాజిక వర్గాల, కుటుంబాల ఆచారాలు, బాధ్యతలు నశిస్తాయని దుఃఖంతో వాదిస్తున్నాడు.","note":"Jāti-dharma concerns the duties of a hereditary community, while kula-dharma concerns a family or lineage."},{"id":"bg1-44","num":44,"meter":"Anuṣṭubh","lines":[{"te":"ఉత్సన్నకులధర్మాణాం మనుష్యాణాం జనార్దన","iast":"utsannakuladharmāṇāṁ manuṣyāṇāṁ janārdana","meaning":"For people whose family duties have been destroyed, O Janārdana (Kṛṣṇa)…"},{"te":"నరకేఽనియతం వాసో భవతీత్యనుశుశ్రుమ","iast":"narake'niyataṁ vāso bhavatītyanuśuśruma","meaning":"…there is a stay in hell of indefinite duration, so we have heard."}],"words":[{"te":"ఉత్సన్న కుల ధర్మాణామ్","iast":"utsanna-kula-dharmāṇām","meaning":"whose family duties have been destroyed"},{"te":"మనుష్యాణామ్","iast":"manuṣyāṇām","meaning":"of such people"},{"te":"జనార్దన","iast":"janārdana","meaning":"O Janārdana (Kṛṣṇa)"},{"te":"నరకే","iast":"narake","meaning":"in hell"},{"te":"అనియతమ్","iast":"aniyatam","meaning":"of indefinite duration"},{"te":"వాసః","iast":"vāsaḥ","meaning":"a stay; dwelling"},{"te":"భవతి","iast":"bhavati","meaning":"comes to be"},{"te":"ఇతి","iast":"iti","meaning":"thus; that"},{"te":"అనుశుశ్రుమ","iast":"anuśuśruma","meaning":"we have heard from tradition"}],"summary":"Arjuna appeals to what he has heard from tradition about the fate of people whose family duties are lost. The prospect of an indefinite stay in hell adds to his fear of taking part in the war.","tatparyam":"కులధర్మాలు నశించినవారు నరకంలో ఉంటారని పెద్దల నుంచి విన్నట్లు అర్జునుడు శ్రీకృష్ణుడితో అంటున్నాడు. ఆ నరకవాసం ఎంతకాలం కొనసాగుతుందో చెప్పలేమని చెబుతున్నాడు. తమకూ అలాంటి గతి పట్టవచ్చనే భయంతో అతను దుఃఖిస్తున్నాడు.","note":"This text reads aniyatam, “of indefinite duration”; another reading, niyatam, means “certain” or “fixed.” Arjuna’s “we have heard” appeals to received tradition."},{"id":"bg1-45","num":45,"meter":"Anuṣṭubh","lines":[{"te":"అహో బత మహత్పాపం కర్తుం వ్యవసితా వయమ్","iast":"aho bata mahatpāpaṁ kartuṁ vyavasitā vayam","meaning":"Alas, we have resolved to commit a terrible sin…"},{"te":"యద్రాజ్యసుఖలోభేన హంతుం స్వజనముద్యతాః","iast":"yadrājyasukhalobhena hantuṁ svajanamudyatāḥ","meaning":"…since, driven by greed for the pleasures of kingship, we are ready to kill our own people."}],"words":[{"te":"అహో","iast":"aho","meaning":"alas; an exclamation of distress"},{"te":"బత","iast":"bata","meaning":"alas; an expression of regret"},{"te":"మహత్","iast":"mahat","meaning":"great; terrible"},{"te":"పాపమ్","iast":"pāpam","meaning":"sin; wrongdoing"},{"te":"కర్తుమ్","iast":"kartum","meaning":"to commit; to do"},{"te":"వ్యవసితాః","iast":"vyavasitāḥ","meaning":"have resolved; have decided"},{"te":"వయమ్","iast":"vayam","meaning":"we; all of us"},{"te":"యత్","iast":"yat","meaning":"since; in that"},{"te":"రాజ్య సుఖ లోభేన","iast":"rājya-sukha-lobhena","meaning":"through greed for the pleasures of kingship"},{"te":"హంతుమ్","iast":"hantum","meaning":"to kill"},{"te":"స్వ జనమ్","iast":"sva-janam","meaning":"our own people; our kinsfolk"},{"te":"ఉద్యతాః","iast":"udyatāḥ","meaning":"ready; prepared to act"}],"summary":"Arjuna turns his accusation inward, lamenting that they too are prepared to kill their relatives for royal pleasures. His reasoning gives way to an exclamation of distress and self-reproach.","tatparyam":"రాజ్యసుఖాలపై పేరాశతో తమ సొంతవాళ్లనే చంపడానికి సిద్ధపడ్డామని అర్జునుడు బాధపడుతున్నాడు. “అయ్యో, మనం ఎంత పెద్ద పాపం చేయడానికి సిద్ధపడ్డాం!” అని పశ్చాత్తాపంతో అంటున్నాడు.","note":"Aho bata combines two exclamations of sorrow and dismay. The word vayam, “we,” shows that Arjuna now includes his own side in his reproach."},{"id":"bg1-46","num":46,"meter":"Anuṣṭubh","lines":[{"te":"యది మామప్రతీకారమశస్త్రం శస్త్రపాణయః","iast":"yadi māmapratīkāramaśastraṁ śastrapāṇayaḥ","meaning":"If, while I am unresisting and unarmed, the armed…"},{"te":"ధార్తరాష్ట్రా రణే హన్యుస్తన్మే క్షేమతరం భవేత్","iast":"dhārtarāṣṭrā raṇe hanyustanme kṣemataraṁ bhavet","meaning":"…sons of Dhṛtarāṣṭra should kill me in battle, that would be better for me."}],"words":[{"te":"యది","iast":"yadi","meaning":"if; should it happen"},{"te":"మామ్","iast":"mām","meaning":"me; myself"},{"te":"అప్రతీకారమ్","iast":"apratīkāram","meaning":"offering no resistance"},{"te":"అశస్త్రమ్","iast":"aśastram","meaning":"unarmed; without weapons"},{"te":"శస్త్ర పాణయః","iast":"śastra-pāṇayaḥ","meaning":"those with weapons in their hands"},{"te":"ధార్తరాష్ట్రాః","iast":"dhārtarāṣṭrāḥ","meaning":"the sons of Dhṛtarāṣṭra"},{"te":"రణే","iast":"raṇe","meaning":"in battle"},{"te":"హన్యుః","iast":"hanyuḥ","meaning":"should kill; might slay"},{"te":"తత్","iast":"tat","meaning":"that; such an outcome"},{"te":"మే","iast":"me","meaning":"for me"},{"te":"క్షేమతరమ్","iast":"kṣemataram","meaning":"better; more conducive to well-being"},{"te":"భవేత్","iast":"bhavet","meaning":"would be"}],"summary":"Arjuna says he would rather be killed unarmed and without resisting than fight his relatives. This is the final statement of his refusal before he puts down his bow.","tatparyam":"ఆయుధం పట్టకుండా, ఎదురు తిరగకుండా ఉన్న తనను ధృతరాష్ట్రుడి కుమారులు చంపినా పరవాలేదని అర్జునుడు అంటున్నాడు. బంధువులను చంపడం కంటే తనకు అలా జరగడమే మేలని అతనికి అనిపిస్తోంది.","note":"Apratīkāra means offering no resistance, while aśastra means being without weapons. Arjuna names both conditions to make the extent of his refusal clear."},{"id":"bg1-47","num":47,"meter":"Anuṣṭubh","lines":[{"speaker":"sanjaya","te":"ఏవముక్త్వార్జునః సంఖ్యే రథోపస్థ ఉపావిశత్","iast":"evamuktvārjunaḥ saṅkhye rathopastha upāviśat","meaning":"Having spoken thus on the battlefield, Arjuna sat down on the chariot…"},{"te":"విసృజ్య సశరం చాపం శోకసంవిగ్నమానసః","iast":"visṛjya saśaraṁ cāpaṁ śokasaṁvignamānasaḥ","meaning":"…letting go of his bow and arrows, his mind overwhelmed with grief."}],"words":[{"te":"ఏవమ్","iast":"evam","meaning":"thus; in this way"},{"te":"ఉక్త్వా","iast":"uktvā","meaning":"having spoken"},{"te":"అర్జునః","iast":"arjunaḥ","meaning":"Arjuna; the Pāṇḍava warrior"},{"te":"సంఖ్యే","iast":"saṅkhye","meaning":"on the battlefield"},{"te":"రథ ఉపస్థే","iast":"ratha-upasthe","meaning":"on the seat of the chariot"},{"te":"ఉపావిశత్","iast":"upāviśat","meaning":"sat down"},{"te":"విసృజ్య","iast":"visṛjya","meaning":"letting go; casting aside"},{"te":"స శరమ్","iast":"sa-śaram","meaning":"together with arrows"},{"te":"చాపమ్","iast":"cāpam","meaning":"the bow"},{"te":"శోక సంవిగ్న మానసః","iast":"śoka-saṁvigna-mānasaḥ","meaning":"his mind overwhelmed with grief"}],"summary":"Sañjaya resumes his account as Arjuna lets go of his bow and arrows and sinks down on the chariot. His grief has brought his readiness for battle to a halt, setting the scene for Kṛṣṇa’s response.","tatparyam":"అర్జునుడు మాటలు ముగించి విల్లు, బాణాలు వదిలేసి రథంలో కూర్చున్నాడని సంజయుడు చెబుతున్నాడు. దుఃఖంతో అతని మనసు కలతపడిపోయింది; ఇప్పుడు అతని సందేహాలకు శ్రీకృష్ణుడు సమాధానం చెప్పే సందర్భం వచ్చింది.","note":"The chapter closes here with Arjuna’s dejection. Chapter 2 opens with Kṛṣṇa’s reply, introduced by Sañjaya’s brief narration in 2.1; Kṛṣṇa begins speaking in 2.2."}];
+/* Line timings in seconds within the audio file. One [start, end] per line, in order; "X uvāca" belongs to the line it introduces. */
+const AUDIO = {"src":"audio/bg1.m4a","lines":{"bg1-01":[[0.0,11.82],[11.82,20.28]],"bg1-02":[[20.28,33.44],[33.44,41.82]],"bg1-03":[[41.82,51.1],[51.1,59.51]],"bg1-04":[[59.51,67.75],[67.75,76.42]],"bg1-05":[[76.42,85.06],[85.06,92.64]],"bg1-06":[[92.64,102.14],[102.14,110.58]],"bg1-07":[[110.58,119.51],[119.51,127.64]],"bg1-08":[[127.64,136.92],[136.92,145.94]],"bg1-09":[[145.94,154.41],[154.41,162.91]],"bg1-10":[[162.91,172.36],[172.36,181.42]],"bg1-11":[[181.42,189.24],[189.24,196.91]],"bg1-12":[[196.91,205.94],[205.94,215.15]],"bg1-13":[[215.15,223.21],[223.21,231.82]],"bg1-14":[[231.82,239.99],[239.99,248.06]],"bg1-15":[[248.06,257.08],[257.08,265.02]],"bg1-16":[[265.02,273.86],[273.86,280.92]],"bg1-17":[[280.92,290.21],[290.21,298.61]],"bg1-18":[[298.61,307.6],[307.6,316.1]],"bg1-19":[[316.1,325.26],[325.26,332.22]],"bg1-20":[[332.22,342.02],[342.02,349.66]],"bg1-21":[[349.66,358.06],[358.06,369.3]],"bg1-22":[[369.3,377.3],[377.3,385.78]],"bg1-23":[[385.78,394.87],[394.87,403.14]],"bg1-24":[[403.14,414.88],[414.88,423.66]],"bg1-25":[[423.66,431.95],[431.95,439.48]],"bg1-26":[[439.48,448.68],[448.68,458.76]],"bg1-27":[[458.76,466.5],[466.5,475.16]],"bg1-28":[[475.16,484.34],[484.34,496.14]],"bg1-29":[[496.14,504.62],[504.62,512.44]],"bg1-30":[[512.44,520.23],[520.23,528.99]],"bg1-31":[[528.99,537.37],[537.37,545.14]],"bg1-32":[[545.14,552.5],[552.5,561.94]],"bg1-33":[[561.94,571.44],[571.44,579.7]],"bg1-34":[[579.7,587.96],[587.96,597.31]],"bg1-35":[[597.31,605.08],[605.08,613.82]],"bg1-36":[[613.82,622.09],[622.09,631.66]],"bg1-37":[[631.66,641.11],[641.11,648.32]],"bg1-38":[[648.32,656.17],[656.17,665.22]],"bg1-39":[[665.22,673.16],[673.16,681.66]],"bg1-40":[[681.66,690.3],[690.3,698.15]],"bg1-41":[[698.15,706.04],[706.04,715.22]],"bg1-42":[[715.22,722.58],[722.58,731.92]],"bg1-43":[[731.92,740.13],[740.13,750.0]],"bg1-44":[[750.0,757.9],[757.9,765.86]],"bg1-45":[[765.86,773.1],[773.1,782.13]],"bg1-46":[[782.13,790.36],[790.36,800.04]],"bg1-47":[[800.04,812.15],[812.15,821.28]]},"colophon":[821.28,848.6]};
+
+const IN_FRAME = (() => { try { return window.self !== window.top; } catch (e) { return true; } })();
+if (!IN_FRAME) document.documentElement.classList.add("standalone");
+const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const PARTS = [
+  { key: "armies", from: 1, to: 11, te: "రెండు సేనలు", en: "The Armies", gist: "Duryodhana surveys the field" },
+  { key: "conches", from: 12, to: 19, te: "శంఖనాదం", en: "The Conches", gist: "The battle cry" },
+  { key: "between", from: 20, to: 27, te: "సేనల మధ్య", en: "Between the Armies", gist: "Arjuna looks" },
+  { key: "grief", from: 28, to: 47, te: "అర్జున విషాదం", en: "Arjuna’s Grief", gist: "Despair" },
+];
+for (const v of DATA) v.section = PARTS.find(p => v.num >= p.from && v.num <= p.to)?.key;
+const BY_PART = Object.fromEntries(PARTS.map(p => [p.key, DATA.filter(v => v.section === p.key).sort((a, b) => a.num - b.num)]));
+const ALL = PARTS.flatMap(p => BY_PART[p.key]);
+
+/* Who is speaking. The verse text never names Duryodhana as a speaker; Sañjaya reports his words. */
+const SPEAKERS = {
+  dhritarashtra: { te: "ధృతరాష్ట్ర ఉవాచ", ia: "dhṛtarāṣṭra uvāca" },
+  sanjaya: { te: "సంజయ ఉవాచ", ia: "sañjaya uvāca" },
+  arjuna: { te: "అర్జున ఉవాచ", ia: "arjuna uvāca" },
+};
+const VOICES = [
+  [1, "Dhṛtarāṣṭra asks"], [2, "Sañjaya narrates"], [3, "Duryodhana, to Droṇa"], [12, "Sañjaya narrates"],
+  [21, "Sañjaya, then Arjuna"], [22, "Arjuna, to Kṛṣṇa"], [24, "Sañjaya narrates"], [28, "Sañjaya, then Arjuna"],
+  [29, "Arjuna, to Kṛṣṇa"], [47, "Sañjaya narrates"],
+];
+const voiceOf = n => VOICES.filter(([from]) => from <= n).pop()[1];
+
+const store = (() => {
+  const KEY = "gita-1-learning-v1";
+  let mem = {};
+  try { mem = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { mem = {}; }
+  return {
+    get: () => mem,
+    save(obj) { mem = obj; try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} },
+  };
+})();
+
+const saved = store.get();
+const state = Object.assign({
+  part: "armies", idx: 0, script: "both", mode: "read", meanings: true, rhythm: false, learned: {},
+}, saved);
+if (!BY_PART[state.part] || !BY_PART[state.part].length) state.part = PARTS.find(p => BY_PART[p.key].length)?.key || "armies";
+state.idx = Math.min(state.idx, Math.max(0, (BY_PART[state.part] || []).length - 1));
+let revealed = new Set();
+
+function persist() {
+  const { part, idx, script, mode, meanings, rhythm, learned } = state;
+  store.save({ part, idx, script, mode, meanings, rhythm, learned });
+}
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* Telugu aksharas, for the Hints mode. */
+const TE_AKSHARA = /(?:[క-హ](?:్[క-హ])*(?:[ా-ౌౕౖ]|్(?![క-హ]))?|[అ-ఔౠౡ])[ఁ-ః]?|\S/gu;
+
+/* IAST syllables with weight (guru = long), for Hints and Long syllables. */
+const VOW = ["ai", "au", "ā", "ī", "ū", "ṝ", "ṛ", "ḷ", "e", "o", "a", "i", "u"];
+const LONG = new Set(["ā", "ī", "ū", "ṝ", "e", "o", "ai", "au"]);
+const ASP = ["kh", "gh", "ch", "jh", "ṭh", "ḍh", "th", "dh", "ph", "bh"];
+function tokenize(s) {
+  s = s.normalize("NFC");
+  const out = [];
+  let i = 0;
+  while (i < s.length) {
+    const rest = s.slice(i, i + 2).toLowerCase();
+    const v = VOW.find(x => rest.startsWith(x));
+    if (v) { out.push({ t: s.substr(i, v.length), k: "v", long: LONG.has(v) }); i += v.length; continue; }
+    const a = ASP.find(x => rest.startsWith(x));
+    if (a) { out.push({ t: s.substr(i, 2), k: "c" }); i += 2; continue; }
+    const ch = s[i];
+    if ("ṁḥṃ".includes(ch.toLowerCase())) out.push({ t: ch, k: "m" });
+    else if (/[a-zśṣṭḍṇñṅ]/i.test(ch)) out.push({ t: ch, k: "c" });
+    else out.push({ t: ch, k: "s" });
+    i += 1;
+  }
+  return out;
+}
+function syllabify(s) {
+  const toks = tokenize(s);
+  const nuclei = toks.map((t, i) => (t.k === "v" ? i : -1)).filter(i => i >= 0);
+  const syl = new Array(toks.length).fill(-1);
+  const guru = nuclei.map(i => toks[i].long);
+  nuclei.forEach((ni, j) => {
+    syl[ni] = j;
+    let k = ni + 1;
+    while (k < toks.length && toks[k].k === "m") { syl[k] = j; guru[j] = true; k++; }
+    const end = j + 1 < nuclei.length ? nuclei[j + 1] : toks.length;
+    const cons = [];
+    for (let x = k; x < end; x++) if (toks[x].k === "c") cons.push(x);
+    if (cons.length >= 2) guru[j] = true;
+    const last = j + 1 < nuclei.length ? cons.length - 1 : cons.length;
+    cons.forEach((x, n) => { syl[x] = n < last ? j : j + 1; });
+  });
+  for (let x = 0; x < toks.length && x < (nuclei[0] ?? 0); x++) if (toks[x].k === "c") syl[x] = 0;
+  return { toks, syl, guru, count: nuclei.length };
+}
+function rhythmHTML(line) {
+  const { toks, syl, guru } = syllabify(line);
+  let html = "", cur = null, buf = "";
+  const flush = () => { if (buf) html += cur === null ? esc(buf) : `<span class="${guru[cur] ? "g" : "l"}">${esc(buf)}</span>`; buf = ""; };
+  toks.forEach((t, i) => {
+    const id = syl[i] >= 0 ? syl[i] : null;
+    if (id !== cur) { flush(); cur = id; }
+    buf += t.t;
+  });
+  flush();
+  return html;
+}
+function hintTe(line) {
+  return line.split(/\s+/).map(w => {
+    const ak = w.match(TE_AKSHARA) || [w];
+    return esc(ak[0]) + (ak.length > 1 ? `<span class="dots">${"·".repeat(ak.length - 1)}</span>` : "");
+  }).join(" ");
+}
+function hintIa(line) {
+  return line.split(/\s+/).map(w => {
+    const { toks, count } = syllabify(w);
+    let end = toks.findIndex(t => t.k === "v");
+    if (end < 0) end = toks.length - 1;
+    while (end + 1 < toks.length && toks[end + 1].k === "m") end++;
+    const first = toks.slice(0, end + 1).map(t => t.t).join("");
+    return esc(first) + (count > 1 ? `<span class="dots">${"·".repeat(count - 1)}</span>` : "");
+  }).join(" ");
+}
+
+/* The sky follows the chapter: dawn over the armies, bright as Arjuna's chariot rolls out, darkening as his grief deepens. */
+const SKY = [
+  [0, "#1f2a5e", "#c77d57", "#ff9f4a"],
+  [0.42, "#2c4f8e", "#e9b27c", "#ffd37a"],
+  [0.6, "#34497c", "#c4957a", "#ffc670"],
+  [1, "#262640", "#6e5866", "#d08a62"],
+];
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mix = (a, b, t) => "#" + hex(a).map((x, i) => Math.round(x + (hex(b)[i] - x) * t).toString(16).padStart(2, "0")).join("");
+function skyAt(p) {
+  let i = 0;
+  while (i < SKY.length - 2 && p > SKY[i + 1][0]) i++;
+  const [p0, ...a] = SKY[i], [p1, ...b] = SKY[i + 1];
+  const t = Math.min(1, Math.max(0, (p - p0) / (p1 - p0)));
+  return a.map((c, k) => mix(c, b[k], t));
+}
+const sunY = p => Math.round(p <= .42 ? 6 + p / .42 * 64 : 70 - (p - .42) / .58 * 84);
+
+const $ = id => document.getElementById(id);
+const current = () => BY_PART[state.part][state.idx];
+const partInfo = key => PARTS.find(p => p.key === key);
+
+/* One player, loaded only when a line is requested. Keys are "<verse id>:<line index>" or "colophon". */
+const SPEAKER = '<path d="M8 4 4 7H1v6h3l4 3V4Z"/><path d="M11 7a4 4 0 0 1 0 6m3-9a8 8 0 0 1 0 12"/>';
+const STOP = '<rect x="5" y="5" width="10" height="10" rx="1"/>';
+let audio = null, playing = null, audioFrame = 0;
+function segment(key) {
+  if (key === "colophon") return AUDIO.colophon;
+  const [id, i] = key.split(":");
+  return AUDIO.lines[id]?.[+i];
+}
+function audioIcon(active) {
+  return `<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${active ? STOP : SPEAKER}</svg>`;
+}
+function audioButton(key, label) {
+  return `<button type="button" class="line-audio" data-audio="${key}" data-label="${label}" aria-label="Play ${label}" aria-pressed="false" aria-busy="false">${audioIcon(false)}</button>`;
+}
+function markAudio() {
+  document.querySelectorAll("[data-audio]").forEach(b => {
+    const active = !!playing && playing.key === b.dataset.audio;
+    b.setAttribute("aria-pressed", String(active));
+    b.setAttribute("aria-busy", String(active && playing.loading));
+    b.setAttribute("aria-label", `${active ? "Stop" : "Play"} ${b.dataset.label}`);
+    b.innerHTML = audioIcon(active);
+  });
+}
+function stopAudio() {
+  playing = null;
+  cancelAnimationFrame(audioFrame);
+  if (audio) { audio.pause(); audio.volume = 1; audio.muted = false; }
+  markAudio();
+}
+function watchAudio() {
+  if (!playing) return;
+  const t = audio.currentTime;
+  // Stay muted until the seek to the line has landed; the first tap starts playback before metadata exists.
+  const ready = !audio.seeking && t >= playing.start - .3 && audio.readyState >= 3;
+  audio.muted = !ready;
+  if (ready === playing.loading) { playing.loading = !ready; markAudio(); }
+  const left = playing.end - t;
+  if (ready && left <= 0) { stopAudio(); return; }
+  if (ready) audio.volume = Math.min(1, left / .12);
+  audioFrame = requestAnimationFrame(watchAudio);
+}
+function playSegment(key) {
+  if (playing && playing.key === key) { stopAudio(); return; }
+  stopAudio();
+  const timing = segment(key);
+  if (!timing) return;
+  const request = { key, start: timing[0], end: timing[1], loading: true };
+  playing = request;
+  markAudio();
+  if (!audio) {
+    audio = new Audio();
+    audio.preload = "none";
+    audio.src = AUDIO.src;
+    audio.addEventListener("error", stopAudio);
+    audio.addEventListener("ended", stopAudio);
+  }
+  const seek = () => { if (playing === request) audio.currentTime = request.start; };
+  if (audio.readyState >= 1) seek();
+  else audio.addEventListener("loadedmetadata", seek, { once: true });
+  // play() must run inside the tap itself, or iOS Safari refuses to start the audio.
+  audio.muted = true;
+  audio.volume = 1;
+  const started = audio.play();
+  if (started) started.catch(() => { if (playing === request) stopAudio(); });
+  audioFrame = requestAnimationFrame(watchAudio);
+}
+document.addEventListener("visibilitychange", () => { if (document.hidden) stopAudio(); });
+
+function renderParts() {
+  $("parts").innerHTML = PARTS.map(p => {
+    const verses = BY_PART[p.key];
+    const learned = verses.filter(v => state.learned[v.id]).length;
+    const sel = p.key === state.part;
+    return `<button type="button" class="part" role="tab" aria-selected="${sel}" data-part="${p.key}" ${verses.length ? "" : "disabled"}
+      aria-label="${p.en}, ${p.gist}, verses ${p.from} to ${p.to}, ${learned} of ${verses.length} learned">
+      <span class="p-top"><span class="p-te">${p.te}</span><span class="p-count">${learned}/${verses.length}</span></span>
+      <span class="p-en">${p.en}</span></button>`;
+  }).join("");
+}
+
+function renderChips() {
+  const strip = $("chips");
+  strip.innerHTML = BY_PART[state.part].map((v, i) =>
+    `<button type="button" class="chip${state.learned[v.id] ? " learned" : ""}" data-idx="${i}" aria-current="${i === state.idx}" aria-label="Verse 1.${v.num}${state.learned[v.id] ? ", learned" : ""}">${v.num}</button>`
+  ).join("");
+  const chip = strip.querySelector('[aria-current="true"]');
+  if (chip && strip.scrollWidth > strip.clientWidth) {
+    strip.scrollTo({ left: chip.offsetLeft - strip.clientWidth / 2 + chip.offsetWidth / 2, behavior: REDUCED_MOTION ? "auto" : "smooth" });
+  }
+}
+
+function renderDock() {
+  const v = current(), g = ALL.indexOf(v);
+  $("dock-prev").disabled = g === 0;
+  $("dock-next").disabled = g === ALL.length - 1;
+  const main = $("dock-main");
+  const hidden = state.mode === "recall" ? firstHidden() : -1;
+  if (hidden >= 0) {
+    main.dataset.action = "reveal";
+    main.removeAttribute("aria-pressed");
+    main.textContent = `Reveal line ${hidden + 1}`;
+  } else {
+    const learned = !!state.learned[v.id];
+    main.dataset.action = "learn";
+    main.setAttribute("aria-pressed", String(learned));
+    main.textContent = learned ? "Learned ✓" : "Mark as learned";
+  }
+}
+
+function speakerHTML(key, showTe, showIa) {
+  const s = SPEAKERS[key];
+  if (!s) return "";
+  return `<div class="l-sp">${showTe ? `<span lang="sa-Telu">${s.te}</span>` : ""}${showIa ? `<span lang="sa-Latn">${s.ia}</span>` : ""}</div>`;
+}
+function lineHTML(line, i, v) {
+  const showTe = state.script !== "en", showIa = state.script !== "te";
+  const sp = line.speaker ? speakerHTML(line.speaker, showTe, showIa) : "";
+  if (state.mode === "recall" && !revealed.has(i)) {
+    return `<div class="line">${sp}<button type="button" class="recall" data-reveal="${i}">Say line ${i + 1} from memory, then tap to check${i === firstHidden() ? "<kbd>Space</kbd>" : ""}</button></div>`;
+  }
+  const hint = state.mode === "hints";
+  const te = hint ? hintTe(line.te) : esc(line.te);
+  const ia = hint ? hintIa(line.iast) : state.rhythm ? rhythmHTML(line.iast) : esc(line.iast);
+  const key = `${v.id}:${i}`, timed = !!segment(key);
+  return `<div class="line${timed ? " has-audio" : ""}">
+    ${timed ? audioButton(key, `line ${i + 1}`) : ""}
+    ${sp}
+    ${showTe ? `<div class="l-te" lang="sa-Telu">${te}</div>` : ""}
+    ${showIa ? `<div class="l-ia" lang="sa-Latn">${ia}</div>` : ""}
+    ${state.meanings ? `<div class="l-mn">${esc(line.meaning)}</div>` : ""}
+  </div>`;
+}
+function firstHidden() {
+  const v = current();
+  for (let i = 0; i < v.lines.length; i++) if (!revealed.has(i)) return i;
+  return -1;
+}
+
+function renderStage() {
+  stopAudio();
+  const v = current();
+  const g = ALL.indexOf(v);
+  const p = ALL.length > 1 ? g / (ALL.length - 1) : 0;
+  const [top, low, sunC] = skyAt(p);
+  const sky = $("sky");
+  sky.style.setProperty("--sky-top", top);
+  sky.style.setProperty("--sky-low", low);
+  sky.style.setProperty("--sun-c", sunC);
+  sky.style.setProperty("--sun-y", `${sunY(p)}px`);
+  // Arjuna's chariot waits before the Pāṇḍava ranks until Kṛṣṇa drives it between the armies (1.24).
+  sky.style.setProperty("--chariot-x", v.num >= 24 ? "50%" : "73%");
+  $("chariot").dataset.pose = v.num >= 47 ? "down" : v.num >= 20 ? "raised" : "rest";
+  const part = partInfo(v.section);
+  $("where").innerHTML = `<b>Verse 1.${v.num}</b><span>${esc(part.en)} · ${esc(voiceOf(v.num))}</span>`;
+  $("verse").innerHTML = v.lines.map((l, i) => lineHTML(l, i, v)).join("");
+  $("prev").disabled = g === 0;
+  $("next").disabled = g === ALL.length - 1;
+}
+
+function renderControls() {
+  document.querySelectorAll(".seg").forEach(seg => {
+    seg.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(state[seg.dataset.key] === b.dataset.val)));
+  });
+  document.querySelectorAll("[data-toggle]").forEach(b => b.setAttribute("aria-pressed", String(!!state[b.dataset.toggle])));
+  document.querySelector('[data-toggle="rhythm"]').hidden = state.script === "te";
+  const v = current();
+  const learned = !!state.learned[v.id];
+  $("learn").setAttribute("aria-pressed", String(learned));
+  $("learn").textContent = learned ? "Learned ✓" : "Mark as learned";
+  const tips = {
+    read: state.rhythm && state.script !== "te" ? "Bold syllables are long. Hold them about twice as long as the others." : "",
+    hints: "Each word shows its first syllable. The dots show how many syllables are left.",
+    recall: "Say each line aloud, then tap it to check yourself.",
+  };
+  $("hint-text").textContent = tips[state.mode];
+}
+
+function renderUnderstand() {
+  const v = current();
+  const words = (v.words || []).map(w => `<li><span class="w-te" lang="sa-Telu">${esc(w.te)}</span><span class="w-ia" lang="sa-Latn">${esc(w.iast)}</span><span class="w-mn">${esc(w.meaning)}</span></li>`).join("");
+  $("understand").innerHTML = `
+    <div class="meaning-grid">
+      <div><h2>Meaning</h2><p>${esc(v.summary)}</p></div>
+      <div><h2 class="te-h">తాత్పర్యం</h2><p class="tatparyam" lang="te">${esc(v.tatparyam)}</p></div>
+    </div>
+    ${words ? `<div class="words"><h2>Word by word</h2><ul class="wl">${words}</ul></div>` : ""}
+    ${v.note ? `<aside class="note"><h2>Background</h2><p>${esc(v.note)}</p></aside>` : ""}`;
+}
+
+function renderSingAlong() {
+  const part = partInfo(state.part);
+  const verses = BY_PART[state.part];
+  $("sa-summary").innerHTML = `Chant the whole scene<small>${esc(part.en)}, verses ${part.from} to ${part.to}</small>`;
+  if (!$("singalong").open) { $("sa-list").innerHTML = ""; return; }
+  const showTe = state.script !== "en", showIa = state.script !== "te";
+  const withSpeaker = (l, text, field) => (l.speaker ? `<span class="sa-sp">${SPEAKERS[l.speaker][field]}</span><br>` : "") + esc(text);
+  $("sa-list").innerHTML = verses.map((v, i) => `
+    <div class="sa-verse${i === state.idx ? " current" : ""}" data-idx="${i}" role="button" tabindex="0" aria-label="Go to verse 1.${v.num}">
+      <div class="sa-num">${v.num}</div>
+      <div>
+        ${showTe ? `<div class="sa-te" lang="sa-Telu">${v.lines.map(l => withSpeaker(l, l.te, "te")).join("<br>")}</div>` : ""}
+        ${showIa ? `<div class="sa-ia" lang="sa-Latn">${v.lines.map(l => withSpeaker(l, l.iast, "ia")).join("<br>")}</div>` : ""}
+      </div>
+    </div>`).join("");
+}
+
+function renderColophon() {
+  const box = $("colophon-text");
+  if (!AUDIO.colophon || box.querySelector("[data-audio]")) return;
+  box.classList.add("has-audio");
+  box.insertAdjacentHTML("afterbegin", audioButton("colophon", "the closing words"));
+}
+
+function render() {
+  if (!ALL.length) { $("verse").innerHTML = `<p class="line">Verse data has not been added yet.</p>`; return; }
+  renderParts(); renderChips(); renderStage(); renderControls(); renderUnderstand(); renderSingAlong(); renderDock();
+  persist();
+}
+
+function go(part, idx) {
+  if (part !== state.part || idx !== state.idx) revealed = new Set();
+  state.part = part; state.idx = idx;
+  render();
+}
+function step(d) {
+  const g = ALL.indexOf(current()) + d;
+  if (g < 0 || g >= ALL.length) return;
+  const v = ALL[g];
+  go(v.section, BY_PART[v.section].indexOf(v));
+  if ($("stage").getBoundingClientRect().top < 0) $("stage").scrollIntoView({ behavior: REDUCED_MOTION ? "auto" : "smooth", block: "start" });
+}
+function toggleLearned() {
+  const v = current();
+  if (state.learned[v.id]) delete state.learned[v.id]; else state.learned[v.id] = true;
+  render();
+}
+function revealNext() {
+  const i = firstHidden();
+  if (i >= 0) { revealed.add(i); renderStage(); renderDock(); }
+}
+
+$("parts").addEventListener("click", e => { const b = e.target.closest("[data-part]"); if (b) go(b.dataset.part, 0); });
+$("chips").addEventListener("click", e => { const b = e.target.closest("[data-idx]"); if (b) go(state.part, +b.dataset.idx); });
+$("prev").addEventListener("click", () => step(-1));
+$("next").addEventListener("click", () => step(1));
+$("learn").addEventListener("click", toggleLearned);
+document.addEventListener("click", e => { const b = e.target.closest("[data-audio]"); if (b) playSegment(b.dataset.audio); });
+document.querySelectorAll("#verse, #colophon-text").forEach(el => el.addEventListener("keydown", e => { if (e.target.closest("[data-audio]")) e.stopPropagation(); }));
+$("verse").addEventListener("click", e => { const b = e.target.closest("[data-reveal]"); if (b) { revealed.add(+b.dataset.reveal); renderStage(); renderDock(); } });
+$("dock-prev").addEventListener("click", () => step(-1));
+$("dock-next").addEventListener("click", () => step(1));
+$("dock-main").addEventListener("click", e => { if (e.currentTarget.dataset.action === "reveal") revealNext(); else toggleLearned(); });
+
+/* Swipe left or right on the verse to move between verses. */
+let touch = null;
+$("stage").addEventListener("touchstart", e => { if (e.target.closest("[data-audio]")) { touch = null; return; } const t = e.changedTouches[0]; touch = { x: t.clientX, y: t.clientY }; }, { passive: true });
+$("stage").addEventListener("touchend", e => {
+  if (!touch) return;
+  const t = e.changedTouches[0], dx = t.clientX - touch.x, dy = t.clientY - touch.y;
+  touch = null;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) step(dx < 0 ? 1 : -1);
+}, { passive: true });
+document.querySelectorAll(".seg").forEach(seg => seg.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  state[seg.dataset.key] = b.dataset.val;
+  if (seg.dataset.key === "mode") revealed = new Set();
+  render();
+}));
+document.querySelectorAll("[data-toggle]").forEach(b => b.addEventListener("click", () => { state[b.dataset.toggle] = !state[b.dataset.toggle]; render(); }));
+$("singalong").addEventListener("toggle", renderSingAlong);
+$("sa-list").addEventListener("click", e => { const d = e.target.closest("[data-idx]"); if (d) { go(state.part, +d.dataset.idx); $("stage").scrollIntoView({ behavior: "smooth", block: "start" }); } });
+$("sa-list").addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.dataset.idx) { e.preventDefault(); go(state.part, +e.target.dataset.idx); } });
+document.addEventListener("keydown", e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const onControl = e.target.closest && e.target.closest("button, [role=button], summary, a, input");
+  if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+  else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+  else if (e.key === " " && state.mode === "recall" && !onControl) { e.preventDefault(); revealNext(); }
+  else if ((e.key === "l" || e.key === "L") && !onControl) toggleLearned();
+});
+
+renderColophon();
+render();
+</script>
+</body>
+</html>
