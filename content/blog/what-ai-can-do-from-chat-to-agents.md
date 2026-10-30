@@ -3,6 +3,7 @@ title: "What AI Can Do: From Chat to Agents"
 date: 2026-09-08T00:00:00-07:00
 draft: false
 tags: ["AI", "Teaching"]
+series: ["AI for Business Students"]
 description: "Slides for a demo-oriented introduction to generative and agentic AI for business students."
 summary: "A guest lecture for business students: how AI capabilities have evolved, what agents do beyond chat, and examples to inspire useful applications."
 showtoc: false
@@ -23,3 +24,8 @@ The slides cover:
 The deck ends with a transition to my personal live demos. Those walkthroughs are presented separately.
 
 Use the arrow keys or on-screen controls to move through the slides. **Slides** opens the overview, **Notes** shows the speaker notes, and **Fullscreen** expands the presentation. Videos require an internet connection; original source links are included alongside the examples.
+
+**AI guest lecture series**
+
+1. **What AI Can Do: From Chat to Agents** — lecture one.
+2. [Smarter Than You Think, Weaker Than It Looks](/blog/smarter-than-you-think-weaker-than-it-looks/) — lecture two.
