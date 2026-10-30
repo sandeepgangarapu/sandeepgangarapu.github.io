@@ -3,6 +3,7 @@ title: "Neapolitan style pizza"
 date: 2025-04-20T20:17:00-06:00
 draft: false
 categories: ["Recipes"]
+summary: "Neapolitan-style pizza made with a poolish and a slow-rested dough."
 ---
 
 **Yields:** 4 pizzas (approx. 280g dough balls)

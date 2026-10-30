@@ -3,6 +3,9 @@ title: "Practical significance is the North Star"
 date: 2021-03-03T06:53:00-06:00
 draft: false
 tags: ["Technical", "experimentation"]
+topic: "Data & Statistics"
+contentType: "Essay"
+summary: "Why practical significance should guide the interpretation of statistical results."
 ---
 
 Practical significance is the North Star. 🌟

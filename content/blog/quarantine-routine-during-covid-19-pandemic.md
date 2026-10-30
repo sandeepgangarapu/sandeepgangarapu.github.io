@@ -3,6 +3,9 @@ title: "Quarantine routine during COVID-19 Pandemic"
 date: 2020-08-18T17:34:00-06:00
 draft: false
 tags: ["Stories", "Advice"]
+topic: "Personal Essays"
+contentType: "Essay"
+summary: "A personal account of routines and habits during the COVID-19 quarantine."
 ---
 
 Day 10 of [#SocialDistancing](https://threader.app/hashtag/SocialDistancing) [#Quarantine](https://threader.app/hashtag/Quarantine). It’s hitting me a bit, the isolation, the silence. Things I am doing to cope.

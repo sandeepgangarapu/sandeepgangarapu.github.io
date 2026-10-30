@@ -3,6 +3,9 @@ title: "Who and when should one use Multi-Armed Bandits? A scenario."
 date: 2020-10-11T23:13:00-06:00
 draft: false
 tags: ["Technical", "Intuition", "MAB"]
+topic: "Data & Statistics"
+contentType: "Essay"
+summary: "A humorous scenario illustrates when multi-armed bandits can help with experimentation."
 ---
 
 > 💡 This is a humor piece. I am using the scenario to communicate the use of MAB's. Please take it with a pinch of salt.

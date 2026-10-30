@@ -5,9 +5,11 @@ draft: false
 tags: ["AI", "Teaching"]
 series: ["AI for Business Students"]
 description: "Slides for a demo-oriented introduction to generative and agentic AI for business students."
-summary: "A guest lecture for business students: how AI capabilities have evolved, what agents do beyond chat, and examples to inspire useful applications."
 showtoc: false
 ShowReadingTime: false
+topic: "AI & Teaching"
+contentType: "Talk"
+summary: "A guest lecture for business students on generative AI, agents, and useful applications."
 ---
 
 I put together this slide deck for a 40-minute guest lecture for business students. It starts with how students already use AI, then explores what these tools can create and how agents can take action using other software. No programming background is assumed.

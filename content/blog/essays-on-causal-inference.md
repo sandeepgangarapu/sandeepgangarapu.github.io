@@ -4,15 +4,15 @@ date: 2022-10-29T15:30:00-06:00
 draft: false
 tags: ["Technical"]
 series: ["Essays on Causal Inference"]
+topic: "Data & Statistics"
+contentType: "Essay"
+summary: "A series of accessible explanations of causal effects, confounding, and randomization."
+showtoc: true
 ---
 
 ## The fundamental problem of causal inference
 
 You probably know the COVID-19 pandemic and the race between all the pharma companies to create a vaccine. There was a lot of talk about different phases of clinical trials and the effectiveness of various vaccines. In clinical trials, companies are trying to estimate the causal effect of giving a drug on patient's health.
-
-{{< figure src="/images/blog/technical/essay-1-the-fundamental-problem-of-causal-inference/coronavirus.png" alt="Coronavirus illustration" align="center" >}}
-
-{{< figure src="/images/blog/technical/essay-1-the-fundamental-problem-of-causal-inference/flask.png" alt="Flask illustration" align="center" >}}
 
 Causal effect is the difference between what happened if the treatment was given and what would have happened if the treatment was not given
 
@@ -30,8 +30,6 @@ Let's look at an example. Netflix wants to advertise its marquee show Squid Game
 
 The only way to estimate the effect of placing billboards is if we had another universe where billboards were not present and Squid Games was released anyway. Unfortunately, we only have one universe, and we can only observe one side of the effect. This is the fundamental problem of causal inference.
 
-{{< figure src="/images/blog/technical/essay-1-the-fundamental-problem-of-causal-inference/squid-game-illustration.png.webp" alt="Squid Game illustration" align="center" >}}
-
 The entire field of causal inference is about trying to estimate what would have happened if treatment was not present and then calculate the treatment effect to understand the effectiveness of the intervention. Randomized control trials (AB Testing) does this by randomly allocating people to treatment and control. Regression does this by including every other possibility of the effect in the regression equation and controlling for it. Differences in differences looks for a control group which was similar to treatment before the intervention but did not receive the treatment.
 
 ## What is a causal effect?
@@ -42,10 +40,6 @@ Let's take a look at this chart.
 
 There is a perfect association between ice cream sales and shark attacks at the beach. When ice cream sales go up, shark attacks go up and when ice cream sales go down, shark attacks go down.
 
-{{< figure src="/images/blog/technical/essay-2-what-is-a-causal-effect/shark.png" alt="Shark illustration" align="center" >}}
-
-{{< figure src="/images/blog/technical/essay-2-what-is-a-causal-effect/ice-cream.png" alt="Ice cream illustration" align="center" >}}
-
 If we were to take this association seriously, in order to lessen shark attacks for public safety, we would cut down on the number of ice cream shops at the beach. Of course, this would not work. The hidden story is that more people go to the beach in the summer and this increases both the probaility of a shark attack and ice cream sales. In order to attribute the effect of ice cream sales on shark attacks, we need to establish that the effect is because of the ice cream sales, not just associated with ice cream sales.
 
 Correlation is not causation! The causal effect is the effect produced by the treatment and not just associated with the treatment.
@@ -53,8 +47,6 @@ Correlation is not causation! The causal effect is the effect produced by the tr
 Let's look at another example.
 
 Red cars have a 7 percent higher risk of an accident [1].
-
-{{< figure src="/images/blog/technical/essay-2-what-is-a-causal-effect/accident.png" alt="Car accident illustration" align="center" >}}
 
 If the color of the car is responsible for accidents because of visibility and that other traffic signs are also red, then it is a causal effect. If it is because young, fast and reckless drivers prefer red color car and then cause accidents, then it is not a causal effect. But it is important to know the causality from the perspective of policy. If it is indeed causal effect, it makes sense to pass a legislation restricting the sale of red cars or repainting existing cars. If it is not, all that effort would be worthless.
 
@@ -70,8 +62,6 @@ For example, Red cars may have all young drivers, so we pick young drivers but t
 
 As you can see, creating a control group to establish the causal effect looks so hard. This is where randomization comes in.
 
-{{< figure src="/images/blog/technical/essay-3-randomization-the-holy-grail-of-causal-inference/coin.png" alt="Coin toss illustration" align="center" >}}
-
 Let's take a bunch of drivers and randomly assign them to a red car or other color cars using a coin toss. Given them their assigned cars for x days. Then, compare the number of accidents and establish the causal effect.
 
 Because of randomization, young drivers have equal chance to be in both red car group or other car group. Fast drivers had equal probability to be put in either of groups. Even reckless drivers would have the same propensity to be in either groups. Not just these three features, any thinkable feature of a driver has equal probability to be put in both groups.
@@ -80,4 +70,4 @@ In theory, both groups are balances and fair and now we can establish the true c
 
 > 💡 One caveat, randomization does not guarantee balancing of all features in a given sample. But on average, it is expected to be balanced. Just like flipping coin 10 times does not guarantee 5 heads and 5 tails all the time, but on average, it does.
 
-See [this](/resources/) page for more learning resources on Causal Inference.
+See my [causal inference learning resources](/blog/learning-resources-collection/#causal-inference) for further reading.

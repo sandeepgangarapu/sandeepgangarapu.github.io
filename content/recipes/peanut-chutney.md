@@ -3,6 +3,7 @@ title: "Peanut Chutney"
 date: 2023-02-21T15:58:00-06:00
 draft: false
 categories: ["Recipes"]
+summary: "A peanut chutney with lentils, chillies, and spices for masala dosa."
 ---
 
 Mainly for Masala dosa.

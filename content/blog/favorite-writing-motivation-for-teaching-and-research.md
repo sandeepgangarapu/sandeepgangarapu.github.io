@@ -3,6 +3,9 @@ title: "Favorite writing - Motivation for Teaching and Research"
 date: 2021-10-24T14:03:00-06:00
 draft: false
 tags: ["Stories"]
+topic: "AI & Teaching"
+contentType: "Essay"
+summary: "A personal reflection on the motivation to teach, conduct research, and make knowledge accessible."
 ---
 
 > 💡 I wrote this as an application to a teaching workshop that got cancelled because of COVID-19. I wrote this with a lot of passion and I believe this is one of my best writing samples. Every time I read this, its puts a smile on my face.

@@ -3,6 +3,11 @@ title: "Testimonials"
 date: 2022-02-11T15:53:00-06:00
 draft: false
 tags: ["Rolling Blog"]
+topic: "Notes & Resources"
+contentType: "Reference"
+summary: "Testimonials from students and people mentored by Sandeep."
+excludeFromWriting: true
+excludeFromHome: true
 ---
 
 ## Mentorship

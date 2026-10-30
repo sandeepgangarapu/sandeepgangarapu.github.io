@@ -5,9 +5,11 @@ draft: false
 tags: ["AI", "Teaching"]
 series: ["AI for Business Students"]
 description: "Slides for lecture two: how AI works, where it struggles, and how humans stay in charge."
-summary: "The second AI guest lecture for business students: understanding AI's capabilities, finding its weak spots, and deciding where human judgment matters."
 showtoc: false
 ShowReadingTime: false
+topic: "AI & Teaching"
+contentType: "Talk"
+summary: "A guest lecture on how AI works, where it struggles, and how people can remain in charge."
 ---
 
 I put together this slide deck for the second guest lecture in my AI series for business students. The first lecture explored [what AI can do, from chat to agents](/blog/what-ai-can-do-from-chat-to-agents/). This one asks how humans stay in charge as AI becomes more capable. No programming background is assumed.

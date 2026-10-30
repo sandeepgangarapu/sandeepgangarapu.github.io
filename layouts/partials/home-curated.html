@@ -1,0 +1,54 @@
+<section class="home-intro" aria-labelledby="home-title">
+  <div class="home-intro-copy">
+    <p class="home-eyebrow">Hello, I'm</p>
+    <h1 id="home-title">{{ site.Params.profileMode.title | default site.Title }}</h1>
+    <p class="home-intro-text">{{ site.Params.profileMode.subtitle }}</p>
+    {{- partial "social_icons.html" (dict "align" "left") }}
+  </div>
+  {{- with site.Params.profileMode.imageUrl }}
+  <img class="home-portrait" src="{{ . | relURL }}" alt="{{ site.Params.profileMode.imageTitle | default site.Title }}" width="160" height="160">
+  {{- end }}
+</section>
+
+{{- $selectedPaths := slice "blog/essays-on-causal-inference" "blog/smarter-than-you-think-weaker-than-it-looks" "blog/ten-things-for-the-last-ten-years" }}
+<section class="home-writing" aria-labelledby="selected-writing">
+  <div class="home-section-heading">
+    <div><p class="home-eyebrow">A place to start</p><h2 id="selected-writing">Selected writing</h2></div>
+  </div>
+  <div class="home-selected-list">
+    {{- range $selectedPaths }}
+    {{- with site.GetPage . }}
+    <article class="home-selected-entry">
+      {{- with .Params.contentType }}<p class="entry-type">{{ . }}</p>{{ end }}
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | htmlUnescape | truncate 160 }}{{ end }}</p>
+    </article>
+    {{- end }}
+    {{- end }}
+  </div>
+</section>
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" true }}
+{{- $pages = where $pages "Params.excludeFromHome" "ne" true }}
+{{- $pages = where $pages "Params.excludeFromWriting" "ne" true }}
+{{- $recent := slice }}
+{{- range $pages }}
+  {{- if not (in $selectedPaths (strings.TrimPrefix "/" .File.Path | strings.TrimSuffix ".md")) }}
+    {{- $recent = $recent | append . }}
+  {{- end }}
+{{- end }}
+{{- with first 3 $recent }}
+<section class="home-writing home-recent" aria-labelledby="recent-writing">
+  <div class="home-section-heading"><div><p class="home-eyebrow">From the notebook</p><h2 id="recent-writing">Recent writing</h2></div></div>
+  <div class="home-recent-list">
+    {{- range . }}
+    <article class="home-recent-entry">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    </article>
+    {{- end }}
+  </div>
+  <a class="home-view-all" href="{{ "blog/" | relLangURL }}">View all writing <span aria-hidden="true">→</span></a>
+</section>
+{{- end }}

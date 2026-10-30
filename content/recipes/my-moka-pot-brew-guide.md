@@ -3,6 +3,7 @@ title: "My Moka pot brew guide"
 date: 2020-08-21T10:32:00-06:00
 draft: false
 categories: ["Recipes"]
+summary: "A step-by-step guide to brewing coffee with a Moka pot."
 ---
 
 ### Brew Guide

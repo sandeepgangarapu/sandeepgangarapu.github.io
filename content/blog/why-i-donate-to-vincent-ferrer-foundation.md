@@ -3,6 +3,9 @@ title: "Why I donate to Vincent Ferrer Foundation"
 date: 2022-02-12T11:36:00-06:00
 draft: false
 tags: ["Stories"]
+topic: "Personal Essays"
+contentType: "Essay"
+summary: "A personal explanation of the connection and convictions behind donations to the Vincent Ferrer Foundation."
 ---
 
 [Annual report 2020-21](https://www.vffusa.org/wp-content/uploads/2022/02/Annual-Report-2020-21.pdf)

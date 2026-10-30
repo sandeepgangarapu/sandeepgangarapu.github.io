@@ -3,6 +3,7 @@ title: "Vegetable pulao"
 date: 2021-10-23T14:50:00-06:00
 draft: false
 categories: ["Recipes"]
+summary: "A fragrant vegetable and rice pulao prepared in an Instant Pot."
 ---
 
 This is a recipe for instant pot. Similar for pressure cooker too, but once rice is added, you need to put the lid and get 3-4 whistles

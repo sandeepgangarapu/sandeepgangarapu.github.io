@@ -2,7 +2,8 @@ baseURL: "https://sandeepgangarapu.com/"
 languageCode: en-us
 title: "Sandeep Gangarapu"
 theme: PaperMod
-paginate: 10
+pagination:
+  pagerSize: 10
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -40,24 +41,19 @@ params:
   tocopen: false
 
   images: ["/images/profile/vivekkrishnanphotography-6_websize.jpg"]
+  assets:
+    favicon: "/favicon.svg"
 
   profileMode:
     enabled: true
     title: "Sandeep Gangarapu"
     subtitle: >
       Data Scientist at Apple working on Siri. Statistics, ML, and causal inference
-      to ship practical, user impacting products.
+      to build products that help people.
     imageUrl: "/images/profile/vivekkrishnanphotography-6_websize.jpg"
     imageTitle: "Sandeep Gangarapu"
     imageWidth: 200
     imageHeight: 200
-    buttons:
-      - name: "Blog"
-        url: "/blog/"
-      - name: "About"
-        url: "/about/"
-      - name: "Projects"
-        url: "/projects/"
 
   socialIcons:
     - name: linkedin
@@ -102,25 +98,17 @@ outputs:
 menu:
   main:
     - identifier: blog
-      name: Blog
+      name: Writing
       url: /blog/
       weight: 10
     - identifier: about
       name: About
       url: /about/
-      weight: 20
+      weight: 30
     - identifier: projects
       name: Projects
       url: /projects/
-      weight: 30
-    - identifier: recipes
-      name: Recipes
-      url: /recipes/
-      weight: 50
-    - identifier: activity
-      name: Activity
-      url: /activity-stream/
-      weight: 60
+      weight: 20
     - identifier: search
       name: Search
       url: /search/

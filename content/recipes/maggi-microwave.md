@@ -3,6 +3,7 @@ title: "Maggi- Microwave"
 date: 2021-10-22T09:19:00-06:00
 draft: false
 categories: ["Recipes"]
+summary: "A quick bowl of Maggi noodles prepared in the microwave."
 ---
 
 1. Get a typical cereal bowl

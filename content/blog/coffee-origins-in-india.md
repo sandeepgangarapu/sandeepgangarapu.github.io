@@ -3,6 +3,9 @@ title: "Coffee origins in India"
 date: 2021-02-28T00:34:00-06:00
 draft: false
 tags: ["Stories", "Coffee"]
+topic: "Personal Essays"
+contentType: "Essay"
+summary: "A short history of coffee’s journey to India and the rise of South Indian filter coffee."
 ---
 
 > 💡 ***The coffee grown in present-day India dates back to seven beans smuggled out of Arabia in the beard of a Muslim pilgrim.***

@@ -1,8 +1,13 @@
 ---
 title: "Learning Resources"
+aliases: ["/resources/"]
 date: 2020-08-18T00:00:00-06:00
 draft: false
 tags: ["Technical"]
+topic: "Notes & Resources"
+contentType: "Reference"
+summary: "A collection of learning resources for data science, statistics, and causal inference."
+showtoc: true
 ---
 
 Over the years, I have come across multiple resources I learned things from with ease. This is a page to track those resources. Please [reach out to me](/about/) if you think something belongs to this list. I will add it.

@@ -3,11 +3,18 @@ title: "Products I swear by"
 date: 2022-01-25T12:09:00-06:00
 draft: false
 tags: ["Rolling Blog"]
+topic: "Notes & Resources"
+contentType: "Note"
+summary: "An archived 2022 list of the software, hardware, and everyday essentials I appreciated at the time."
+excludeFromWriting: true
+excludeFromHome: true
 ---
+
+This is an archived list of recommendations from 2022, preserved as a record of what I valued at the time.
 
 Notion
 
-Notion is by far the most impactful software product I ever used. I have been using this for two years now and I am still in awe of how awesome it is and how useful it is. This website in on Notion for started. This can be used for managing everything in your life. It is also the perfect project managment software there is. [https://www.notion.so/](https://www.notion.so/)
+Notion is by far the most impactful software product I ever used. I have been using this for two years now and I am still in awe of how awesome it is and how useful it is. This website originally ran on Notion; it now uses Hugo. This can be used for managing everything in your life. It is also the perfect project managment software there is. [https://www.notion.so/](https://www.notion.so/)
 
 MacBook Pro
 

@@ -3,6 +3,7 @@ title: "Veg Ramen"
 date: 2022-03-19T11:41:00-06:00
 draft: false
 categories: ["Recipes"]
+summary: "A vegetable ramen built around a hot broth and customizable toppings."
 ---
 
 > 💡 Its all in the broth.

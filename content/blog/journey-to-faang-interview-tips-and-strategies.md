@@ -4,6 +4,10 @@ date: 2021-12-18T15:12:00-06:00
 draft: false
 tags: ["Stories"]
 series: ["Journey to FAANG - Interview tips and strategies"]
+topic: "Notes & Resources"
+contentType: "Reference"
+summary: "Interview preparation lessons and strategies from a journey into tech."
+showtoc: true
 ---
 
 Job hunting and giving interviews is not something you do often that you can learn from your mistakes and improve upon. That is the reason I wanted to write this so you learn from my mistakes and see if what worked for me will work for you. I did my best to provide unique and new information that you may not find elsewhere.
@@ -164,7 +168,7 @@ Data Science interviews test many technical skills depending on the role or the 
     3. [https://leetcode.com/problemset/all/?listId=5htp6xyg&page=1](https://leetcode.com/problemset/all/?listId=5htp6xyg&page=1) has good practice questions.
     4. My mode SQL notes
         
-        [MODE SQL Notes](/blog/stories/mode-sql-notes/)
+        [MODE SQL Notes](/blog/mode-sql-notes/)
         
 
 ### Data Coding

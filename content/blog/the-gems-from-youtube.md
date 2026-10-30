@@ -3,6 +3,9 @@ title: "The gems from YouTube"
 date: 2020-08-23T22:16:00-06:00
 draft: false
 tags: ["Stories", "Advice"]
+topic: "Notes & Resources"
+contentType: "Reference"
+summary: "A collection of memorable and useful videos from YouTube."
 ---
 
 This is a collection of unique and awe-inspiring videos I came across on YouTube. These are the videos that I come back to and watch them with the same enthusiasm as I did the first time. These are the videos, the ideas of which I discuss with my friends, and show them.

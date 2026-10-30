@@ -3,6 +3,9 @@ title: "Dear Little Brother ..."
 date: 2020-08-18T17:34:00-06:00
 draft: false
 tags: ["Stories", "Advice"]
+topic: "Personal Essays"
+contentType: "Essay"
+summary: "A letter to a younger brother about work, relationships, and finding his own path."
 ---
 
 > 💡 I wrote this when my brother was just entering the workforce after graduating from IIIT Hyderabad with a Masters'. I was doing PhD at the time and I felt I should write to him something that he can hang on to during difficult times and also encourage him to give his best.

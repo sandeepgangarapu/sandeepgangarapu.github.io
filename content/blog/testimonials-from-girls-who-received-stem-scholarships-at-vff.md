@@ -3,6 +3,9 @@ title: "Testimonials from girls who received STEM scholarships at VFF"
 date: 2022-11-01T18:39:00-06:00
 draft: false
 tags: ["Stories"]
+topic: "Personal Essays"
+contentType: "Reference"
+summary: "Stories from girls who received STEM scholarships through the Vincent Ferrer Foundation."
 ---
 
 These are the girls who were directly impacted by the donations we make at VFF-RDT. Reading these makes be double down on the commitment to continue this work and give it back to the community and those who need it the most. 

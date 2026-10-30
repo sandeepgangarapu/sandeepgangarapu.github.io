@@ -1,8 +1,15 @@
 ---
-title: "Activity Stream"
+title: "Activity Archive"
 date: 2020-08-18T00:00:00-06:00
 draft: false
+hideMeta: true
+ShowReadingTime: false
+ShowShareButtons: false
+disableShare: true
+ShowPostNavLinks: false
 ---
+
+A historical collection of talks, milestones, and other activities from 2018 through 2024.
 
 ## 2024
 
@@ -56,7 +63,7 @@ draft: false
 
 **23 Oct:** Our paper (*With Edward Mcfowland III, Ravi Bapna, Tianshu Sun*) "A Prescriptive Analytics Framework for optimal policy deployment using Heterogeneous Treatment Effects" got accepted for publication at Management Information Systems Quarterly.
 
-**27 Sep:** Ran my first half marathon in Bellevue. There were no events due to COVID. I just got up and finished 13.1 miles. I wrote about it here. [Things I wished I knew before I attempted a solo sub 2hr Half Marathon](/blog/stories/things-i-wished-i-knew-before-i-attempted-a-solo-s/)
+**27 Sep:** Ran my first half marathon in Bellevue. There were no events due to COVID. I just got up and finished 13.1 miles. I wrote about it here. [Things I wished I knew before I attempted a solo sub 2hr Half Marathon](/blog/things-i-wished-i-knew-before-i-attempted-a-solo-sub-2hr-half-marathon/)
 
 **18 Aug:** Presented 'Multi-Armed Bandits with Inference considerations' at American Marketing Association summer conference.
 
@@ -80,13 +87,13 @@ draft: false
 
 **31 Oct:** Attended Conference on Digital Experimentation (CODE) at MIT IDE in Boston, Massachusetts
 
-**19 Oct:** Presented 'Multi-Armed Bandits with Inference considerations' at Data Science Workshop, Conference on Information Systems and Technology at INFORMS Annual Meeting, Seattle. [slides](https://sandeepgangarapu.com/files/dsconf_mabvar.pdf)
+**19 Oct:** Presented 'Multi-Armed Bandits with Inference considerations' at Data Science Workshop, Conference on Information Systems and Technology at INFORMS Annual Meeting, Seattle.
 
 ![INFORMS Presentation](/images/activity-stream/dsconf_mabvar.jpg)
 
 Presented 'Multi-Armed Bandits with Inference considerations' at Department Seminar of IDSC Department, Carlson School of Management
 
-Delivered 'R Bootcamp' to new members of the Undergraduate Business Analytics Club at Carlson School of management. [slides](https://sandeepgangarapu.com/files/r_bootcamp.pdf)
+Delivered 'R Bootcamp' to new members of the Undergraduate Business Analytics Club at Carlson School of management.
 
 ![R Bootcamp](/images/activity-stream/rbootcamp.jpg)
 
@@ -100,7 +107,7 @@ Taught IDSC 3103 - Data Modeling and Databases during the spring semester (SRT s
 
 Received Travel Fellowship award of $750 from Carlson School of Management
 
-Presented our paper titled "A Prescriptive Analytics Framework for optimal policy deployment using Heterogeneous Treatment Effects" at Winter Conference on Business Analytics in Snowbird, Utah. [ppt](https://sandeepgangarapu.com/files/Sandeep_WCBA_Optimal_HTE.pdf)
+Presented our paper titled "A Prescriptive Analytics Framework for optimal policy deployment using Heterogeneous Treatment Effects" at Winter Conference on Business Analytics in Snowbird, Utah.
 
 ## 2018
 

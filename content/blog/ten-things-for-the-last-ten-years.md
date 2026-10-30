@@ -3,6 +3,9 @@ title: "Ten things for the last ten years"
 date: 2023-04-14T16:34:00-06:00
 draft: false
 tags: ["Stories", "Advice"]
+topic: "Personal Essays"
+contentType: "Essay"
+summary: "Ten reflections on lessons learned over the past decade."
 ---
 
 This decade coincided with my 20–30’s which is the time when your mind is molded. Here are the ten ideas that I take back from this decade.

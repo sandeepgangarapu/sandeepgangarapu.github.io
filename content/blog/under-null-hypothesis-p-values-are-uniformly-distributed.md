@@ -3,6 +3,9 @@ title: "Under null hypothesis, p-values are uniformly distributed"
 date: 2022-10-06T16:44:00-06:00
 draft: false
 tags: ["Technical"]
+topic: "Data & Statistics"
+contentType: "Note"
+summary: "A simulation-based look at why p-values are uniformly distributed under the null hypothesis."
 ---
 
 Central limit theorem states that sample means follow normal distribution. People often confuse this with and question the validity of uniform distribution of p-values under nul hypothesis. Should we not be observing extreme p-values much less ofter than usual pvalues like 0.2 or 0.3?

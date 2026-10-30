@@ -3,6 +3,10 @@ title: "Thompson Sampling Algorithm for Normal outcome distribution"
 date: 2020-09-10T21:46:00-06:00
 draft: false
 tags: ["Technical", "MAB"]
+topic: "Data & Statistics"
+contentType: "Essay"
+summary: "An exploration of Thompson sampling for normally distributed outcomes with unknown mean and variance."
+showtoc: true
 ---
 
 Thompson Sampling is one of the most popular Multi-Armed bandit (MAB) algorithms - the main reason being its explainability (imagine explaining upper confidence bound to your manager) and decent performance in practice [1]. 

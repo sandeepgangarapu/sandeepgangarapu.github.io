@@ -3,6 +3,9 @@ title: "Things I wished I knew before I attempted a solo sub 2hr Half Marathon"
 date: 2020-10-01T01:40:00-06:00
 draft: false
 tags: ["Stories", "Exercise"]
+topic: "Personal Essays"
+contentType: "Essay"
+summary: "Lessons from training for and attempting a solo half marathon."
 ---
 
 Running a half marathon is difficult, but running it under an ambitious time target is a whole different ball game and sometimes is a matter of seconds. Every piece of information can help in shaving off those seconds which can be a difference between 1.59.24 and 2.00.34. This is a post for those who play with those margins. This is by no means an exhaustive list and is completely based on my experience alone. I made an 8 week customized Hal Higdon's Novice 2 [plan](https://www.halhigdon.com/training-programs/half-marathon-training/novice-2-half-marathon/) targeting a first-ever half marathon, that too a sub 2 hr one. I failed miserably on the race day with a time of 2.24.27. I noticed my mistakes, corrected them, ran another one a week later with a time of 1.59.24. If you care about the backstory of how this all came to place, read below, else, jump to the list of tips. 

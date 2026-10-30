@@ -6,6 +6,9 @@ tags: ["Stories"]
 ShowToc: true
 TocOpen: false
 series: ["Journey to FAANG - Interview tips and strategies"]
+topic: "Notes & Resources"
+contentType: "Note"
+summary: "Notes and examples for learning and practicing SQL."
 ---
 
 - Comparison operators

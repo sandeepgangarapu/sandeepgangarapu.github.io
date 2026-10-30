@@ -3,6 +3,9 @@ title: "A layman's explanation of Law of Large numbers"
 date: 2020-12-17T17:50:00-06:00
 draft: false
 tags: ["Technical", "Intuition"]
+topic: "Data & Statistics"
+contentType: "Essay"
+summary: "An intuitive explanation of the law of large numbers using coin flips and everyday examples."
 ---
 
 The first step is to nail their intuition for randomness. Here's how I will do it.

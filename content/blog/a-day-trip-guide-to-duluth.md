@@ -3,6 +3,9 @@ title: "A day trip guide to Duluth"
 date: 2020-08-18T17:34:00-06:00
 draft: false
 tags: ["Stories", "Travel"]
+topic: "Personal Essays"
+contentType: "Essay"
+summary: "A personal guide to favorite stops around Duluth and Lake Superior."
 ---
 
 I traveled from Minneapolis to Duluth and around for the third time yesterday and each time I go, I find that it has something new to offer. Duluth sits on the bank of Lake superior, the largest fresh water lake in the world by surface area. It is huge and spectacular. The view of Lake Superior itself is worth a trip. Duluth could be considered the northern frontier of Minnesota as Interstate-35 ends there. But, there is an entirely new world beyond. It definitely takes more than a day to see every place in and around Duluth, so, if you were to take a day trip, I would suggest visiting 3–4 places, else, you feel like you are always in a hurry and these places definitely deserve your full attention and a peaceful mind. Start early, come late, have multiple drivers so you have a relaxing day trip. There are too many beautiful spots in northern Minnesota to cover in a day. This guide is by no means comprehensive. It is for those who want to visit Duluth from Minneapolis, have a decent trip and want to be back by end of the day. Here are some places in the order that I loved.
