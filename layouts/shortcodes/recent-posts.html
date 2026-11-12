@@ -1,0 +1,21 @@
+{{- /* Usage in content: {{< recent-posts 5 >}}
+       Lists the newest posts from params.mainSections, Bear style (date + title),
+       skipping posts marked excludeFromHome or excludeFromWriting. */ -}}
+{{- $limit := int (.Get 0 | default 5) -}}
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- $pages = where $pages "Params.excludeFromHome" "!=" true -}}
+{{- $pages = where $pages "Params.excludeFromWriting" "!=" true -}}
+<ul class="blog-posts">
+  {{- range first $limit $pages.ByDate.Reverse }}
+  <li>
+    <span>
+      <i>
+        <time datetime='{{ .Date.Format "2006-01-02" }}'>
+          {{ .Date.Format (default "02 Jan, 2006" site.Params.dateFormat) }}
+        </time>
+      </i>
+    </span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{- end }}
+</ul>

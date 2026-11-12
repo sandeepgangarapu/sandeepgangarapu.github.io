@@ -1,0 +1,13 @@
+{{- /* Overrides the theme's footer.html: site links and social links, then the theme credit. */ -}}
+<p><small>
+  <a href="{{ "recipes/" | relURL }}">Recipes</a> ·
+  <a href="{{ "activity-stream/" | relURL }}">Activity archive</a> ·
+  <a href="{{ "search/" | relURL }}">Search</a> ·
+  <a href="{{ "blog/index.xml" | relURL }}">RSS</a>
+</small></p>
+{{ with site.Params.socialIcons }}
+<p><small>
+  {{- range $i, $s := . }}{{ if $i }} · {{ end }}<a href="{{ $s.url }}">{{ $s.name }}</a>{{ end -}}
+</small></p>
+{{ end }}
+{{ if not (.Param "hideMadeWithLine") }}<p><small>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a></small></p>{{ end }}

@@ -1,7 +1,7 @@
 baseURL: "https://sandeepgangarapu.com/"
 languageCode: en-us
 title: "Sandeep Gangarapu"
-theme: PaperMod
+theme: hugo-bearblog
 pagination:
   pagerSize: 10
 
@@ -15,72 +15,26 @@ minify:
   minifyOutput: true
 
 params:
-  env: production
-  title: "Sandeep Gangarapu"
   description: "Data Scientist at Apple | Statistics, ML, Causal Inference"
   keywords: [data science, statistics, causal inference, machine learning, experimentation]
-  author: ""
-  defaultTheme: auto
-  disableThemeToggle: false
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShareButtons:
-    - linkedin
-    - x
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowWordCount: false
-  ShowRssButtonInSectionTermList: true
-  UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
-
+  favicon: "/favicon.svg"
+  # Image shown when a page is shared on social media or in messengers.
   images: ["/images/profile/vivekkrishnanphotography-6_websize.jpg"]
-  assets:
-    favicon: "/favicon.svg"
-
-  profileMode:
-    enabled: true
-    title: "Sandeep Gangarapu"
-    subtitle: >
-      Data Scientist at Apple working on Siri. Statistics, ML, and causal inference
-      to build products that help people.
-    imageUrl: "/images/profile/vivekkrishnanphotography-6_websize.jpg"
-    imageTitle: "Sandeep Gangarapu"
-    imageWidth: 200
-    imageHeight: 200
-
-  socialIcons:
-    - name: linkedin
-      url: "https://www.linkedin.com/in/sandeepgangarapu/"
-    - name: x
-      url: "https://x.com/sandeep_g_kumar"
-    - name: github
-      url: "https://github.com/sandeepgangarapu"
-    - name: email
-      url: "mailto:sandeep.k.gangarapu@gmail.com"
-
+  # Bear-style dates, e.g. "14 Apr, 2023".
+  dateFormat: "02 Jan, 2006"
+  # Sections listed by the recent-posts shortcode on the home page.
   mainSections:
     - blog
-
-  cover:
-    hidden: false
-    hiddenInList: false
-    hiddenInSingle: false
-
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+  # Shown as text links in the footer (layouts/partials/footer.html).
+  socialIcons:
+    - name: LinkedIn
+      url: "https://www.linkedin.com/in/sandeepgangarapu/"
+    - name: X
+      url: "https://x.com/sandeep_g_kumar"
+    - name: GitHub
+      url: "https://github.com/sandeepgangarapu"
+    - name: Email
+      url: "mailto:sandeep.k.gangarapu@gmail.com"
 
 markup:
   goldmark:
@@ -93,27 +47,30 @@ outputs:
   home:
     - HTML
     - RSS
-    - JSON
 
 menu:
   main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
     - identifier: blog
       name: Writing
       url: /blog/
       weight: 10
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 30
     - identifier: projects
       name: Projects
       url: /projects/
       weight: 20
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 80
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 30
+    - identifier: brief
+      name: Morning Brief
+      url: https://ainews.sandeepgangarapu.com/
+      weight: 40
 
-taxonomies:
-  tag: tags
-  series: series
+# No tag or series pages. Posts keep their tags/series front matter, so these
+# can be turned back on by removing this line and listing the taxonomies again.
+disableKinds: [taxonomy, term]

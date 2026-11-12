@@ -1,0 +1,5 @@
+{{- /* Overrides the theme's post_footer.html, which prints the post's tags.
+       Tags are turned off, so only the optional previous/next links remain. */ -}}
+{{ if eq .Type "blog" }}{{ if (.Param "enablePostNavigator") }}
+{{- partial "post_navigator.html" . -}}
+{{ end }}{{ end }}

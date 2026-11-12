@@ -1,0 +1,26 @@
+{{- /* Overrides for the hugo-bearblog theme. Loaded after the theme's style.html. */ -}}
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+<style>
+  /* Same font as text.npr.org: the device's own system font
+     (San Francisco on Apple devices, Segoe UI on Windows, Roboto on Android). */
+  :root {
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-secondary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  /* The theme sets dates in monospace; keep them in the main font with even-width digits. */
+  time {
+    font-family: var(--font-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+  .list-description { margin-top: -0.5em; }
+  ul.plain-list { padding-left: 1.2em; }
+  footer p { margin: 0.4em 0; }
+  .site-search input[type="search"] { padding: 0.35em 0.5em; font: inherit; width: min(100%, 22em); }
+  .site-search button { padding: 0.35em 0.8em; font: inherit; }
+  @media (max-width: 480px) {
+    ul.blog-posts li span { flex-basis: 115px; }
+  }
+</style>

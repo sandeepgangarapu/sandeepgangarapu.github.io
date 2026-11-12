@@ -1,0 +1,19 @@
+{{- /* Overrides the theme's single.html, which only shows a title on blog posts.
+       Every page gets its title here; blog posts also get their date. */ -}}
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ if and (eq .Type "blog") (not .Params.hideMeta) }}
+<p>
+  <i>
+    <time datetime='{{ .Date.Format "2006-01-02" }}'>
+      {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+    </time>
+  </i>
+</p>
+{{ end }}
+<content>
+  {{ .Content }}
+</content>
+
+{{- partial "post_footer.html" . -}}
+{{ end }}
