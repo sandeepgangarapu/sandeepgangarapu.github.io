@@ -15,6 +15,12 @@ An app for keeping track of plants and garden tasks, with care details for water
 
 [iOS app on GitHub](https://github.com/sandeepgangarapu/gardengenie-ios)
 
+## Gangarapu Garden
+
+My personal garden planner. I use it to choose what to grow each year, track seasonal jobs, and keep plant notes and lessons for future seasons.
+
+[Source on GitHub](https://github.com/sandeepgangarapu/garden)
+
 ## Snow Scanner
 
 Snowfall alerts for the ski resorts you care about. Set a snowfall threshold and get an email when the snow meets it.
@@ -30,6 +36,18 @@ A [TRMNL](https://trmnl.com/) recipe that compares today's forecast with the sam
 A daily email with short summaries from the AI writers I follow. My Mac reads their RSS feeds and sends the brief around 7 AM Pacific.
 
 [Read AI Brief or subscribe](https://ainews.sandeepgangarapu.com/)
+
+## Earnings Genie
+
+Turns public-company earnings into Sankey diagrams showing how revenue flows through costs to profit, using data from SEC filings. Charts can be downloaded as PNG or SVG.
+
+[Try Earnings Genie](https://earnings.sandeepgangarapu.com/) · [Source on GitHub](https://github.com/sandeepgangarapu/earnings-sankey-plot)
+
+## PDF Genie
+
+A browser tool for filling the first page of a PDF form, including text-based forms without interactive fields. It detects the blanks and places your answers in the PDF.
+
+[Try PDF Genie](https://pdfgenie.sandeepgangarapu.com/)
 
 ## Poll Normalizer bot
 
