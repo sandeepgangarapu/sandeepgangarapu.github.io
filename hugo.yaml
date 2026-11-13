@@ -66,6 +66,10 @@ menu:
       name: About
       url: /about/
       weight: 30
+    - identifier: now
+      name: Now
+      url: /now/
+      weight: 35
     - identifier: brief
       name: AI Brief
       url: https://ainews.sandeepgangarapu.com/

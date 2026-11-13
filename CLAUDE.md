@@ -27,7 +27,8 @@ Personal website for Sandeep Gangarapu built with Hugo and the hugo-bearblog the
   - `blog/technical/` — data science, causal inference, statistics
   - `blog/rolling-blog/` — living/evolving posts (code snippets, lists, collections)
   - `recipes/` — cooking recipes
-  - Top-level pages: `about.md`, `projects.md`, `research.md`, `resources.md`, `activity-stream.md`, `search.md`
+  - Top-level pages: `about.md`, `now.md`, `projects.md`, `research.md`, `resources.md`, `activity-stream.md`, `search.md`
+  - `now.md` keeps dated personal updates, newest first; give each entry its own exact date
 - **Static assets:** `static/` (images, etc.)
 - **Scripts:** `scripts/migrate_notion.py` — one-time migration from Notion export
 
