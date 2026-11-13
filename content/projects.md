@@ -49,6 +49,12 @@ A browser tool for filling the first page of a PDF form, including text-based fo
 
 [Try PDF Genie](https://pdfgenie.sandeepgangarapu.com/)
 
+## Costco Genie
+
+A Mac app that checks recent Costco warehouse receipts and Costco.com orders for price drops you may be able to claim as adjustments. It can also watch items you haven't bought for new price lows, and it writes reports and can email you savings.
+
+[Source on GitHub](https://github.com/sandeepgangarapu/costco-genie)
+
 ## Poll Normalizer bot
 
 A past bot project that normalized poll results when “Show me the results” was the last option, removing those votes and recalculating the remaining percentages. Its [Twitter profile](https://twitter.com/poll_normalizer) documents the project.
