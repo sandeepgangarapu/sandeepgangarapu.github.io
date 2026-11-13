@@ -55,6 +55,18 @@ A Mac app that checks recent Costco warehouse receipts and Costco.com orders for
 
 [Source on GitHub](https://github.com/sandeepgangarapu/costco-genie)
 
+## Suprabhatam
+
+A page for learning the Sri Venkateswara Suprabhatam verse by verse. It shows the Telugu script, transliteration, line-by-line meaning and word meanings, with memorization practice and audio.
+
+[Open Suprabhatam](/suprabhatam/)
+
+## Bhagavad Gita
+
+A page for learning Bhagavad Gita Chapter 1 (Arjuna Vishada Yoga) to chant and understand. It has Telugu script, transliteration, line-by-line meaning, word meanings, per-line audio and memorization practice.
+
+[Open Chapter 1](/bhagavad-gita/1/)
+
 ## Poll Normalizer bot
 
 A past bot project that normalized poll results when “Show me the results” was the last option, removing those votes and recalculating the remaining percentages. Its [Twitter profile](https://twitter.com/poll_normalizer) documents the project.
