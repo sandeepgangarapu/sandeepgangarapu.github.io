@@ -1,10 +1,10 @@
 {{- /* Usage in content: {{< recent-posts 5 >}}
        Lists the newest posts from params.mainSections, Bear style (date + title),
-       skipping posts marked excludeFromHome or excludeFromWriting. */ -}}
+       skipping posts marked excludeFromHome or excludeFromBlog. */ -}}
 {{- $limit := int (.Get 0 | default 5) -}}
 {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}
 {{- $pages = where $pages "Params.excludeFromHome" "!=" true -}}
-{{- $pages = where $pages "Params.excludeFromWriting" "!=" true -}}
+{{- $pages = where $pages "Params.excludeFromBlog" "!=" true -}}
 <ul class="blog-posts">
   {{- range first $limit $pages.ByDate.Reverse }}
   <li>

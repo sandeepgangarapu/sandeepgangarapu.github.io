@@ -18,7 +18,7 @@ Personal website for Sandeep Gangarapu built with Hugo and the hugo-bearblog the
 - **Theme:** hugo-bearblog, added as a git submodule at `themes/hugo-bearblog`. Do not edit theme files directly; override via project-level `layouts/`:
   - `layouts/partials/custom_head.html` — font (system font stack) and small CSS tweaks
   - `layouts/_default/single.html` — title on every page, date on blog posts
-  - `layouts/_default/list.html` — section title/description; hides `excludeFromWriting` posts; recipes without dates
+  - `layouts/_default/list.html` — section title/description; hides `excludeFromBlog` posts; recipes without dates
   - `layouts/partials/footer.html`, `layouts/partials/post_footer.html` — footer links; no tag links
   - `layouts/shortcodes/recent-posts.html` — `{{< recent-posts 5 >}}` used on the home page (`content/_index.md`)
 - **Standalone pages:** `static/suprabhatam/`, `static/bhagavad-gita/`, `static/slides/` are self-contained HTML served as-is

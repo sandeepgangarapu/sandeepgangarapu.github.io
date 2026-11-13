@@ -6,7 +6,7 @@ tags: ["Rolling Blog"]
 topic: "Notes & Resources"
 contentType: "Note"
 summary: "An archived 2022 list of the software, hardware, and everyday essentials I appreciated at the time."
-excludeFromWriting: true
+excludeFromBlog: true
 excludeFromHome: true
 ---
 

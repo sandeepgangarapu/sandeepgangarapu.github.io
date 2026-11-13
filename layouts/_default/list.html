@@ -1,5 +1,5 @@
 {{- /* Overrides the theme's list.html: adds the section title and description,
-       keeps excludeFromWriting posts out of the Writing list, lists recipes
+       keeps excludeFromBlog posts out of the Blog list, lists recipes
        without dates, and drops the theme's tag links (tags are turned off). */ -}}
 {{ define "main" }}
 <content>
@@ -7,7 +7,7 @@
   {{ with .Description }}<p class="list-description">{{ . }}</p>{{ end }}
   {{ .Content }}
 
-  {{ $pages := where .Pages "Params.excludeFromWriting" "!=" true }}
+  {{ $pages := where .Pages "Params.excludeFromBlog" "!=" true }}
   {{ if eq .Section "recipes" }}
   <ul class="plain-list">
     {{ range $pages.ByTitle }}

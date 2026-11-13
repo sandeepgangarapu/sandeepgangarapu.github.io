@@ -55,7 +55,7 @@ menu:
       url: /
       weight: 1
     - identifier: blog
-      name: Writing
+      name: Blog
       url: /blog/
       weight: 10
     - identifier: projects
@@ -67,7 +67,7 @@ menu:
       url: /about/
       weight: 30
     - identifier: brief
-      name: Morning Brief
+      name: AI Brief
       url: https://ainews.sandeepgangarapu.com/
       weight: 40
 
